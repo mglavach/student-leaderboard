@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Summer Reading Challenge — Leaderboard · Westminster</title>
+
+  <!-- ╔══════════════════════════════════════════════════════════════╗
+       ║  ✏️  EDIT YOUR DATA HERE — update points & date, then save  ║
+       ╚══════════════════════════════════════════════════════════════╝ -->
+  <script>
+    const READING_DATA = {
+
+      lastUpdated: "May 23, 2026",   // ← change this when you update
+
+      goal: 500,   // ← season AR-point target (same for all grades)
+
+      grades: [
+        { nAME: "2nd Grade", points: 0 },
+        { nAME: "3rd Grade", points: 0 },
+        { nAME: "4th Grade", points: 0 },
+        { nAME: "5th Grade", points: 0 },
+      ]
+    };
+  </script>
+  <!-- ══════════════════════════════════════════════════════════════ -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Fredoka+One&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Reset & base ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-deep:   #1a4028;
+      --green-dark:   #2d6a4f;
+      --green-mid:    #40916c;
+      --green-light:  #74c69d;
+      --green-pale:   #d8f3dc;
+      --yellow:       #ffd166;
+      --yellow-dark:  #f4a72a;
+      --orange:       #e07b39;
+      --cream:        #fffef5;
+      --brown:        #8b5e3c;
+      --blush:        #fce4d6;
+      --white:        #ffffff;
+      --text-main:    #1a4028;
+      --text-mid:     #3a6b4e;
+      --text-soft:    #6a9e7f;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(160deg, #eaf7ee 0%, #fffef0 50%, #fff8ed 100%);
+      min-height: 100vh;
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    /* ── Decorative sun (top-right) ───────────────────────── */
+    .sun-wrap {
+      position: fixed;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .sun-core {
+      position: absolute;
+      inset: 30px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ffe680 30%, #ffd166 65%, #f4a72a 100%);
+      animation: sun-pulse 4s ease-in-out infinite;
+    }
+    .sun-rays {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: repeating-conic-gradient(
+        #ffd16640 0deg 12deg,
+        transparent 12deg 24deg
+      );
+      animation: sun-spin 25s linear infinite;
+    }
+    @keyframes sun-pulse {
+      0%, 100% { transform: scale(1);    opacity: .9; }
+      50%       { transform: scale(1.06); opacity: 1;  }
+    }
+    @keyframes sun-spin {
+      from { transform: rotate(0deg);   }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* ── Small leaf decorations ───────────────────────────── */
+    .leaf-tl {
+      position: fixed;
+      bottom: 20px; left: -20px;
+      font-size: 5rem;
+      opacity: .18;
+      transform: rotate(-30deg);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Header ───────────────────────────────────────────── */
+    header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 44px 20px 20px;
+    }
+    .wcs-badge {
+      display: inline-block;
+      background: var(--green-dark);
+      color: var(--yellow);
+      font-family: 'Fredoka One', cursive;
+      font-size: .85rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 5px 18px;
+      border-radius: 50px;
+      margin-bottom: 14px;
+    }
+    .main-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(2.2rem, 7vw, 3.8rem);
+      color: var(--green-deep);
+      line-height: 1.05;
+      text-shadow: 3px 4px 0 #ffd16655;
+    }
+    .main-title em {
+      color: var(--yellow-dark);
+      font-style: normal;
+    }
+    .header-sub {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.05rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      margin-top: 8px;
+    }
+    .header-tagline {
+      font-style: italic;
+      color: var(--text-soft);
+      font-size: .95rem;
+      margin-top: 6px;
+    }
+    .sprout-row {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      letter-spacing: 4px;
+    }
+
+    /* ── Container ────────────────────────────────────────── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Last-updated stamp ───────────────────────────────── */
+    .last-updated {
+      text-align: center;
+      font-size: .82rem;
+      color: var(--text-soft);
+      font-style: italic;
+      margin-bottom: 28px;
+    }
+
+    /* ── #1 highlight banner ──────────────────────────────── */
+    .champion-banner {
+      display: none; /* shown by JS when points > 0 */
+      background: linear-gradient(135deg, #fffde7, #fff9c4);
+      border: 2px solid var(--yellow);
+      border-radius: 16px;
+      text-align: center;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1rem;
+      color: var(--yellow-dark);
+      animation: shimmer 2.5s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { box-shadow: 0 0 0 0 #ffd16640; }
+      50%       { box-shadow: 0 0 18px 4px #ffd16666; }
+    }
+
+    /* ── Leaderboard stack ────────────────────────────────── */
+    .leaderboard {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* ── Grade card ───────────────────────────────────────── */
+    .grade-card {
+      background: var(--white);
+      border-radius: 22px;
+      padding: 22px 26px;
+      box-shadow: 0 4px 22px rgba(26,64,40,.10);
+      display: grid;
+      grid-template-columns: 68px 1fr 100px;
+      align-items: center;
+      gap: 20px;
+      border: 2.5px solid transparent;
+      transition: transform .25s, box-shadow .25s;
+      animation: card-in .5s ease both;
+    }
+    .grade-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 34px rgba(26,64,40,.17);
+    }
+
+    /* Rank-specific borders & bar gradients */
+    .grade-card.rank-1 {
+      border-color: var(--yellow);
+      background: linear-gradient(135deg, #fffef2, var(--white));
+    }
+    .grade-card.rank-2 { border-color: #b8d8c8; }
+    .grade-card.rank-3 { border-color: #cde8d6; }
+    .grade-card.rank-4 { border-color: var(--green-pale); }
+
+    @keyframes card-in {
+      from { opacity: 0; transform: translateX(-24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .grade-card:nth-child(1) { animation-delay: .08s; }
+    .grade-card:nth-child(2) { animation-delay: .18s; }
+    .grade-card:nth-child(3) { animation-delay: .28s; }
+    .grade-card:nth-child(4) { animation-delay: .38s; }
+
+    /* ── Rank badge ───────────────────────────────────────── */
+    .rank-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+    }
+    .rank-medal { font-size: 2.6rem; line-height: 1; }
+    .rank-num {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.9rem;
+      color: #a0bfaa;
+      line-height: 1;
+    }
+
+    /* ── Middle section ───────────────────────────────────── */
+    .grade-body {}
+
+    .grade-name-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .plant-icon { font-size: 1.5rem; }
+    .grade-name {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.45rem;
+      color: var(--green-deep);
+    }
+    .champ-tag {
+      display: none;
+      font-size: .68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: var(--yellow);
+      color: var(--green-deep);
+      padding: 2px 8px;
+      border-radius: 50px;
+      margin-left: 4px;
+    }
+    .rank-1 .champ-tag { display: inline-block; }
+
+    /* Progress bar */
+    .progress-track {
+      background: var(--green-pale);
+      border-radius: 50px;
+      height: 20px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 50px;
+      width: 0%;                      /* animated by JS */
+      transition: width 1.6s cubic-bezier(.4,0,.2,1);
+      position: relative;
+    }
+    .progress-fill::after {           /* highlight sheen */
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,.35) 0%, transparent 55%);
+      border-radius: 50px;
+    }
+
+    /* Rank-specific bar colors */
+    .rank-1 .progress-fill { background: linear-gradient(90deg, #ffe566, var(--yellow-dark)); }
+    .rank-2 .progress-fill { background: linear-gradient(90deg, #74c69d, var(--green-mid)); }
+    .rank-3 .progress-fill { background: linear-gradient(90deg, #95d5b2, #52b788); }
+    .rank-4 .progress-fill { background: linear-gradient(90deg, #b7e4c7, #74c69d); }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: .78rem;
+      color: var(--text-soft);
+      margin-top: 5px;
+      font-weight: 700;
+    }
+
+    /* ── Points column ────────────────────────────────────── */
+    .points-col { text-align: right; }
+    .points-num {
+      font-family: 'Fredoka One', cursive;
+      font-size: 2.3rem;
+      line-height: 1;
+      color: var(--green-deep);
+    }
+    .rank-1 .points-num { color: var(--yellow-dark); }
+    .points-lbl {
+      font-size: .72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-soft);
+    }
+
+    /* ── Zero-state message ───────────────────────────────── */
+    .zero-state {
+      text-align: center;
+      padding: 48px 20px;
+      color: var(--text-soft);
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+    .zero-state span { display: block; font-size: 2.5rem; margin-bottom: 10px; }
+
+    /* ── Footer poem ──────────────────────────────────────── */
+    .footer-poem {
+      margin-top: 38px;
+      background: var(--white);
+      border-radius: 20px;
+      padding: 24px 28px;
+      box-shadow: 0 4px 20px rgba(26,64,40,.08);
+      text-align: center;
+      line-height: 2;
+      color: var(--text-mid);
+      font-size: .97rem;
+      font-style: italic;
+    }
+
+    /* ── Plant row ────────────────────────────────────────── */
+    .plants-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      font-size: 1.9rem;
+      margin-top: 22px;
+    }
+    .plants-row span {
+      display: inline-block;
+      animation: sway 3s ease-in-out infinite;
+    }
+    .plants-row span:nth-child(odd)  { animation-duration: 3.5s; }
+    .plants-row span:nth-child(even) { animation-duration: 2.8s; animation-direction: reverse; }
+    @keyframes sway {
+      0%, 100% { transform: rotate(-3deg); }
+      50%       { transform: rotate(3deg); }
+    }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 580px) {
+      .grade-card {
+        grid-template-columns: 52px 1fr 78px;
+        padding: 16px 14px;
+        gap: 12px;
+      }
+      .rank-medal  { font-size: 2rem; }
+      .grade-name  { font-size: 1.15rem; }
+      .points-num  { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Decorations -->
+  <div class="sun-wrap" aria-hidden="true">
+    <div class="sun-rays"></div>
+    <div class="sun-core"></div>
+  </div>
+  <div class="leaf-tl" aria-hidden="true">🌿</div>
+
+  <!-- ── Header ───────────────────────────────────────────── -->
+  <header>
+    <div class="wcs-badge">🌿 Westminster Christian School 🌿</div>
+    <h1 class="main-title">Summer Reading<br><em>Leaderboard</em></h1>
+    <div class="header-sub">Read · Grow · Shine · 2026</div>
+    <div class="header-tagline">Grades 2 – 5 &nbsp;·&nbsp; AR Points Challenge</div>
+    <div class="sprout-row">🌱 🪴 🌳 🌸</div>
+  </header>
+
+  <!-- ── Main content ─────────────────────────────────────── -->
+  <main class="container">
+
+    <p class="last-updated" id="lastUpdated"></p>
+
+    <!-- Champion banner (shown by JS) -->
+    <div class="champion-banner" id="championBanner"></div>
+
+    <!-- Leaderboard cards injected by JS -->
+    <div class="leaderboard" id="leaderboard"></div>
+
+    <!-- Poem footer -->
+    <div class="footer-poem">
+      📖 Build the habit, day by day.<br>
+      🌱 Read a little along the way.<br>
+      ☀️ Short and steady helps you show —<br>
+      🌺 <strong>That's how shining readers grow!</strong>
+    </div>
+
+    <!-- Swaying plants row -->
+    <div class="plants-row" aria-hidden="true">
+      <span>🌱</span><span>🪴</span><span>🌿</span>
+      <span>🌳</span><span>🌸</span><span>🌺</span><span>🌻</span>
+    </div>
+
+  </main>
+
+  <!-- ── Render script ─────────────────────────────────────── -->
+  <script>
+    /* ---- helpers ---- */
+    function plantIcon(pct) {
+      if (pct >= 100) return '🌺';
+      if (pct >=  80) return '🌸';
+      if (pct >=  55) return '🌳';
+      if (pct >=  35) return '🪴';
+      if (pct >=  10) return '🌿';
+      if (pct >    0) return '🌱';
+      return '🫙';
+    }
+
+    function rankMedal(rank) {
+      return ['🥇','🥈','🥉','🎖️'][rank - 1] ?? String(rank);
+    }
+
+    function fmt(n) { return n.toLocaleString(); }
+
+    /* ---- main render ---- */
+    function render() {
+      const data = window.READING_DATA;
+
+      if (!data) {
+        document.getElementById('leaderboard').innerHTML =
+          '<div class="zero-state"><span>⚠️</span>Could not load <code>data.js</code> — make sure it is in the same folder as this file.</div>';
+        return;
+      }
+
+      /* last-updated */
+      if (data.lastUpdated) {
+        document.getElementById('lastUpdated').textContent =
+          '📅 Last updated: ' + data.lastUpdated;
+      }
+
+      /* sort grades by points desc */
+      const sorted = [...data.grades].sort((a, b) => b.points - a.points);
+      const goal   = data.goal || 500;
+      const allZero = sorted.every(g => g.points === 0);
+
+      /* champion banner */
+      if (!allZero) {
+        const leader = sorted[0];
+        const banner = document.getElementById('championBanner');
+        banner.style.display = 'block';
+        banner.textContent   = '🏆 Current Champion: ' + leader.name
+          + ' — ' + fmt(leader.points) + ' AR Points!';
+      }
+
+      /* build cards */
+      const container = document.getElementById('leaderboard');
+      container.innerHTML = '';
+
+      if (allZero) {
+        container.innerHTML =
+          '<div class="zero-state"><span>🌱</span>The challenge hasn\'t started yet — check back soon!</div>';
+        return;
+      }
+
+      sorted.forEach((grade, i) => {
+        const rank = i + 1;
+        const pct  = Math.min(Math.round((grade.points / goal) * 100), 100);
+        const icon = plantIcon(pct);
+
+        const card = document.createElement('div');
+        card.className = 'grade-card rank-' + rank;
+
+        card.innerHTML = `
+          <div class="rank-col">
+            <div class="rank-medal">${rankMedal(rank)}</div>
+          </div>
+
+          <div class="grade-body">
+            <div class="grade-name-row">
+              <span class="plant-icon">${icon}</span>
+              <span class="grade-name">${grade.name}</span>
+              <span class="champ-tag">Champion</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" data-pct="${pct}" style="width:0%"></div>
+            </div>
+            <div class="progress-meta">
+              <span>${pct}% of goal</span>
+              <span>Goal: ${fmt(goal)} pts</span>
+            </div>
+          </div>
+
+          <div class="points-col">
+            <div class="points-num">${fmt(grade.points)}</div>
+            <div class="points-lbl">AR Points</div>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+
+      /* animate bars after paint */
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document.querySelectorAll('.progress-fill').forEach(bar => {
+            bar.style.width = bar.dataset.pct + '%';
+          });
+        });
+      });
+    }
+
+    render();
+  </script>
+
+</body>
+</html>
