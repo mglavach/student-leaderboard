@@ -271,6 +271,77 @@
       color: var(--text-soft);
     }
 
+    /* ── Challenge section ─────────────────────────────────── */
+    .challenge-section {
+      background: var(--white);
+      border-top: 4px solid var(--gold);
+      padding: 32px 28px;
+    }
+
+    .challenge-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .challenge-heading {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .challenge-title {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    .challenge-cards {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .challenge-card {
+      flex: 1 1 220px;
+      background: var(--green-pale);
+      border-radius: 12px;
+      padding: 20px 22px;
+      border-left: 5px solid var(--green);
+    }
+
+    .challenge-card.grow { border-left-color: var(--green-mid); }
+    .challenge-card.shine { border-left-color: var(--gold); }
+
+    .challenge-card-label {
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .challenge-card-label span {
+      color: var(--green);
+      font-size: .85rem;
+    }
+
+    .challenge-card.grow .challenge-card-label span { color: var(--green-mid); }
+    .challenge-card.shine .challenge-card-label span { color: var(--gold); }
+
+    .challenge-card-text {
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.45;
+    }
+
     /* ── Footer ────────────────────────────────────────────── */
     .site-footer {
       text-align: center;
@@ -304,6 +375,28 @@
   </header>
 
   <div class="updated-bar" id="updatedBar"></div>
+
+  <!-- ── Challenge section ──────────────────────────────── -->
+  <section class="challenge-section">
+    <div class="challenge-inner">
+      <div class="challenge-heading">This Week's Challenge</div>
+      <div class="challenge-title">Read · Grow · Shine</div>
+      <div class="challenge-cards">
+        <div class="challenge-card read">
+          <div class="challenge-card-label"><span>Read</span></div>
+          <div class="challenge-card-text">Finish a book this week.</div>
+        </div>
+        <div class="challenge-card grow">
+          <div class="challenge-card-label"><span>Grow</span></div>
+          <div class="challenge-card-text">Read for 15 minutes three days in a row.</div>
+        </div>
+        <div class="challenge-card shine">
+          <div class="challenge-card-label"><span>Shine</span></div>
+          <div class="challenge-card-text">Recommend a book to a friend and invite them to join the leaderboard.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ── Content ─────────────────────────────────────────── -->
   <main class="container">
