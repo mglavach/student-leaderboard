@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "PowerShell(git add .)"
+      "PowerShell(git add .)",
+      "PowerShell(git commit -m \"Update index\")",
+      "Bash(git -C \"c:\\\\Users\\\\mglavach\\\\OneDrive - Westminster Christian School\\\\HUB\\\\Summer Reading\\\\2026_Summer Reading\" add index.html poppy.png)",
+      "Bash(git -C \"c:\\\\Users\\\\mglavach\\\\OneDrive - Westminster Christian School\\\\HUB\\\\Summer Reading\\\\2026_Summer Reading\" commit -m \"Update index\")",
+      "Bash(git -C \"c:\\\\Users\\\\mglavach\\\\OneDrive - Westminster Christian School\\\\HUB\\\\Summer Reading\\\\2026_Summer Reading\" push)",
+      "Bash(git -C \"c:\\\\Users\\\\mglavach\\\\OneDrive - Westminster Christian School\\\\HUB\\\\Summer Reading\\\\2026_Summer Reading\" status)",
+      "Bash(git -C \"c:\\\\Users\\\\mglavach\\\\OneDrive - Westminster Christian School\\\\HUB\\\\Summer Reading\\\\2026_Summer Reading\" diff index.html)",
+      "Bash(git -C \"c:\\\\Users\\\\mglavach\\\\OneDrive - Westminster Christian School\\\\HUB\\\\Summer Reading\\\\2026_Summer Reading\" add index.html)",
+      "Bash(git -C \"c:\\\\Users\\\\mglavach\\\\OneDrive - Westminster Christian School\\\\HUB\\\\Summer Reading\\\\2026_Summer Reading\" commit -m \"update index\")"
     ]
   }
 }
