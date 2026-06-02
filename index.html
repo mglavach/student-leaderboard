@@ -26,42 +26,50 @@
       grades: [
         {
           name: "2nd Grade",
+          teacher: "",             // ← teacher name
+          teacherPhoto: "",        // ← teacher photo filename (e.g. "brito.jpg")
           students: [
-            { name: "Isabella Marcilio", points: 4.8 },
-            { name: "Eric Reinhardt", points: 2 },
-            { name: "Serena Palacio", points: 1.5 },
-            { name: "Everly Lopez", points: 1.5 },
-            { name: "Hannah Khalil", points: 0.5 },
+            { name: "Isabella Marcilio", points: 4.8,  photo: "" },
+            { name: "Eric Reinhardt",    points: 2,    photo: "" },
+            { name: "Serena Palacio",    points: 1.5,  photo: "" },
+            { name: "Everly Lopez",      points: 1.5,  photo: "" },
+            { name: "Hannah Khalil",     points: 0.5,  photo: "" },
           ]
         },
         {
           name: "3rd Grade",
+          teacher: "",
+          teacherPhoto: "",
           students: [
-            { name: "Anna Prado Lang", points: 13.5 },
-            { name: "Elliot Aberman", points: 4.7 },
-            { name: "Mila Sanchez", points: 3.8 },
-            { name: "Aavi Koppaka", points: 3.8 },
-            { name: "Dean Kunen", points: 1 },
+            { name: "Anna Prado Lang",  points: 13.5, photo: "" },
+            { name: "Elliot Aberman",   points: 4.7,  photo: "" },
+            { name: "Mila Sanchez",     points: 3.8,  photo: "" },
+            { name: "Aavi Koppaka",     points: 3.8,  photo: "" },
+            { name: "Dean Kunen",       points: 1,    photo: "" },
           ]
         },
         {
           name: "4th Grade",
+          teacher: "Mrs. Dominguez",
+          teacherPhoto: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user7781192_6114045_118.png?crop=175px,0px,1664px,1664px&resize=200,200",
           students: [
-            { name: "Maxwell Franca", points: 12 },
-            { name: "Blaire Sanchez", points: 9.6 },
-            { name: "Sienna Roche", points: 9 },
-            { name: "Bianca Kuljiu", points: 8.9 },
-            { name: "Elodie Espinel", points: 7.8 },
+            { name: "Maxwell Franca",   points: 12,   photo: "" },
+            { name: "Blaire Sanchez",   points: 9.6,  photo: "" },
+            { name: "Sienna Roche",     points: 9,    photo: "" },
+            { name: "Bianca Kuljiu",    points: 8.9,  photo: "" },
+            { name: "Elodie Espinel",   points: 7.8,  photo: "" },
           ]
         },
         {
           name: "5th Grade",
+          teacher: "",
+          teacherPhoto: "",
           students: [
-            { name: "Elaina Khalil", points: 15.9 },
-            { name: "Luke Boulos", points: 10.4 },
-            { name: "Rebecca Marcilio", points: 10 },
-            { name: "Sean Gordon", points: 10 },
-            { name: "Student Name", points: 0 },
+            { name: "Elaina Khalil",    points: 15.9, photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7356482_487.jpg?resize=200,200" },
+            { name: "Luke Boulos",      points: 10.4, photo: "" },
+            { name: "Rebecca Marcilio", points: 10,   photo: "" },
+            { name: "Sean Gordon",      points: 10,   photo: "" },
+            { name: "Student Name",     points: 0,    photo: "" },
           ]
         },
       ]
@@ -372,6 +380,135 @@
       color: var(--green);
     }
 
+    /* ── People to Beat section ───────────────────────────── */
+    .ptb-section {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 2px solid var(--divider);
+    }
+
+    .ptb-eyebrow {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .ptb-title {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    .ptb-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .ptb-card {
+      background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 18px rgba(44,82,52,.10);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ptb-card-header {
+      background: var(--green);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ptb-card-header.gold-header { background: var(--gold); }
+
+    .ptb-card-label {
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.85);
+    }
+
+    .ptb-card-header.gold-header .ptb-card-label { color: #4a2e00; }
+
+    .ptb-card-body {
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+    }
+
+    .ptb-avatar {
+      flex-shrink: 0;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--green-pale);
+    }
+
+    .ptb-avatar-placeholder {
+      flex-shrink: 0;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--green-pale);
+      border: 3px solid var(--divider);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: var(--green-light);
+    }
+
+    .ptb-info { flex: 1; }
+
+    .ptb-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
+
+    .ptb-sub {
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+    }
+
+    .ptb-points-wrap { display: flex; align-items: baseline; gap: 4px; }
+
+    .ptb-points {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--green);
+      line-height: 1;
+    }
+
+    .ptb-points-label {
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    @media (max-width: 640px) {
+      .ptb-cards { grid-template-columns: 1fr; }
+    }
+
     /* ── Compete section ───────────────────────────────────── */
     .compete-section {
       margin-top: 32px;
@@ -580,6 +717,13 @@
       <div class="leaderboard-title">The Warrior Leaderboard</div>
     </div>
     <div class="grades-grid" id="gradesGrid"></div>
+
+    <!-- ── People to Beat ── -->
+    <div class="ptb-section">
+      <div class="ptb-eyebrow">Rankings</div>
+      <div class="ptb-title">People to Beat</div>
+      <div class="ptb-cards" id="ptbCards"></div>
+    </div>
   </main>
 
   <!-- ── Footer ────────────────────────────────────────────── -->
@@ -672,6 +816,85 @@
     }
 
     render();
+    renderPeopleToBeat();
+
+    function avatarHTML(photo, fallback) {
+      if (photo) {
+        return '<img class="ptb-avatar" src="' + photo + '" alt="' + fallback + '">';
+      }
+      return '<div class="ptb-avatar-placeholder">&#128100;</div>';
+    }
+
+    function renderPeopleToBeat() {
+      var data = READING_DATA;
+      var container = document.getElementById('ptbCards');
+      if (!container || !data) return;
+
+      // Find top grade by total points
+      var topGrade = null, topGradeTotal = -1;
+      data.grades.forEach(function(g) {
+        var total = g.students.reduce(function(sum, s) { return sum + (s.points || 0); }, 0);
+        if (total > topGradeTotal) { topGradeTotal = total; topGrade = g; }
+      });
+
+      // Find top reader across all grades
+      var topReader = null, topReaderGrade = '';
+      data.grades.forEach(function(g) {
+        g.students.forEach(function(s) {
+          if (!topReader || s.points > topReader.points) {
+            topReader = s; topReaderGrade = g.name;
+          }
+        });
+      });
+
+      var html = '';
+
+      // Card 1 — Top Grade
+      if (topGrade) {
+        var isEmpty = !topGrade.teacher || topGrade.teacher.trim() === '';
+        html +=
+          '<div class="ptb-card">' +
+            '<div class="ptb-card-header">' +
+              '<span class="ptb-card-label">Top Grade</span>' +
+            '</div>' +
+            '<div class="ptb-card-body">' +
+              avatarHTML(topGrade.teacherPhoto, topGrade.teacher || topGrade.name) +
+              '<div class="ptb-info">' +
+                '<div class="ptb-name">' + topGrade.name + '</div>' +
+                '<div class="ptb-sub">' + (isEmpty ? 'Teacher TBA' : topGrade.teacher) + '</div>' +
+                '<div class="ptb-points-wrap">' +
+                  '<div class="ptb-points">' + fmt(Math.round(topGradeTotal * 10) / 10) + '</div>' +
+                  '<div class="ptb-points-label">total pts</div>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+      }
+
+      // Card 2 — Top Reader
+      if (topReader && topReader.points > 0) {
+        var readerEmpty = !topReader.name || topReader.name.toLowerCase().indexOf('student') !== -1;
+        html +=
+          '<div class="ptb-card">' +
+            '<div class="ptb-card-header gold-header">' +
+              '<span class="ptb-card-label">Top Reader · All Campus</span>' +
+            '</div>' +
+            '<div class="ptb-card-body">' +
+              avatarHTML(topReader.photo, topReader.name) +
+              '<div class="ptb-info">' +
+                '<div class="ptb-name">' + (readerEmpty ? 'Open' : topReader.name) + '</div>' +
+                '<div class="ptb-sub">' + topReaderGrade + '</div>' +
+                '<div class="ptb-points-wrap">' +
+                  '<div class="ptb-points">' + fmt(topReader.points) + '</div>' +
+                  '<div class="ptb-points-label">AR pts</div>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+      }
+
+      container.innerHTML = html;
+    }
   </script>
 
 </body>
