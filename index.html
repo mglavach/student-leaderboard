@@ -13,7 +13,7 @@
   <script>
     var READING_DATA = {
 
-      lastUpdated: "June 2, 2026",  // ← update this date when you make changes
+      lastUpdated: "June 4, 2026",  // ← update this date when you make changes
 
       // ── Poppy's weekly spotlight — change these each week ──
       poppy: {
@@ -23,53 +23,70 @@
         arPoints: 36.9,                          // ← Poppy's AR points
       },
 
+      // ── Featured Warrior — change each week ──
+      featuredWarrior: {
+        name:   "",          // ← student name
+        grade:  "",          // ← their grade
+        book:   "",          // ← last book they read
+        rating: "",          // ← their rating or short review
+        photo:  "",          // ← photo filename or URL
+      },
+
       grades: [
         {
           name: "2nd Grade",
+          totalPoints: 23.9,          // ← total AR points for ALL students in this grade
+          participants: 0,            // ← number of students competing in this grade
           teacher: "",             // ← teacher name
           teacherPhoto: "",        // ← teacher photo filename (e.g. "brito.jpg")
           students: [
-            { name: "Isabella Marcilio", points: 4.8,  photo: "" },
-            { name: "Eric Reinhardt",    points: 2.4,    photo: "" },
-            { name: "Nicolas Guerra",    points: 2,  photo: "" },
-            { name: "Serena Palacio",      points: 1.5,  photo: "" },
-            { name: "Everly Lopez",     points: 1.5,  photo: "" },
+            { name: "Isabella Marcilio", points: 5.7,  photo: "" },
+            { name: "Hannah Khalil",    points: 5,    photo: "" },
+            { name: "Eric Reinhardt",    points: 3.8,  photo: "" },
+            { name: "Serena Palacio",      points: 3,  photo: "" },
+            { name: "Nicolas Guerra",     points: 3,  photo: "" },
           ]
         },
         {
           name: "3rd Grade",
+          totalPoints: 48.1,          // ← total AR points for ALL students in this grade
+          participants: 10,            // ← number of students competing in this grade
           teacher: "Mrs. Brito",
           teacherPhoto: "",
           students: [
             { name: "Anna Prado Lang",  points: 13.5, photo: "" },
-            { name: "Elliot Aberman",   points: 4.7,  photo: "" },
-            { name: "Dean Kunen",     points: 4.3,  photo: "" },
-            { name: "Aavi Koppaka",     points: 4.3,  photo: "" },
-            { name: "Mila Sanchez",       points: 3.8,    photo: "" },
+            { name: "Elliot Aberman",   points: 6.2,  photo: "" },
+            { name: "Liam Boulos",     points: 5.4,  photo: "" },
+            { name: "Dean Kunen",     points: 5.2,  photo: "" },
+            { name: "Aavi Koppaka",       points: 4.3,    photo: "" },
           ]
         },
         {
           name: "4th Grade",
+          totalPoints: 78.9,          // ← total AR points for ALL students in this grade
+          participants: 0,            // ← number of students competing in this grade
           teacher: "Mrs. Dominguez",
           teacherPhoto: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user7781192_6114045_118.png?crop=175px,0px,1664px,1664px&resize=200,200",
           students: [
-            { name: "Bianca Kuljiu",   points: 12.3,   photo: "" },
-            { name: "Maxwell Franca",   points: 12,  photo: "" },
-            { name: "Bea De La Guardia",     points: 10.7,    photo: "" },
-            { name: "Blaire Sanchez",    points: 9.6,  photo: "" },
+            { name: "Bea De La Guardia",   points: 15.2,   photo: "" },
+            { name: "Sienna Roche",   points: 15,  photo: "" },
+            { name: "Bianca Kuljiu",     points: 13.3,    photo: "" },
+            { name: "Blaire Sanchez",    points: 10.6,  photo: "" },
             { name: "Elodie Espinel",   points: 9.1,  photo: "" },
           ]
         },
         {
           name: "5th Grade",
+          totalPoints: 98.9,          // ← total AR points for ALL students in this grade
+          participants: 0,            // ← number of students competing in this grade
           teacher: "",
           teacherPhoto: "",
           students: [
-            { name: "Elaina Khalil",    points: 15.9, photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7356482_487.jpg?resize=200,200" },
-            { name: "Luke Boulos",      points: 10.4, photo: "" },
-            { name: "Rebecca Marcilio", points: 10,   photo: "" },
-            { name: "Sean Gordon",      points: 10,   photo: "" },
-            { name: "Student Name",     points: 0,    photo: "" },
+            { name: "Elaina Khalil",    points: 32.4, photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7356482_487.jpg?resize=200,200" },
+            { name: "Sean Gordon",      points: 23, photo: "" },
+            { name: "Rebecca Marcilio", points: 20,   photo: "" },
+            { name: "Luke Boulos",      points: 18.5,   photo: "" },
+            { name: "Kloe Kunen",     points: 5,    photo: "" },
           ]
         },
       ]
@@ -509,6 +526,34 @@
       .ptb-cards { grid-template-columns: 1fr; }
     }
 
+    /* ── PTB grade standings ───────────────────────────────── */
+    .ptb-standings {
+      margin-top: 20px;
+    }
+
+    .ptb-standings-card {
+      background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 18px rgba(44,82,52,.10);
+    }
+
+    .ptb-standings-row {
+      display: grid;
+      grid-template-columns: 52px 1fr auto;
+      align-items: center;
+      padding: 13px 22px;
+      border-bottom: 1px solid var(--divider);
+      transition: background .12s;
+    }
+
+    .ptb-standings-row:last-child { border-bottom: none; }
+    .ptb-standings-row:hover { background: #f4fbf6; }
+    .ptb-standings-row.rank-1 { background: var(--gold-bg); }
+    .ptb-standings-row.rank-1:hover { background: #fff5cc; }
+
+    .ptb-card-wide { grid-column: 1 / -1; }
+
     /* ── Compete section ───────────────────────────────────── */
     .compete-section {
       margin-top: 32px;
@@ -599,6 +644,83 @@
       color: var(--green);
     }
 
+    /* ── What have you been up to ─────────────────────────── */
+    .whatsup-section {
+      margin-top: 24px;
+    }
+
+    .whatsup-card {
+      background: var(--gold-bg);
+      border: 2px solid var(--gold-light);
+      border-radius: 14px;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .warrior-avatar-wrap { flex-shrink: 0; }
+
+    .warrior-avatar-placeholder {
+      width: clamp(90px, 12vw, 130px);
+      height: clamp(90px, 12vw, 130px);
+      border-radius: 50%;
+      background: var(--green-pale);
+      border: 4px solid var(--green-mid);
+      box-shadow: 0 4px 14px rgba(44,82,52,.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      color: var(--green-light);
+      overflow: hidden;
+      object-fit: cover;
+    }
+
+    .warrior-photo {
+      width: clamp(90px, 12vw, 130px);
+      height: clamp(90px, 12vw, 130px);
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--green-mid);
+      box-shadow: 0 4px 14px rgba(44,82,52,.18);
+    }
+
+    .whatsup-label {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+
+    .whatsup-sub {
+      font-size: .82rem;
+      font-weight: 500;
+      color: var(--text-mid);
+    }
+
+    .whatsup-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: #3a2000;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      white-space: nowrap;
+      transition: background .15s, transform .12s;
+    }
+
+    .whatsup-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
     /* ── Footer ────────────────────────────────────────────── */
     .site-footer {
       background: var(--green);
@@ -680,7 +802,6 @@
       <!-- ── Compete sub-section ── -->
       <div class="compete-section">
         <div class="compete-heading">Weekly Spotlight</div>
-        <div class="compete-title">Compete</div>
         <div class="compete-card">
           <img class="poppy-photo" src="poppy.png" alt="Poppy">
           <div>
@@ -707,6 +828,38 @@
         </div>
       </div>
 
+      <!-- ── What have our Warriors been up to ── -->
+      <div class="whatsup-section">
+        <div class="compete-card">
+          <div class="warrior-avatar-wrap" id="warriorAvatarWrap">
+            <div class="warrior-avatar-placeholder">&#128100;</div>
+          </div>
+          <div>
+            <div class="poppy-label">What have our Warriors been up to?</div>
+            <div class="poppy-stats">
+              <div class="poppy-stat">
+                <div class="poppy-stat-label">Featured Warrior</div>
+                <div class="poppy-stat-value" id="warriorName">—</div>
+              </div>
+              <div class="poppy-stat">
+                <div class="poppy-stat-label">Last book read</div>
+                <div class="poppy-stat-value" id="warriorBook">—</div>
+              </div>
+              <div class="poppy-stat">
+                <div class="poppy-stat-label">Their rating</div>
+                <div class="poppy-stat-value" id="warriorRating">—</div>
+              </div>
+              <div class="poppy-stat">
+                <div class="poppy-stat-label">Have a book to rate?</div>
+                <div class="poppy-stat-value">
+                  <a class="whatsup-btn" href="https://forms.office.com/r/uyEtb5Z1vL" target="_blank" rel="noopener">Submit &#8594;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -723,6 +876,7 @@
       <div class="ptb-eyebrow">Rankings</div>
       <div class="ptb-title">People to Beat</div>
       <div class="ptb-cards" id="ptbCards"></div>
+      <div class="ptb-standings" id="ptbStandings"></div>
     </div>
   </main>
 
@@ -770,6 +924,18 @@
         document.getElementById('poppyReading').textContent = data.poppy.reading  || '—';
         document.getElementById('poppyWhere').textContent   = data.poppy.where    || '—';
         document.getElementById('poppyPoints').textContent  = data.poppy.arPoints != null ? data.poppy.arPoints : '—';
+      }
+
+      // Featured Warrior
+      if (data.featuredWarrior) {
+        var fw = data.featuredWarrior;
+        document.getElementById('warriorName').textContent   = fw.name   || '—';
+        document.getElementById('warriorBook').textContent   = fw.book   || '—';
+        document.getElementById('warriorRating').textContent = fw.rating || '—';
+        var avatarWrap = document.getElementById('warriorAvatarWrap');
+        if (avatarWrap && fw.photo) {
+          avatarWrap.innerHTML = '<img class="warrior-photo" src="' + fw.photo + '" alt="' + (fw.name || 'Featured Warrior') + '">';
+        }
       }
 
       var grid = document.getElementById('gradesGrid');
@@ -893,7 +1059,65 @@
           '</div>';
       }
 
+      // Card 3 — Most Participants
+      var mostPart = null;
+      data.grades.forEach(function(g) {
+        if (!mostPart || (g.participants || 0) > (mostPart.participants || 0)) {
+          mostPart = g;
+        }
+      });
+      if (mostPart && (mostPart.participants || 0) > 0) {
+        html +=
+          '<div class="ptb-card ptb-card-wide">' +
+            '<div class="ptb-card-header" style="background:var(--green-mid);">' +
+              '<span class="ptb-card-label">Most Participants</span>' +
+            '</div>' +
+            '<div class="ptb-card-body">' +
+              avatarHTML(mostPart.teacherPhoto, mostPart.teacher || mostPart.name) +
+              '<div class="ptb-info">' +
+                '<div class="ptb-name">' + mostPart.name + '</div>' +
+                '<div class="ptb-sub">' + (mostPart.teacher || 'Teacher TBA') + '</div>' +
+                '<div class="ptb-points-wrap">' +
+                  '<div class="ptb-points">' + mostPart.participants + '</div>' +
+                  '<div class="ptb-points-label">readers</div>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+      }
+
       container.innerHTML = html;
+
+      // Grade standings — use manually entered totalPoints field
+      var gradeStandings = data.grades.map(function(g) {
+        return { name: g.name, total: g.totalPoints || 0 };
+      }).sort(function(a, b) { return b.total - a.total; });
+
+      var standingsEl = document.getElementById('ptbStandings');
+      if (standingsEl) {
+        var sHtml =
+          '<div class="ptb-standings-card">' +
+            '<div class="ptb-card-header">' +
+              '<span class="ptb-card-label">Grade Standings &mdash; Total Points</span>' +
+              '<span class="ptb-card-label" style="color:rgba(255,255,255,.6)">All Competitors</span>' +
+            '</div>';
+
+        gradeStandings.forEach(function(g, i) {
+          var rank = i + 1;
+          sHtml +=
+            '<div class="ptb-standings-row rank-' + rank + '">' +
+              '<div class="rank-circle ' + badgeClass(rank) + '">' + rank + '</div>' +
+              '<div class="s-name">' + g.name + '</div>' +
+              '<div class="s-pts-wrap">' +
+                '<div class="s-pts">' + fmt(Math.round(g.total * 10) / 10) + '</div>' +
+                '<div class="s-pts-label">total pts</div>' +
+              '</div>' +
+            '</div>';
+        });
+
+        sHtml += '</div>';
+        standingsEl.innerHTML = sHtml;
+      }
     }
   </script>
 
