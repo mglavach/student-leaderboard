@@ -23,14 +23,14 @@
         arPoints: 36.9,                          // ← Poppy's AR points
       },
 
-      // ── Featured Warrior — change each week ──
-      featuredWarrior: {
-        name:   "Giovanna Rivera",          // ← student name
-        grade:  "First",          // ← their grade
-        book:   "Splat the Cat and the Lemonade Stand",          // ← last book they read
-        rating: "9",          // ← their rating or short review
-        photo:  "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_6942312_883.jpg?resize=200,200",          // ← photo filename or URL
-      },
+      // ── Grade Level Spotlights — change each week ──
+      gradeSpotlights: [
+        { grade: "1st Grade", name: "Giovanna Rivera", book: "Splat the Cat and the Lemonade Stand", rating: "9", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_6942312_883.jpg?resize=200,200" },
+        { grade: "2nd Grade", name: "", book: "", rating: "", photo: "" },
+        { grade: "3rd Grade", name: "", book: "", rating: "", photo: "" },
+        { grade: "4th Grade", name: "", book: "", rating: "", photo: "" },
+        { grade: "5th Grade", name: "", book: "", rating: "", photo: "" },
+      ],
 
       grades: [
         {
@@ -740,6 +740,174 @@
       transform: translateY(-1px);
     }
 
+    /* ── Challenge + Poppy row ─────────────────────────────── */
+    .challenge-and-poppy {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .challenge-and-poppy .challenge-cards {
+      flex: 1;
+    }
+
+    .poppy-sidebar {
+      flex-shrink: 0;
+      width: 210px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .poppy-photo-sm {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--green-mid);
+      box-shadow: 0 3px 10px rgba(44,82,52,.18);
+    }
+
+    .poppy-sidebar .poppy-stats {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .poppy-sidebar .poppy-stat {
+      min-width: unset;
+      width: 100%;
+    }
+
+    /* ── Grade Level Spotlights ─────────────────────────────── */
+    .spotlights-section {
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 2px solid var(--divider);
+    }
+
+    .spotlights-eyebrow {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .spotlights-title {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    .spotlights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .spotlight-card {
+      background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 18px rgba(44,82,52,.10);
+    }
+
+    .spotlight-card-body {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .spotlight-avatar-wrap {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .spotlight-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--green-pale);
+    }
+
+    .spotlight-avatar-placeholder {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--green-pale);
+      border: 3px solid var(--divider);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--green-light);
+    }
+
+    .spotlight-grade-tag {
+      font-size: .55rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--green);
+      border-radius: 4px;
+      padding: 2px 6px;
+      white-space: nowrap;
+    }
+
+    .spotlight-info { flex: 1; }
+
+    .spotlight-empty {
+      font-size: .85rem;
+      font-style: italic;
+      color: var(--text-soft);
+      padding: 20px;
+    }
+
+    .spotlight-name {
+      font-size: .95rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .spotlight-book {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      margin-bottom: 3px;
+    }
+
+    .spotlight-rating {
+      font-size: .75rem;
+      color: var(--text-soft);
+    }
+
+    .spotlights-cta {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    @media (max-width: 640px) {
+      .challenge-and-poppy { flex-direction: column; }
+      .poppy-sidebar { width: 100%; }
+      .poppy-sidebar .poppy-stats { flex-direction: row; flex-wrap: wrap; }
+      .spotlights-grid { grid-template-columns: 1fr; }
+    }
+
     /* ── Footer ────────────────────────────────────────────── */
     .site-footer {
       background: var(--green);
@@ -801,83 +969,42 @@
   <!-- ── Challenge section ──────────────────────────────── -->
   <section class="challenge-section">
     <div class="challenge-inner">
-      <div class="challenge-heading">This Week's Challenge</div>
+      <div class="challenge-heading">This Summer's Challenge</div>
       <div class="challenge-title">Read · Grow · Shine</div>
-      <div class="challenge-cards">
-        <div class="challenge-card read">
-          <div class="challenge-card-label"><span>Read</span></div>
-          <div class="challenge-card-text">Finish a book this week.</div>
-        </div>
-        <div class="challenge-card grow">
-          <div class="challenge-card-label"><span>Grow</span></div>
-          <div class="challenge-card-text">Read for 15 minutes three days in a row.</div>
-        </div>
-        <div class="challenge-card shine">
-          <div class="challenge-card-label"><span>Shine</span></div>
-          <div class="challenge-card-text">Recommend a book to a friend and invite them to join the leaderboard.</div>
-        </div>
-      </div>
 
-      <!-- ── Compete sub-section ── -->
-      <div class="compete-section">
-        <div class="compete-heading">Weekly Spotlight</div>
-        <div class="compete-card">
-          <img class="poppy-photo" src="poppy.png" alt="Poppy">
-          <div>
-            <div class="poppy-label">What Poppy is up to this week</div>
-            <div class="poppy-stats">
-              <div class="poppy-stat">
-                <div class="poppy-stat-label">What Poppy finished reading</div>
-                <div class="poppy-stat-value" id="poppyPastReading">—</div>
-              </div>
-              <div class="poppy-stat">
-                <div class="poppy-stat-label">What Poppy is reading</div>
-                <div class="poppy-stat-value" id="poppyReading">—</div>
-              </div>
-              <div class="poppy-stat">
-                <div class="poppy-stat-label">Where Poppy is reading</div>
-                <div class="poppy-stat-value" id="poppyWhere">—</div>
-              </div>
-              <div class="poppy-stat ar-points">
-                <div class="poppy-stat-label">AR Points</div>
-                <div class="poppy-stat-value" id="poppyPoints">—</div>
-              </div>
-            </div>
+      <div class="challenge-and-poppy">
+        <div class="poppy-sidebar">
+          <img class="poppy-photo-sm" src="poppy.png" alt="Poppy">
+          <div class="poppy-stat ar-points">
+            <div class="poppy-stat-label">AR Points</div>
+            <div class="poppy-stat-value" id="poppyPoints">—</div>
+          </div>
+        </div>
+
+        <div class="challenge-cards">
+          <div class="challenge-card read">
+            <div class="challenge-card-label"><span>Read</span></div>
+            <div class="challenge-card-text">Finish a book this week.</div>
+          </div>
+          <div class="challenge-card grow">
+            <div class="challenge-card-label"><span>Grow</span></div>
+            <div class="challenge-card-text">Read for 15 minutes three days in a row.</div>
+          </div>
+          <div class="challenge-card shine">
+            <div class="challenge-card-label"><span>Shine</span></div>
+            <div class="challenge-card-text">Recommend a book to a friend and invite them to join the leaderboard.</div>
           </div>
         </div>
       </div>
 
-      <!-- ── What have our Warriors been up to ── -->
-      <div class="whatsup-section">
-        <div class="compete-card">
-          <div class="warrior-avatar-wrap" id="warriorAvatarWrap">
-            <div class="warrior-avatar-placeholder">&#128100;</div>
-          </div>
-          <div>
-            <div class="poppy-label">What have our Warriors been up to?</div>
-            <div class="poppy-stats">
-              <div class="poppy-stat">
-                <div class="poppy-stat-label">Featured Warrior</div>
-                <div class="poppy-stat-value" id="warriorName">—</div>
-              </div>
-              <div class="poppy-stat">
-                <div class="poppy-stat-label">Grade</div>
-                <div class="poppy-stat-value" id="warriorGrade">—</div>
-              </div>
-              <div class="poppy-stat">
-                <div class="poppy-stat-label">Last book read</div>
-                <div class="poppy-stat-value" id="warriorBook">—</div>
-              </div>
-              <div class="poppy-stat">
-                <div class="poppy-stat-label">Their rating</div>
-                <div class="poppy-stat-value" id="warriorRating">—</div>
-              </div>
-            </div>
-            <div style="margin-top:14px;">
-              <div class="poppy-stat-label" style="margin-bottom:6px;">Have a book to rate?</div>
-              <a class="whatsup-btn" href="https://forms.office.com/r/uyEtb5Z1vL" target="_blank" rel="noopener">Submit &#8594;</a>
-            </div>
-          </div>
+      <!-- ── Grade Level Spotlights ── -->
+      <div class="spotlights-section">
+        <div class="spotlights-eyebrow">Weekly Update</div>
+        <div class="spotlights-title">What Have Our Warriors Been Up To?</div>
+        <div class="spotlights-grid" id="spotlightsGrid"></div>
+        <div class="spotlights-cta">
+          <span class="poppy-stat-label">Have a book to rate?</span>
+          <a class="whatsup-btn" href="https://forms.office.com/r/uyEtb5Z1vL" target="_blank" rel="noopener">Submit &#8594;</a>
         </div>
       </div>
 
@@ -947,19 +1074,6 @@
         document.getElementById('poppyPoints').textContent  = data.poppy.arPoints != null ? data.poppy.arPoints : '—';
       }
 
-      // Featured Warrior
-      if (data.featuredWarrior) {
-        var fw = data.featuredWarrior;
-        document.getElementById('warriorName').textContent   = fw.name   || '—';
-        document.getElementById('warriorGrade').textContent  = fw.grade  || '—';
-        document.getElementById('warriorBook').textContent   = fw.book   || '—';
-        document.getElementById('warriorRating').textContent = fw.rating || '—';
-        var avatarWrap = document.getElementById('warriorAvatarWrap');
-        if (avatarWrap && fw.photo) {
-          avatarWrap.innerHTML = '<img class="warrior-photo" src="' + fw.photo + '" alt="' + (fw.name || 'Featured Warrior') + '">';
-        }
-      }
-
       var grid = document.getElementById('gradesGrid');
       grid.innerHTML = '';
 
@@ -1004,7 +1118,42 @@
     }
 
     render();
+    renderSpotlights();
     renderPeopleToBeat();
+
+    function renderSpotlights() {
+      var data = READING_DATA;
+      var grid = document.getElementById('spotlightsGrid');
+      if (!grid || !data || !data.gradeSpotlights) return;
+
+      var html = '';
+      data.gradeSpotlights.forEach(function(s) {
+        var hasStudent = s.name && s.name.trim() !== '';
+        html += '<div class="spotlight-card"><div class="spotlight-card-body">';
+
+        html += '<div class="spotlight-avatar-wrap">';
+        if (s.photo) {
+          html += '<img class="spotlight-avatar" src="' + s.photo + '" alt="' + s.name + '">';
+        } else {
+          html += '<div class="spotlight-avatar-placeholder">&#128100;</div>';
+        }
+        html += '<div class="spotlight-grade-tag">' + s.grade + '</div></div>';
+
+        if (hasStudent) {
+          html += '<div class="spotlight-info">' +
+            '<div class="spotlight-name">' + s.name + '</div>';
+          if (s.book)   html += '<div class="spotlight-book">' + s.book + '</div>';
+          if (s.rating) html += '<div class="spotlight-rating">Rating: ' + s.rating + '/10</div>';
+          html += '</div>';
+        } else {
+          html += '<div class="spotlight-empty">Spotlight coming soon…</div>';
+        }
+
+        html += '</div></div>';
+      });
+
+      grid.innerHTML = html;
+    }
 
     function avatarHTML(photo, fallback) {
       if (photo) {
@@ -1037,29 +1186,7 @@
 
       var html = '';
 
-      // Card 1 — Top Grade
-      if (topGrade) {
-        var isEmpty = !topGrade.teacher || topGrade.teacher.trim() === '';
-        html +=
-          '<div class="ptb-card">' +
-            '<div class="ptb-card-header">' +
-              '<span class="ptb-card-label">Top Grade</span>' +
-            '</div>' +
-            '<div class="ptb-card-body">' +
-              avatarHTML(topGrade.teacherPhoto, topGrade.teacher || topGrade.name) +
-              '<div class="ptb-info">' +
-                '<div class="ptb-name">' + topGrade.name + '</div>' +
-                '<div class="ptb-sub">' + (isEmpty ? 'Teacher TBA' : topGrade.teacher) + '</div>' +
-                '<div class="ptb-points-wrap">' +
-                  '<div class="ptb-points">' + fmt(Math.round(topGradeTotal * 10) / 10) + '</div>' +
-                  '<div class="ptb-points-label">total pts</div>' +
-                '</div>' +
-              '</div>' +
-            '</div>' +
-          '</div>';
-      }
-
-      // Card 2 — Top Reader
+      // Card 1 — Top Reader
       if (topReader && topReader.points > 0) {
         var readerEmpty = !topReader.name || topReader.name.toLowerCase().indexOf('student') !== -1;
         html +=
@@ -1090,7 +1217,7 @@
       });
       if (mostPart && (mostPart.participants || 0) > 0) {
         html +=
-          '<div class="ptb-card ptb-card-wide">' +
+          '<div class="ptb-card">' +
             '<div class="ptb-card-header" style="background:var(--green-mid);">' +
               '<span class="ptb-card-label">Most Participants</span>' +
             '</div>' +
@@ -1110,9 +1237,10 @@
 
       container.innerHTML = html;
 
-      // Grade standings — use manually entered totalPoints field
+      // Grade standings — auto-calculated from student points
       var gradeStandings = data.grades.map(function(g) {
-        return { name: g.name, total: g.totalPoints || 0 };
+        var total = g.students.reduce(function(sum, s) { return sum + (s.points || 0); }, 0);
+        return { name: g.name, total: Math.round(total * 10) / 10 };
       }).sort(function(a, b) { return b.total - a.total; });
 
       var standingsEl = document.getElementById('ptbStandings');
