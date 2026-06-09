@@ -13,7 +13,7 @@
   <script>
     var READING_DATA = {
 
-      lastUpdated: "June 5, 2026",  // ← update this date when you make changes
+      lastUpdated: "June 9, 2026",  // ← update this date when you make changes
 
       // ── Poppy's weekly spotlight — change these each week ──
       poppy: {
@@ -25,11 +25,11 @@
 
       // ── Featured Warrior — change each week ──
       featuredWarrior: {
-        name:   "",          // ← student name
-        grade:  "",          // ← their grade
-        book:   "",          // ← last book they read
-        rating: "",          // ← their rating or short review
-        photo:  "",          // ← photo filename or URL
+        name:   "Giovanna Rivera",          // ← student name
+        grade:  "First",          // ← their grade
+        book:   "Splat the Cat and the Lemonade Stand",          // ← last book they read
+        rating: "9",          // ← their rating or short review
+        photo:  "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_6942312_883.jpg?resize=200,200",          // ← photo filename or URL
       },
 
       grades: [
@@ -40,66 +40,72 @@
           teacher: "",             // ← teacher name
           teacherPhoto: "",        // ← teacher photo filename (e.g. "brito.jpg")
           students: [
-            { name: "Isabella Marcilio", points: 7.5,  photo: "" },
-            { name: "Eric Reinhardt",    points: 6.3,  photo: "" },
-            { name: "Hannah Khalil",     points: 6,    photo: "" },
-            { name: "Serena Palacio",    points: 3.9,  photo: "" },
-            { name: "Nicolas Guerra",    points: 3,    photo: "" },
-            { name: "Everly Lopez",      points: 2.4,  photo: "" },
-            { name: "Ryan Diaz",         points: 1,    photo: "" },
-            { name: "Oliver Carpenter",  points: 1,    photo: "" },
+            { name: "Isabella Marcilio", points: 9.4,  photo: "" },
+            { name: "Hannah Khalil",    points: 9,  photo: "" },
+            { name: "Everly Lopez",     points: 8.2,    photo: "" },
+            { name: "Eric Reinhardt",    points: 7.7,  photo: "" },
+            { name: "Paola Cheng",    points: 5.8,    photo: "" },
+            { name: "Serena Palacio",      points: 4.9,  photo: "" },
+            { name: "Nicolas Guerra",         points: 4.5,    photo: "" },
+            { name: "Oliver Carpenter",  points: 2,    photo: "" },
+            { name: "Connor Terrel",         points: 1,    photo: "" },
+            { name: "Ryan Diaz",  points: 1,    photo: "" },
+
           ]
         },
         {
           name: "3rd Grade",
           totalPoints: 52,            // ← total AR points for ALL students in this grade
-          participants: 10,           // ← number of students competing in this grade
+          participants: 12,           // ← number of students competing in this grade
           teacher: "Mrs. Brito",
-          teacherPhoto: "",
+          teacherPhoto: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7648139_881.jpg?resize=200,200",
           students: [
             { name: "Anna Prado Lang",   points: 15.5, photo: "" },
-            { name: "Elliot Aberman",    points: 6.2,  photo: "" },
-            { name: "Liam Boulos",       points: 5.4,  photo: "" },
-            { name: "Dean Kunen",        points: 5.2,  photo: "" },
-            { name: "Aavi Koppaka",      points: 4.3,  photo: "" },
-            { name: "David Tirri",       points: 4,    photo: "" },
-            { name: "Mila Sanchez",      points: 3.8,  photo: "" },
-            { name: "Isabella Castro",   points: 2.8,  photo: "" },
-            { name: "Alexander Tirri",   points: 2.4,  photo: "" },
-            { name: "Bella Falco",       points: 2.4,  photo: "" },
+            { name: "Elliot Aberman",    points: 14.5,  photo: "" },
+            { name: "Liam Boulos",       points: 8.1,  photo: "" },
+            { name: "Dean Kunen",        points: 8.1,  photo: "" },
+            { name: "Aavi Koppaka",      points: 6.2,  photo: "" },
+            { name: "Isabella Castro",   points: 6.1,    photo: "" },
+            { name: "David Tirri",      points: 6,  photo: "" },
+            { name: "Mila Sanchez",   points: 3.8,  photo: "" },
+            { name: "Alexander Tirri",   points: 3.3,  photo: "" },
+            { name: "Mercedes Cespedes",       points: 2.7,  photo: "" },
           ]
         },
         {
           name: "4th Grade",
           totalPoints: 81.2,          // ← total AR points for ALL students in this grade
-          participants: 9,            // ← number of students competing in this grade
+          participants: 10,            // ← number of students competing in this grade
           teacher: "Mrs. Dominguez",
           teacherPhoto: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user7781192_6114045_118.png?crop=175px,0px,1664px,1664px&resize=200,200",
           students: [
-            { name: "Bea De La Guardia",      points: 15.2, photo: "" },
-            { name: "Sienna Roche",           points: 15,   photo: "" },
-            { name: "Bianca Kuljiu",          points: 14.3, photo: "" },
-            { name: "Maxwell Franca",         points: 12,   photo: "" },
-            { name: "Blaire Sanchez",         points: 10.6, photo: "" },
-            { name: "Elodie Espinel",         points: 9,    photo: "" },
+            { name: "Sienna Roche",      points: 20.2, photo: "" },
+            { name: "Bea De La Guardia",      points: 16.2,   photo: "" },
+            { name: "Bianca Kuljiu",          points: 15.2, photo: "" },
+            { name: "Elodie Espinel",         points: 14,   photo: "" },
+            { name: "Maxwell Franca",         points: 12, photo: "" },
+            { name: "Blaire Sanchez",         points: 10.6,    photo: "" },
             { name: "Jack Bogie",             points: 2.7,  photo: "" },
-            { name: "Serafina White",         points: 1.4,  photo: "" },
+            { name: "Serafina White",         points: 2.4,  photo: "" },
             { name: "Charles Whorton, Jr.",   points: 1,    photo: "" },
           ]
         },
         {
           name: "5th Grade",
           totalPoints: 165,           // ← total AR points for ALL students in this grade
-          participants: 6,            // ← number of students competing in this grade
+          participants: 8,            // ← number of students competing in this grade
           teacher: "",
           teacherPhoto: "",
           students: [
-            { name: "Elaina Khalil",    points: 47.5, photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7356482_487.jpg?resize=200,200" },
-            { name: "Rebecca Marcilio", points: 32,   photo: "" },
-            { name: "Sean Gordon",      points: 31,   photo: "" },
-            { name: "Grayson Muina",    points: 31,   photo: "" },
-            { name: "Luke Boulos",      points: 18.5, photo: "" },
+            { name: "Grayson Muina",    points: 67.3, photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user8008005_6340503_917.jpeg?resize=200,200" },
+            { name: "Elaina Khalil", points: 63.4,   photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7356482_487.jpg?resize=200,200" },
+            { name: "Sean Gordon",      points: 43,   photo: "" },
+            { name: "Rebecca Marcilio",    points: 32.4,   photo: "" },
+            { name: "Luke Boulos",      points: 28.5, photo: "" },
+            { name: "Alessandra Prada",       points: 6.4,    photo: "" },
             { name: "Kloe Kunen",       points: 5,    photo: "" },
+            { name: "Max Nieves",       points: 3,    photo: "" },
+
           ]
         },
       ]
@@ -855,6 +861,10 @@
                 <div class="poppy-stat-value" id="warriorName">—</div>
               </div>
               <div class="poppy-stat">
+                <div class="poppy-stat-label">Grade</div>
+                <div class="poppy-stat-value" id="warriorGrade">—</div>
+              </div>
+              <div class="poppy-stat">
                 <div class="poppy-stat-label">Last book read</div>
                 <div class="poppy-stat-value" id="warriorBook">—</div>
               </div>
@@ -862,12 +872,10 @@
                 <div class="poppy-stat-label">Their rating</div>
                 <div class="poppy-stat-value" id="warriorRating">—</div>
               </div>
-              <div class="poppy-stat">
-                <div class="poppy-stat-label">Have a book to rate?</div>
-                <div class="poppy-stat-value">
-                  <a class="whatsup-btn" href="https://forms.office.com/r/uyEtb5Z1vL" target="_blank" rel="noopener">Submit &#8594;</a>
-                </div>
-              </div>
+            </div>
+            <div style="margin-top:14px;">
+              <div class="poppy-stat-label" style="margin-bottom:6px;">Have a book to rate?</div>
+              <a class="whatsup-btn" href="https://forms.office.com/r/uyEtb5Z1vL" target="_blank" rel="noopener">Submit &#8594;</a>
             </div>
           </div>
         </div>
@@ -943,6 +951,7 @@
       if (data.featuredWarrior) {
         var fw = data.featuredWarrior;
         document.getElementById('warriorName').textContent   = fw.name   || '—';
+        document.getElementById('warriorGrade').textContent  = fw.grade  || '—';
         document.getElementById('warriorBook').textContent   = fw.book   || '—';
         document.getElementById('warriorRating').textContent = fw.rating || '—';
         var avatarWrap = document.getElementById('warriorAvatarWrap');

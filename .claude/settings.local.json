@@ -13,7 +13,10 @@
       "PowerShell($env:HOME = $env:USERPROFILE; git add .)",
       "PowerShell($env:HOME = $env:USERPROFILE; git commit -m \"Update index\")",
       "PowerShell($env:HOME = $env:USERPROFILE; git push)",
-      "Bash(git -C \"c:\\\\Users\\\\mglavach\\\\OneDrive - Westminster Christian School\\\\HUB\\\\Summer Reading\\\\2026_Summer Reading\" add .)"
+      "Bash(git -C \"c:\\\\Users\\\\mglavach\\\\OneDrive - Westminster Christian School\\\\HUB\\\\Summer Reading\\\\2026_Summer Reading\" add .)",
+      "PowerShell($env:HOME = \"C:\\\\Users\\\\mglavach\"; git commit -m \"Update index\")",
+      "PowerShell($env:HOME = \"C:\\\\Users\\\\mglavach\"; git push)",
+      "PowerShell($env:HOME = \"C:\\\\Users\\\\mglavach\"; git add .)"
     ]
   }
 }
