@@ -29,7 +29,7 @@
         { grade: "2nd Grade", name: "", book: "", rating: "", photo: "" },
         { grade: "3rd Grade", name: "", book: "", rating: "", photo: "" },
         { grade: "4th Grade", name: "", book: "", rating: "", photo: "" },
-        { grade: "5th Grade", name: "", book: "", rating: "", photo: "" },
+        { grade: "5th Grade", name: "Elaina Khalil", book: "Spy School at Sea", rating: "10", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7356482_487.jpg?resize=200,200" },
       ],
 
       grades: [
@@ -976,7 +976,7 @@
         <div class="poppy-sidebar">
           <img class="poppy-photo-sm" src="poppy.png" alt="Poppy">
           <div class="poppy-stat ar-points">
-            <div class="poppy-stat-label">AR Points</div>
+            <div class="poppy-stat-label">Poppy's Points</div>
             <div class="poppy-stat-value" id="poppyPoints">—</div>
           </div>
         </div>
@@ -1068,9 +1068,6 @@
 
       // Poppy spotlight
       if (data.poppy) {
-        document.getElementById('poppyPastReading').textContent = data.poppy.pastReading || '—';
-        document.getElementById('poppyReading').textContent = data.poppy.reading  || '—';
-        document.getElementById('poppyWhere').textContent   = data.poppy.where    || '—';
         document.getElementById('poppyPoints').textContent  = data.poppy.arPoints != null ? data.poppy.arPoints : '—';
       }
 
