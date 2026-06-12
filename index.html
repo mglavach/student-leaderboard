@@ -13,21 +13,21 @@
   <script>
     var READING_DATA = {
 
-      lastUpdated: "June 10, 2026",  // ← update this date when you make changes
+      lastUpdated: "June 11, 2026",  // ← update this date when you make changes
 
       // ── Poppy's weekly spotlight — change these each week ──
       poppy: {
         pastReading:  "The Academy by T.Z Layton",          // ← what Poppy finished reading
         reading:  "The Bletchley Riddle Hardcover by Ruta Sepetys",          // ← what Poppy is reading
         where:    "At the park with friends",            // ← where Poppy is reading
-        arPoints: 36.9,                          // ← Poppy's AR points
+        arPoints: 43.8,                          // ← Poppy's AR points
       },
 
       // ── Grade Level Spotlights — change each week ──
       gradeSpotlights: [
         { grade: "1st Grade", name: "Giovanna Rivera", book: "Splat the Cat and the Lemonade Stand", rating: "9", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_6942312_883.jpg?resize=200,200" },
-        { grade: "2nd Grade", name: "", book: "", rating: "", photo: "" },
-        { grade: "3rd Grade", name: "", book: "", rating: "", photo: "" },
+        { grade: "2nd Grade", name: "Isabella Marcilio", book: "Best wishes book #3", rating: "10", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_6524220_648.jpg?resize=200,200" },
+        { grade: "3rd Grade", name: "Carolina Rivera", book: "Duck for President", rating: "10", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_6110558_565.jpg?resize=200,200" },
         { grade: "4th Grade", name: "", book: "", rating: "", photo: "" },
         { grade: "5th Grade", name: "Elaina Khalil", book: "Spy School at Sea", rating: "10", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7356482_487.jpg?resize=200,200" },
       ],
@@ -36,19 +36,19 @@
         {
           name: "2nd Grade",
           totalPoints: 31.1,          // ← total AR points for ALL students in this grade
-          participants: 8,            // ← number of students competing in this grade
+          participants: 10,            // ← number of students competing in this grade
           teacher: "",             // ← teacher name
           teacherPhoto: "",        // ← teacher photo filename (e.g. "brito.jpg")
           students: [
-            { name: "Isabella Marcilio", points: 9.4,  photo: "" },
-            { name: "Hannah Khalil",    points: 9,  photo: "" },
-            { name: "Everly Lopez",     points: 8.2,    photo: "" },
-            { name: "Eric Reinhardt",    points: 7.7,  photo: "" },
-            { name: "Paola Cheng",    points: 5.8,    photo: "" },
+            { name: "Hannah Khalil", points: 13.9,  photo: "" },
+            { name: "Isabella Marcilio",    points: 13.4,  photo: "" },
+            { name: "Paola Cheng",     points: 11.2,    photo: "" },
+            { name: "Everly Lopez",    points: 9.7,  photo: "" },
+            { name: "Eric Reinhardt",    points: 8.2,    photo: "" },
             { name: "Serena Palacio",      points: 4.9,  photo: "" },
             { name: "Nicolas Guerra",         points: 4.5,    photo: "" },
-            { name: "Oliver Carpenter",  points: 2,    photo: "" },
-            { name: "Connor Terrel",         points: 1,    photo: "" },
+            { name: "Connor Terrel",  points: 4,    photo: "" },
+            { name: "Oliver Carpenter",         points: 2,    photo: "" },
             { name: "Ryan Diaz",  points: 1,    photo: "" },
 
           ]
@@ -56,17 +56,17 @@
         {
           name: "3rd Grade",
           totalPoints: 52,            // ← total AR points for ALL students in this grade
-          participants: 12,           // ← number of students competing in this grade
+          participants: 13,           // ← number of students competing in this grade
           teacher: "Mrs. Brito",
           teacherPhoto: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7648139_881.jpg?resize=200,200",
           students: [
-            { name: "Anna Prado Lang",   points: 15.5, photo: "" },
-            { name: "Elliot Aberman",    points: 14.5,  photo: "" },
-            { name: "Liam Boulos",       points: 8.1,  photo: "" },
+            { name: "Elliot Aberman",   points: 16.9, photo: "" },
+            { name: "Anna Prado Lang",    points: 16.5,  photo: "" },
+            { name: "David Tirri",       points: 8.7,  photo: "" },
             { name: "Dean Kunen",        points: 8.1,  photo: "" },
+            { name: "Liam Boulos",      points: 8.1,  photo: "" },
+            { name: "Isabella Castro",   points: 8.1,    photo: "" },
             { name: "Aavi Koppaka",      points: 6.2,  photo: "" },
-            { name: "Isabella Castro",   points: 6.1,    photo: "" },
-            { name: "David Tirri",      points: 6,  photo: "" },
             { name: "Mila Sanchez",   points: 3.8,  photo: "" },
             { name: "Alexander Tirri",   points: 3.3,  photo: "" },
             { name: "Mercedes Cespedes",       points: 2.7,  photo: "" },
@@ -75,36 +75,37 @@
         {
           name: "4th Grade",
           totalPoints: 81.2,          // ← total AR points for ALL students in this grade
-          participants: 10,            // ← number of students competing in this grade
+          participants: 9,            // ← number of students competing in this grade
           teacher: "Mrs. Dominguez",
           teacherPhoto: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user7781192_6114045_118.png?crop=175px,0px,1664px,1664px&resize=200,200",
           students: [
-            { name: "Sienna Roche",      points: 20.2, photo: "" },
-            { name: "Bea De La Guardia",      points: 16.2,   photo: "" },
-            { name: "Bianca Kuljiu",          points: 15.2, photo: "" },
-            { name: "Elodie Espinel",         points: 14,   photo: "" },
-            { name: "Maxwell Franca",         points: 12, photo: "" },
+            { name: "Bianca Kuljiu",      points: 22.3, photo: "" },
+            { name: "Maxwell Franca",      points: 21.9,   photo: "" },
+            { name: "Sienna Roche",          points: 20.2, photo: "" },
+            { name: "Bea De La Guardia",         points: 16.2,   photo: "" },
+            { name: "Elodie Espinel",         points: 14.1, photo: "" },
             { name: "Blaire Sanchez",         points: 10.6,    photo: "" },
-            { name: "Jack Bogie",             points: 2.7,  photo: "" },
-            { name: "Serafina White",         points: 2.4,  photo: "" },
-            { name: "Charles Whorton, Jr.",   points: 1,    photo: "" },
+            { name: "Charles Whorton, Jr.",             points: 7.7,  photo: "" },
+            { name: "Jack Bogie",         points: 2.7,  photo: "" },
+            { name: "Serafina White",   points: 2.4,    photo: "" },
           ]
         },
         {
           name: "5th Grade",
           totalPoints: 165,           // ← total AR points for ALL students in this grade
-          participants: 8,            // ← number of students competing in this grade
+          participants: 9,            // ← number of students competing in this grade
           teacher: "",
           teacherPhoto: "",
           students: [
-            { name: "Grayson Muina",    points: 67.3, photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user8008005_6340503_917.jpeg?resize=200,200" },
-            { name: "Elaina Khalil", points: 63.4,   photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7356482_487.jpg?resize=200,200" },
+            { name: "Grayson Muina",    points: 91, photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user8008005_6340503_917.jpeg?resize=200,200" },
+            { name: "Elaina Khalil", points: 69.1,   photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7356482_487.jpg?resize=200,200" },
             { name: "Sean Gordon",      points: 43,   photo: "" },
-            { name: "Rebecca Marcilio",    points: 32.4,   photo: "" },
-            { name: "Luke Boulos",      points: 28.5, photo: "" },
+            { name: "Rebecca Marcilio",    points: 42.3,   photo: "" },
+            { name: "Luke Boulos",      points: 39.5, photo: "" },
             { name: "Alessandra Prada",       points: 6.4,    photo: "" },
             { name: "Kloe Kunen",       points: 5,    photo: "" },
             { name: "Max Nieves",       points: 3,    photo: "" },
+            { name: "Maddox Diaz",       points: 1.9,    photo: "" },
 
           ]
         },
