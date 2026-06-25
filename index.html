@@ -1577,7 +1577,7 @@
     function uwrVote(id) {
       var week = READING_DATA.unitedWeRead[0];
       if (!week || localStorage.getItem(week.votedKey)) return;
-      if (db) db.ref('votes/' + week.storageKey + '/' + id).transaction(function(n) { return (n || 0) + 1; });
+      if (db) db.ref('votes/' + week.storageKey + '/' + id).set(firebase.database.ServerValue.increment(1)).catch(function(e){ console.warn('Vote write failed:', e.message); });
       localStorage.setItem(week.votedKey, id);
       // re-render immediately so the UI responds even if Firebase is slow
       var votes = {};
@@ -1658,7 +1658,7 @@
     function ncVote(id) {
       var data = READING_DATA;
       if (!data || localStorage.getItem(data.nextVotedKey)) return;
-      if (db) db.ref('votes/' + data.nextVoteKey + '/' + id).transaction(function(n) { return (n || 0) + 1; });
+      if (db) db.ref('votes/' + data.nextVoteKey + '/' + id).set(firebase.database.ServerValue.increment(1)).catch(function(e){ console.warn('Vote write failed:', e.message); });
       localStorage.setItem(data.nextVotedKey, id);
       var votes = {};
       data.comingSoon.forEach(function(c) { votes[c.id] = 0; });
