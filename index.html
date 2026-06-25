@@ -1548,17 +1548,20 @@
       }
     }
 
-    // ── Firebase init ───────────────────────────────────────────
-    firebase.initializeApp({
-      apiKey:            "AIzaSyBruoUmjnpSm7VId2aY0J5Ma4nVEfIyRPs",
-      authDomain:        "leaderboard-usa-vote.firebaseapp.com",
-      databaseURL:       "https://leaderboard-usa-vote-default-rtdb.firebaseio.com",
-      projectId:         "leaderboard-usa-vote",
-      storageBucket:     "leaderboard-usa-vote.firebasestorage.app",
-      messagingSenderId: "501066093318",
-      appId:             "1:501066093318:web:9bfea60a8824ff7e598487",
-    });
-    var db = firebase.database();
+    // ── Firebase init (fault-tolerant) ─────────────────────────
+    var db = null;
+    try {
+      firebase.initializeApp({
+        apiKey:            "AIzaSyBruoUmjnpSm7VId2aY0J5Ma4nVEfIyRPs",
+        authDomain:        "leaderboard-usa-vote.firebaseapp.com",
+        databaseURL:       "https://leaderboard-usa-vote-default-rtdb.firebaseio.com",
+        projectId:         "leaderboard-usa-vote",
+        storageBucket:     "leaderboard-usa-vote.firebasestorage.app",
+        messagingSenderId: "501066093318",
+        appId:             "1:501066093318:web:9bfea60a8824ff7e598487",
+      });
+      db = firebase.database();
+    } catch(e) { console.warn('Firebase unavailable:', e.message); }
 
     // ── United We Read ─────────────────────────────────────────
     function uwrTotal(votes) {
@@ -1568,8 +1571,12 @@
     function uwrVote(id) {
       var week = READING_DATA.unitedWeRead[0];
       if (!week || localStorage.getItem(week.votedKey)) return;
-      db.ref('votes/' + week.storageKey + '/' + id).transaction(function(n) { return (n || 0) + 1; });
+      if (db) db.ref('votes/' + week.storageKey + '/' + id).transaction(function(n) { return (n || 0) + 1; });
       localStorage.setItem(week.votedKey, id);
+      // re-render immediately so the UI responds even if Firebase is slow
+      var votes = {};
+      week.teacherOptions.forEach(function(o) { votes[o.id] = 0; });
+      uwrRenderBox2(week, votes);
     }
 
     function uwrOptionsHtml(week) {
@@ -1664,17 +1671,21 @@
       uwrRenderBox3(READING_DATA.comingSoon);
       var week = uwr[0];
       if (!week) return;
-      // Render immediately with zeros so box2 always shows
+      // Always render immediately — never depends on Firebase
       var emptyVotes = {};
       week.teacherOptions.forEach(function(o) { emptyVotes[o.id] = 0; });
       uwrRenderBox2(week, emptyVotes);
-      // Firebase listener updates counts live once connected
-      db.ref('votes/' + week.storageKey).on('value', function(snapshot) {
-        var data = snapshot.val() || {};
-        var votes = {};
-        week.teacherOptions.forEach(function(o) { votes[o.id] = data[o.id] || 0; });
-        uwrRenderBox2(week, votes);
-      });
+      // Firebase listener updates counts live if available
+      if (db) {
+        try {
+          db.ref('votes/' + week.storageKey).on('value', function(snapshot) {
+            var data = snapshot.val() || {};
+            var votes = {};
+            week.teacherOptions.forEach(function(o) { votes[o.id] = data[o.id] || 0; });
+            uwrRenderBox2(week, votes);
+          });
+        } catch(e) { console.warn('Firebase listener failed:', e.message); }
+      }
     }
 
     uwrInit();
