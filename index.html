@@ -143,7 +143,13 @@
         },
       ],
 
-      comingSoon: ["Brazil", "Germany", "Spain"],
+      comingSoon: [
+        { id: 'brazil',  label: 'Brazil'  },
+        { id: 'germany', label: 'Germany' },
+        { id: 'spain',   label: 'Spain'   },
+      ],
+      nextVoteKey:  'next_country_2026',
+      nextVotedKey: 'next_voted_2026',
     };
   </script>
   <!-- ══════════════════════════════════════════════════════════════════ -->
@@ -1649,18 +1655,47 @@
         '</div>';
     }
 
-    function uwrRenderBox3(countries) {
+    function ncVote(id) {
+      var data = READING_DATA;
+      if (!data || localStorage.getItem(data.nextVotedKey)) return;
+      if (db) db.ref('votes/' + data.nextVoteKey + '/' + id).transaction(function(n) { return (n || 0) + 1; });
+      localStorage.setItem(data.nextVotedKey, id);
+      var votes = {};
+      data.comingSoon.forEach(function(c) { votes[c.id] = 0; });
+      uwrRenderBox3(data.comingSoon, votes);
+    }
+
+    function uwrRenderBox3(countries, votes) {
       var el = document.getElementById('uwrBox3');
       if (!el) return;
+      var votedId = localStorage.getItem(READING_DATA.nextVotedKey);
+      var voted   = !!votedId;
+      var total   = votes ? Object.values(votes).reduce(function(a, b) { return a + b; }, 0) : 0;
       el.innerHTML =
         '<div style="padding:10px 16px;background:var(--green-pale);border-bottom:1px solid var(--divider);">' +
-          '<div style="font-size:.58rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-soft);">Coming Up</div>' +
+          '<div style="font-size:.58rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-soft);">Coming Up' + (voted && total > 0 ? ' \xB7 ' + total + ' vote' + (total !== 1 ? 's' : '') : '') + '</div>' +
           '<div style="font-size:.75rem;font-weight:900;color:var(--green);letter-spacing:.5px;">What country is next?</div>' +
         '</div>' +
         '<div style="padding:16px;display:flex;flex-direction:column;gap:10px;">' +
-          (countries || []).map(function(c) {
-            return '<div style="background:var(--green-pale);border-radius:8px;padding:11px 14px;font-size:.9rem;font-weight:700;color:var(--text-mid);">? ' + c + '</div>';
-          }).join('') +
+        (voted
+          ? (countries || []).map(function(c) {
+              var count   = votes ? (votes[c.id] || 0) : 0;
+              var pct     = total > 0 ? Math.round((count / total) * 100) : 0;
+              var isChosen = c.id === votedId;
+              return '<div>' +
+                '<div style="display:flex;justify-content:space-between;margin-bottom:3px;">' +
+                  '<span style="font-size:.85rem;font-weight:' + (isChosen ? '900' : '700') + ';color:var(--text);">' + c.label + (isChosen ? ' ← you' : '') + '</span>' +
+                  '<span style="font-size:.8rem;font-weight:800;color:var(--text-mid);">' + pct + '% (' + count + ')</span>' +
+                '</div>' +
+                '<div style="height:8px;background:var(--divider);border-radius:99px;overflow:hidden;">' +
+                  '<div style="height:100%;width:' + pct + '%;background:var(--green-mid);border-radius:99px;transition:width .4s ease;"></div>' +
+                '</div>' +
+              '</div>';
+            }).join('')
+          : (countries || []).map(function(c) {
+              return '<button onclick="ncVote(\'' + c.id + '\')" style="background:var(--green-pale);border:2px solid var(--divider);border-radius:10px;padding:10px 14px;cursor:pointer;text-align:left;font-family:Montserrat,Arial,sans-serif;font-size:.88rem;font-weight:700;color:var(--text);transition:background .15s,border-color .15s;" onmouseover="this.style.background=\'#d4edd8\';this.style.borderColor=\'var(--green-mid)\'" onmouseout="this.style.background=\'var(--green-pale)\';this.style.borderColor=\'var(--divider)\'">' + c.label + '</button>';
+            }).join('')
+        ) +
         '</div>';
     }
 
@@ -1668,14 +1703,28 @@
       var uwr = READING_DATA.unitedWeRead;
       if (!uwr) return;
       uwrRenderBox1(uwr[1] || null);
-      uwrRenderBox3(READING_DATA.comingSoon);
+
+      // Box 3 — immediate render then Firebase listener
+      var emptyVotes3 = {};
+      READING_DATA.comingSoon.forEach(function(c) { emptyVotes3[c.id] = 0; });
+      uwrRenderBox3(READING_DATA.comingSoon, emptyVotes3);
+      if (db) {
+        try {
+          db.ref('votes/' + READING_DATA.nextVoteKey).on('value', function(snapshot) {
+            var data = snapshot.val() || {};
+            var votes = {};
+            READING_DATA.comingSoon.forEach(function(c) { votes[c.id] = data[c.id] || 0; });
+            uwrRenderBox3(READING_DATA.comingSoon, votes);
+          });
+        } catch(e) {}
+      }
+
+      // Box 2 — immediate render then Firebase listener
       var week = uwr[0];
       if (!week) return;
-      // Always render immediately — never depends on Firebase
-      var emptyVotes = {};
-      week.teacherOptions.forEach(function(o) { emptyVotes[o.id] = 0; });
-      uwrRenderBox2(week, emptyVotes);
-      // Firebase listener updates counts live if available
+      var emptyVotes2 = {};
+      week.teacherOptions.forEach(function(o) { emptyVotes2[o.id] = 0; });
+      uwrRenderBox2(week, emptyVotes2);
       if (db) {
         try {
           db.ref('votes/' + week.storageKey).on('value', function(snapshot) {
