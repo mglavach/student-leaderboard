@@ -120,10 +120,10 @@
         {
           week: "Week 2",
           country: "United States",
-          challengeImage: "Cline.png",
+          challengeImage: "cline.png",
           challengeTitle: "United We Read Challenge",
           challengeText: "Team up with a friend, choose a book to read, take the AR quiz, and plan a playdate to talk about your favorite parts. Reading is more fun when we do it together!",
-          teacherImage: "Cline.png",
+          teacherImage: "cline.png",
           teacherRiddle: "I am a WCS teacher who loves to read — especially historical fiction. Both sets of my grandparents came to America in the 1920s. On weekends you might find me cheering for NASCAR, baseball, or hockey. Who am I?",
           teacherOptions: [
             { id: 'cline',     label: 'Mrs. Cline'     },
@@ -1182,9 +1182,9 @@
             <div style="background:var(--green); padding:10px 22px;">
               <div style="font-size:.62rem; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light);">The Summer Reading Cup</div>
             </div>
-            <div style="display:grid; grid-template-columns:repeat(3,1fr);">
-              <div id="uwrBox1" style="border-right:1px solid var(--divider);"></div>
-              <div id="uwrBox2" style="border-right:1px solid var(--divider);"></div>
+            <div>
+              <div id="uwrBox1" style="border-bottom:1px solid var(--divider);"></div>
+              <div id="uwrBox2" style="border-bottom:1px solid var(--divider);"></div>
               <div id="uwrBox3"></div>
             </div>
           </div>
@@ -1606,9 +1606,9 @@
           '<div style="font-size:.58rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-soft);">' + week.week + '</div>' +
           '<div style="font-size:.75rem;font-weight:900;color:var(--green);letter-spacing:.5px;">' + week.country + '</div>' +
         '</div>' +
-        '<div style="padding:16px;display:flex;flex-direction:column;align-items:center;gap:12px;">' +
-          '<img src="' + week.challengeImage + '" alt="' + week.country + '" style="width:90px;height:auto;mix-blend-mode:multiply;">' +
-          '<div style="font-size:.88rem;font-weight:600;color:var(--text);line-height:1.5;text-align:center;">' + week.challengeText + '</div>' +
+        '<div style="padding:16px 22px;display:flex;align-items:center;gap:18px;">' +
+          '<img src="' + week.challengeImage + '" alt="' + week.country + '" style="flex-shrink:0;width:90px;height:auto;mix-blend-mode:multiply;">' +
+          '<div style="font-size:.92rem;font-weight:600;color:var(--text);line-height:1.5;">' + week.challengeText + '</div>' +
         '</div>';
     }
 
@@ -1623,16 +1623,20 @@
           '<div style="font-size:.58rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);">' + week.week + ' · Current</div>' +
           '<div style="font-size:.75rem;font-weight:900;color:var(--green);letter-spacing:.5px;">' + week.country + '</div>' +
         '</div>' +
-        '<div style="padding:16px;border-bottom:1px solid var(--divider);">' +
-          '<div style="font-size:.65rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--text-soft);margin-bottom:8px;text-align:center;">Guess the Teacher' + (voted ? ' \xB7 ' + total + ' vote' + (total !== 1 ? 's' : '') : '') + '</div>' +
-          '<img src="' + week.teacherImage + '" alt="Mystery Teacher" style="display:block;margin:0 auto 10px;width:90px;height:auto;mix-blend-mode:multiply;">' +
-          '<div style="font-size:.88rem;font-weight:700;color:var(--green);margin-bottom:10px;line-height:1.5;text-align:center;">' + week.teacherRiddle + '</div>' +
-          (!voted ? '<div style="font-size:.72rem;color:var(--text-soft);margin-bottom:10px;font-weight:600;text-align:center;">Click your best guess!</div>' : '') +
-          (voted ? uwrBarsHtml(week, votes, null) : uwrOptionsHtml(week)) +
+        '<div style="padding:16px 22px;display:flex;align-items:flex-start;gap:18px;border-bottom:1px solid var(--divider);">' +
+          '<img src="' + week.teacherImage + '" alt="Mystery Teacher" style="flex-shrink:0;width:90px;height:auto;mix-blend-mode:multiply;">' +
+          '<div style="flex:1;">' +
+            '<div style="font-size:.65rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--text-soft);margin-bottom:6px;">Guess the Teacher' + (voted ? ' \xB7 ' + total + ' vote' + (total !== 1 ? 's' : '') : '') + '</div>' +
+            '<div style="font-size:.92rem;font-weight:700;color:var(--green);margin-bottom:10px;line-height:1.5;">' + week.teacherRiddle + '</div>' +
+            (!voted ? '<div style="font-size:.72rem;color:var(--text-soft);margin-bottom:10px;font-weight:600;">Click your best guess!</div>' : '') +
+            (voted ? uwrBarsHtml(week, votes, null) : uwrOptionsHtml(week)) +
+          '</div>' +
         '</div>' +
-        '<div style="padding:16px;display:flex;flex-direction:column;gap:8px;">' +
-          '<div style="font-size:.65rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--green-mid);text-align:center;">' + (week.challengeTitle || 'This Week') + '</div>' +
-          '<div style="font-size:.88rem;font-weight:600;color:var(--text);line-height:1.5;text-align:center;">' + week.challengeText + '</div>' +
+        '<div style="padding:16px 22px;display:flex;align-items:center;gap:18px;">' +
+          '<div style="flex:1;">' +
+            '<div style="font-size:.65rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--green-mid);margin-bottom:6px;">' + (week.challengeTitle || 'This Week') + '</div>' +
+            '<div style="font-size:.92rem;font-weight:600;color:var(--text);line-height:1.5;">' + week.challengeText + '</div>' +
+          '</div>' +
         '</div>';
     }
 
