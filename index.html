@@ -1664,7 +1664,11 @@
       uwrRenderBox3(READING_DATA.comingSoon);
       var week = uwr[0];
       if (!week) return;
-      // Live Firebase listener — re-renders box2 for everyone on every new vote
+      // Render immediately with zeros so box2 always shows
+      var emptyVotes = {};
+      week.teacherOptions.forEach(function(o) { emptyVotes[o.id] = 0; });
+      uwrRenderBox2(week, emptyVotes);
+      // Firebase listener updates counts live once connected
       db.ref('votes/' + week.storageKey).on('value', function(snapshot) {
         var data = snapshot.val() || {};
         var votes = {};
