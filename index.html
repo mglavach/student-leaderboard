@@ -148,6 +148,9 @@
   </script>
   <!-- ══════════════════════════════════════════════════════════════════ -->
 
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+
   <!-- Montserrat — closest free match to Gotham -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -1545,15 +1548,19 @@
       }
     }
 
-    // ── United We Read ─────────────────────────────────────────
-    function uwrLoadVotes(storageKey, options) {
-      var raw = localStorage.getItem(storageKey);
-      if (raw) return JSON.parse(raw);
-      var def = {};
-      options.forEach(function(o) { def[o.id] = 0; });
-      return def;
-    }
+    // ── Firebase init ───────────────────────────────────────────
+    firebase.initializeApp({
+      apiKey:            "AIzaSyBruoUmjnpSm7VId2aY0J5Ma4nVEfIyRPs",
+      authDomain:        "leaderboard-usa-vote.firebaseapp.com",
+      databaseURL:       "https://leaderboard-usa-vote-default-rtdb.firebaseio.com",
+      projectId:         "leaderboard-usa-vote",
+      storageBucket:     "leaderboard-usa-vote.firebasestorage.app",
+      messagingSenderId: "501066093318",
+      appId:             "1:501066093318:web:9bfea60a8824ff7e598487",
+    });
+    var db = firebase.database();
 
+    // ── United We Read ─────────────────────────────────────────
     function uwrTotal(votes) {
       return Object.values(votes).reduce(function(a, b) { return a + b; }, 0);
     }
@@ -1561,15 +1568,12 @@
     function uwrVote(id) {
       var week = READING_DATA.unitedWeRead[0];
       if (!week || localStorage.getItem(week.votedKey)) return;
-      var votes = uwrLoadVotes(week.storageKey, week.teacherOptions);
-      votes[id] = (votes[id] || 0) + 1;
-      localStorage.setItem(week.storageKey, JSON.stringify(votes));
-      localStorage.setItem(week.votedKey, '1');
-      uwrRenderBox2(week);
+      db.ref('votes/' + week.storageKey + '/' + id).transaction(function(n) { return (n || 0) + 1; });
+      localStorage.setItem(week.votedKey, id);
     }
 
     function uwrOptionsHtml(week) {
-      return '<div style="display:flex; flex-direction:column; gap:8px;">' +
+      return '<div style="display:flex;flex-direction:column;gap:8px;">' +
         week.teacherOptions.map(function(o) {
           return '<button onclick="uwrVote(\'' + o.id + '\')" style="background:var(--green-pale);border:2px solid var(--divider);border-radius:10px;padding:10px 16px;cursor:pointer;text-align:left;font-family:Montserrat,Arial,sans-serif;font-size:.88rem;font-weight:700;color:var(--text);transition:background .15s,border-color .15s;" onmouseover="this.style.background=\'#d4edd8\';this.style.borderColor=\'var(--green-mid)\'" onmouseout="this.style.background=\'var(--green-pale)\';this.style.borderColor=\'var(--divider)\'">' + o.label + '</button>';
         }).join('') +
@@ -1612,15 +1616,15 @@
         '</div>';
     }
 
-    function uwrRenderBox2(week) {
+    function uwrRenderBox2(week, votes) {
       var el = document.getElementById('uwrBox2');
       if (!el || !week) return;
-      var voted = !!localStorage.getItem(week.votedKey);
-      var votes = uwrLoadVotes(week.storageKey, week.teacherOptions);
-      var total = uwrTotal(votes);
+      var chosenId = localStorage.getItem(week.votedKey);
+      var voted    = !!chosenId;
+      var total    = uwrTotal(votes);
       el.innerHTML =
         '<div style="padding:10px 16px;background:var(--gold-bg);border-bottom:1px solid var(--gold-light);">' +
-          '<div style="font-size:.58rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);">' + week.week + ' · Current</div>' +
+          '<div style="font-size:.58rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);">' + week.week + ' \xB7 Current</div>' +
           '<div style="font-size:.75rem;font-weight:900;color:var(--green);letter-spacing:.5px;">' + week.country + '</div>' +
         '</div>' +
         '<div style="padding:16px 22px;display:flex;align-items:flex-start;gap:18px;border-bottom:1px solid var(--divider);">' +
@@ -1629,14 +1633,12 @@
             '<div style="font-size:.65rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--text-soft);margin-bottom:6px;">Guess the Teacher' + (voted ? ' \xB7 ' + total + ' vote' + (total !== 1 ? 's' : '') : '') + '</div>' +
             '<div style="font-size:.92rem;font-weight:700;color:var(--green);margin-bottom:10px;line-height:1.5;">' + week.teacherRiddle + '</div>' +
             (!voted ? '<div style="font-size:.72rem;color:var(--text-soft);margin-bottom:10px;font-weight:600;">Click your best guess!</div>' : '') +
-            (voted ? uwrBarsHtml(week, votes, null) : uwrOptionsHtml(week)) +
+            (voted ? uwrBarsHtml(week, votes, chosenId) : uwrOptionsHtml(week)) +
           '</div>' +
         '</div>' +
-        '<div style="padding:16px 22px;display:flex;align-items:center;gap:18px;">' +
-          '<div style="flex:1;">' +
-            '<div style="font-size:.65rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--green-mid);margin-bottom:6px;">' + (week.challengeTitle || 'This Week') + '</div>' +
-            '<div style="font-size:.92rem;font-weight:600;color:var(--text);line-height:1.5;">' + week.challengeText + '</div>' +
-          '</div>' +
+        '<div style="padding:16px 22px;">' +
+          '<div style="font-size:.65rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--green-mid);margin-bottom:6px;">' + (week.challengeTitle || 'This Week') + '</div>' +
+          '<div style="font-size:.92rem;font-weight:600;color:var(--text);line-height:1.5;">' + week.challengeText + '</div>' +
         '</div>';
     }
 
@@ -1659,8 +1661,16 @@
       var uwr = READING_DATA.unitedWeRead;
       if (!uwr) return;
       uwrRenderBox1(uwr[1] || null);
-      uwrRenderBox2(uwr[0]);
       uwrRenderBox3(READING_DATA.comingSoon);
+      var week = uwr[0];
+      if (!week) return;
+      // Live Firebase listener — re-renders box2 for everyone on every new vote
+      db.ref('votes/' + week.storageKey).on('value', function(snapshot) {
+        var data = snapshot.val() || {};
+        var votes = {};
+        week.teacherOptions.forEach(function(o) { votes[o.id] = data[o.id] || 0; });
+        uwrRenderBox2(week, votes);
+      });
     }
 
     uwrInit();
