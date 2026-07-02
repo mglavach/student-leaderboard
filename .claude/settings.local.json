@@ -18,7 +18,11 @@
       "PowerShell($env:HOME = \"C:\\\\Users\\\\mglavach\"; git push)",
       "PowerShell($env:HOME = \"C:\\\\Users\\\\mglavach\"; git add .)",
       "PowerShell($env:HOME = \"C:\\\\Users\\\\mglavach\"; git commit -m \"update index\")",
-      "PowerShell($env:HOME = \"C:\\\\Users\\\\mglavach\"; git add .; git commit -m \"update index\"; git push)"
+      "PowerShell($env:HOME = \"C:\\\\Users\\\\mglavach\"; git add .; git commit -m \"update index\"; git push)",
+      "Bash(git -C \"c:/Users/mglavach/OneDrive - Westminster Christian School/HUB/Summer Reading/2026_Summer Reading\" commit -m \"update index\")",
+      "Bash(git -C \"c:/Users/mglavach/OneDrive - Westminster Christian School/HUB/Summer Reading/2026_Summer Reading\" push)",
+      "Bash(git -C \"c:/Users/mglavach/OneDrive - Westminster Christian School/HUB/Summer Reading/2026_Summer Reading\" ls-files)",
+      "Bash(git -C \"c:/Users/mglavach/OneDrive - Westminster Christian School/HUB/Summer Reading/2026_Summer Reading\" add index.html)"
     ]
   }
 }
