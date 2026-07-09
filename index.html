@@ -13,7 +13,7 @@
   <script>
     var READING_DATA = {
 
-      lastUpdated: "July 2, 2026",  // ← update this date when you make changes
+      lastUpdated: "July 9, 2026",  // ← update this date when you make changes
 
       // ── Poppy's weekly spotlight — change these each week ──
       poppy: {
@@ -25,86 +25,86 @@
 
       // ── Grade Level Spotlights — change each week ──
       gradeSpotlights: [
-        { grade: "1st Grade", name: "Giovanna Rivera", book: "Splat the Cat and the Lemonade Stand", rating: "9", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_6942312_883.jpg?resize=200,200" },
-        { grade: "2nd Grade", name: "Isabella Marcilio", book: "Best wishes book #3", rating: "10", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_6524220_648.jpg?resize=200,200" },
-        { grade: "3rd Grade", name: "Carolina Rivera", book: "Duck for President", rating: "10", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_6110558_565.jpg?resize=200,200" },
+        { grade: "1st Grade", name: "Giovanna Rivera", book: "Splat the Cat and the Lemonade Stand", bookLink: "https://amzn.to/4vfaFs9", rating: "9", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_6942312_883.jpg?resize=200,200" },
+        { grade: "2nd Grade", name: "Isabella Marcilio", book: "Best wishes book #3", bookLink: "https://amzn.to/4f9nRJl", rating: "10", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_6524220_648.jpg?resize=200,200" },
+        { grade: "3rd Grade", name: "Carolina Rivera", book: "Duck for President", bookLink: "https://amzn.to/4f9nRJl", rating: "10", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_6110558_565.jpg?resize=200,200" },
         { grade: "4th Grade", name: "", book: "", rating: "", photo: "" },
-        { grade: "5th Grade", name: "Elaina Khalil", book: "Spy School at Sea", rating: "10", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7356482_487.jpg?resize=200,200" },
+        { grade: "5th Grade", name: "Elaina Khalil", book: "Spy School at Sea", bookLink: "https://amzn.to/4f9nRJl", rating: "10", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7356482_487.jpg?resize=200,200" },
       ],
 
       grades: [
         {
           name: "2nd Grade",
           extraPoints: 1,          // ← extra points for absent students or manual adjustment
-          participants: 11,            // ← number of students competing in this grade
+          participants: 17,            // ← number of students competing in this grade
           teacher: "",             // ← teacher name
           teacherPhoto: "",        // ← teacher photo filename (e.g. "brito.jpg")
           students: [
-            { name: "Paola Cheng", points: 48.2,  photo: "" },
-            { name: "Hannah Khalil",    points: 24.5,  photo: "" },
-            { name: "Connor Terrel",     points: 23.2,    photo: "" },
-            { name: "Everly Lopez",    points: 17.9,  photo: "" },
-            { name: "Isabella Marcilio",    points: 17.2,    photo: "" },
-            { name: "Eric Reinhardt",      points: 13.7,  photo: "" },
-            { name: "Serena Palacio",         points: 12.6,    photo: "" },
-            { name: "Nicolas Guerra",  points: 11,    photo: "" },
-            { name: "Oliver Carpenter",         points: 9.6,    photo: "" },
-            { name: "Jules Rivera",  points: 2.5,    photo: "" },
+            { name: "Paola Cheng", points: 60,  photo: "" },
+            { name: "Declan McNamee",    points: 33,  photo: "" },
+            { name: "Hannah Khalil",     points: 28,    photo: "" },
+            { name: "Connor Terrel",    points: 25,  photo: "" },
+            { name: "Thomas Montalvan",    points: 21,    photo: "" },
+            { name: "Everly Lopez",      points: 20,  photo: "" },
+            { name: "Eric Reinhardt",         points: 18,    photo: "" },
+            { name: "Isabella Marcilio",  points: 17.2,    photo: "" },
+            { name: "Serena Palacio",         points: 17,    photo: "" },
+            { name: "Oliver Carpenter",  points: 14.6,    photo: "" },
 
           ]
         },
         {
           name: "3rd Grade",
-          extraPoints: 25,            // ← extra points for absent students or manual adjustment
+          extraPoints: 30,            // ← extra points for absent students or manual adjustment
           participants: 18,           // ← number of students competing in this grade
           teacher: "Mrs. Brito",
           teacherPhoto: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7648139_881.jpg?resize=200,200",
           students: [
-            { name: "Elliot Aberman",   points: 36.4, photo: "" },
-            { name: "Aavi Koppaka",    points: 21.7,  photo: "" },
-            { name: "Anna Prado Lang",       points: 21.2,  photo: "" },
-            { name: "Isabella Castro",        points: 19.5,  photo: "" },
-            { name: "David Tirri",      points: 17,  photo: "" },
-            { name: "Dean Kunen",   points: 16.6,    photo: "" },
-            { name: "Liam Boulos",      points: 11.1,  photo: "" },
-            { name: "Christian Gubbins",   points: 11,  photo: "" },
-            { name: "Alexander Tirri",   points: 8.1,  photo: "" },
-            { name: "Jacob Cardona",       points: 7,  photo: "" },
+            { name: "Elliot Aberman",   points: 47, photo: "" },
+            { name: "Anna Prado Lang",    points: 35,  photo: "" },
+            { name: "Aavi Koppaka",       points: 24.7,  photo: "" },
+            { name: "Isabella Castro",        points: 24.4,  photo: "" },
+            { name: "David Tirri",      points: 19,  photo: "" },
+            { name: "Dean Kunen",   points: 16,    photo: "" },
+            { name: "Christian Gubbins",      points: 13.8,  photo: "" },
+            { name: "Liam Boulos",   points: 11,  photo: "" },
+            { name: "Alexander Tirri",   points: 8,  photo: "" },
+            { name: "Valentina Tello",       points: 7,  photo: "" },
           ]
         },
         {
           name: "4th Grade",
-          extraPoints: 5,          // ← extra points for absent students or manual adjustment
-          participants: 12,            // ← number of students competing in this grade
+          extraPoints: 7,          // ← extra points for absent students or manual adjustment
+          participants: 13,            // ← number of students competing in this grade
           teacher: "Mrs. Dominguez",
           teacherPhoto: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user7781192_6114045_118.png?crop=175px,0px,1664px,1664px&resize=200,200",
           students: [
-            { name: "Bianca Kuljiu",      points: 40.6, photo: "" },
-            { name: "Sienna Roche",      points: 40.1,   photo: "" },
-            { name: "Maxwell Franca",          points: 32.9, photo: "" },
-            { name: "Bea De La Guardia",         points: 26,   photo: "" },
+            { name: "Sienna Roche",      points: 51, photo: "" },
+            { name: "Bianca Kuljiu",      points: 50,   photo: "" },
+            { name: "Bea De La Guardia",          points: 39, photo: "" },
+            { name: "Maxwell Franca",         points: 35,   photo: "" },
             { name: "Elodie Espinel",         points: 20, photo: "" },
-            { name: "Blaire Sanchez",         points: 15.6,    photo: "" },
+            { name: "Blaire Sanchez",         points: 17,    photo: "" },
             { name: "Jack Bogie",             points: 10,  photo: "" },
-            { name: "Charles Whorton, Jr.",         points: 7.7,  photo: "" },
-            { name: "Grayson Rivera",   points: 6.9,    photo: "" },
-            { name: "Sebastian Lewis",   points: 3.5,    photo: "" },]
+            { name: "Charles Whorton, Jr.",         points: 7,  photo: "" },
+            { name: "Grayson Rivera",   points: 7,    photo: "" },
+            { name: "Sebastian Lewis",   points: 5,    photo: "" },]
         },
         {
           name: "5th Grade",
-          extraPoints: 2,           // ← extra points for absent students or manual adjustment
-          participants: 11,            // ← number of students competing in this grade
+          extraPoints: 17,           // ← extra points for absent students or manual adjustment
+          participants: 14,            // ← number of students competing in this grade
           teacher: "",
           teacherPhoto: "",
           students: [
-            { name: "Grayson Muina",    points: 147, photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user8008005_6340503_917.jpeg?resize=200,200" },
-            { name: "Elaina Khalil", points: 145,   photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7356482_487.jpg?resize=200,200" },
-            { name: "Sean Gordon",      points: 90,   photo: "" },
-            { name: "Rebecca Marcilio",    points: 52.1,   photo: "" },
+            { name: "Elaina Khalil",    points: 212, photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7356482_487.jpg?resize=200,200" },
+            { name: "Grayson Muina", points: 170,   photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user8008005_6340503_917.jpeg?resize=200,200" },
+            { name: "Sean Gordon",      points: 101,   photo: "" },
+            { name: "Rebecca Marcilio",    points: 60,   photo: "" },
             { name: "Luke Boulos",      points: 50.5, photo: "" },
-            { name: "Atlas Stitz",      points: 38.8, photo: "" },
-            { name: "Alessandra Prada",      points: 25, photo: "" },
-            { name: "Veronica Lamarque",       points: 22,    photo: "" },
+            { name: "Atlas Stitz",      points: 48.8, photo: "" },
+            { name: "Veronica Lamarque",      points: 27.8, photo: "" },
+            { name: "Alessandra Prada",       points: 25,    photo: "" },
             { name: "Kloe Kunen",       points: 11,    photo: "" },
             { name: "David Cespedes/Skylar Minks(tie)",       points: 9.9,    photo: "" },
           ]
@@ -116,11 +116,18 @@
       //           teacherCorrect/teacherImage/storageKey/votedKey once ready to
       //           turn on the "Guess the Teacher" poll — until then it just
       //           shows "info coming soon")
-      // Index 1 & 2 = the two most recent past weeks (shown side-by-side below, no poll)
-      // comingSoon = countries voted on for what's next after the current week
-      // To advance each week: shift every entry down one (drop the oldest past
-      // week, currently index 2), and add the new current week at index 0.
+      // Index 1+ = past weeks — shown as a "plant shelf" (images, uniform size)
+      //           plus a plain text list below (no images), newest first.
+      // To advance each week: add the new current week at index 0 — the old
+      // current week automatically joins the shelf/list.
       unitedWeRead: [
+        {
+          week: "Week 4",
+          country: "Spain",
+          challengeImage: "spain.png",
+          challengeTitle: "Challenge",
+          challengeText: "The quarter finals are now, Warriors! Get your classmates to join, keep reading, keep quizzing, and help your grade level score a win!",
+        },
         {
           week: "Week 3",
           country: "Brazil",
@@ -142,13 +149,6 @@
           challengeText: "Recruit a friend you don't see on the leaderboard, have them read a book, take an AR quiz, and help your grade level reach 100% participation! Remember, teamwork makes the dream work! Goooooaaaalllll!",
         },
       ],
-
-      comingSoon: [
-        { id: 'germany', label: 'Germany' },
-        { id: 'spain',   label: 'Spain'   },
-      ],
-      nextVoteKey:  'next_country_2026',
-      nextVotedKey: 'next_voted_2026',
     };
   </script>
   <!-- ══════════════════════════════════════════════════════════════════ -->
@@ -1169,11 +1169,6 @@
                 <div class="challenge-card-label"><span>Read</span></div>
                 <div class="challenge-card-text">
                   Finish a book this week.
-                  <div style="margin-top:10px;font-size:.62rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-soft);">Recommended Books</div>
-                  <ul style="margin:4px 0 0; padding-left:18px; line-height:1.45;">
-                    <li><a href="https://amzn.to/4wqBI52" target="_blank" rel="noopener" style="color:var(--green); font-weight:700;">Growing Home</a></li>
-                    <li><a href="https://amzn.to/4f0lo3N" target="_blank" rel="noopener" style="color:var(--green); font-weight:700;">The Bletchley Riddle</a></li>
-                  </ul>
                 </div>
               </div>
               <div class="challenge-card grow">
@@ -1195,12 +1190,10 @@
           <!-- ── The Summer Reading Cup ──────────────────────── -->
           <div style="margin-top:20px; background:var(--white); border-radius:14px; box-shadow:0 2px 18px rgba(44,82,52,.10); overflow:hidden;">
             <div style="background:var(--green); padding:10px 22px;">
-              <div style="font-size:.62rem; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light);">The Summer Reading Cup</div>
+              <div style="font-size:.62rem; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light);">The Summer Reading Cup | Week 4</div>
             </div>
             <div>
-              <div id="uwrBoxCurrent" style="border-bottom:1px solid var(--divider);"></div>
-              <div id="uwrBoxPast" style="border-bottom:1px solid var(--divider);"></div>
-              <div id="uwrBox3"></div>
+              <div id="uwrBoxCurrent"></div>
             </div>
           </div>
 
@@ -1432,7 +1425,9 @@
         if (hasStudent) {
           html += '<div class="spotlight-info">' +
             '<div class="spotlight-name">' + s.name + '</div>';
-          if (s.book)   html += '<div class="spotlight-book">' + s.book + '</div>';
+          if (s.book) {
+            html += '<div class="spotlight-book">' + (s.bookLink ? '<a href="' + s.bookLink + '" target="_blank" rel="noopener" style="color:inherit;">' + s.book + '</a>' : s.book) + '</div>';
+          }
           if (s.rating) html += '<div class="spotlight-rating">Rating: ' + s.rating + '/10</div>';
           html += '</div>';
         } else {
@@ -1441,6 +1436,18 @@
 
         html += '</div></div>';
       });
+
+      html += '<div class="spotlight-card" style="background:var(--green);position:relative;padding-bottom:46px;">' +
+        '<div class="spotlight-card-body">' +
+          '<div class="spotlight-avatar-wrap"><img class="spotlight-avatar" src="germany.png" alt="Tell Us"></div>' +
+          '<div class="spotlight-info">' +
+            '<div class="spotlight-rating" style="font-weight:800;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.65);">Other Recommended Reading</div>' +
+            '<div class="spotlight-book" style="margin-top:2px;"><a href="https://amzn.to/4wqBI52" target="_blank" rel="noopener" style="color:#fff;">Growing Home</a></div>' +
+            '<div class="spotlight-book"><a href="https://amzn.to/4f0lo3N" target="_blank" rel="noopener" style="color:#fff;">The Bletchley Riddle</a></div>' +
+          '</div>' +
+        '</div>' +
+        '<a href="https://forms.office.com/r/uyEtb5Z1vL" target="_blank" rel="noopener" style="position:absolute;right:14px;bottom:14px;background:var(--gold);color:var(--green);font-size:.68rem;font-weight:800;padding:7px 14px;border-radius:999px;text-decoration:none;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.18);">What Have You Been Reading?</a>' +
+      '</div>';
 
       grid.innerHTML = html;
     }
@@ -1620,30 +1627,6 @@
       '</div>';
     }
 
-    function uwrPastCardHtml(week) {
-      if (!week) return '';
-      return (
-        '<div style="padding:16px 18px;">' +
-          '<div style="font-size:.58rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--text-soft);margin-bottom:2px;">United We Read \xB7 ' + week.week + '</div>' +
-          '<div style="font-size:.75rem;font-weight:900;color:var(--green);letter-spacing:.5px;margin-bottom:10px;">' + week.country + '</div>' +
-          '<div style="display:flex;align-items:center;gap:14px;">' +
-            (week.challengeImage ? '<img src="' + week.challengeImage + '" alt="' + week.country + '" style="flex-shrink:0;width:70px;height:auto;mix-blend-mode:multiply;">' : '') +
-            '<div style="font-size:.85rem;font-weight:600;color:var(--text);line-height:1.5;">' + (week.challengeText || '') + '</div>' +
-          '</div>' +
-        '</div>'
-      );
-    }
-
-    function uwrRenderPastRow(weeks) {
-      var el = document.getElementById('uwrBoxPast');
-      if (!el) return;
-      el.innerHTML =
-        '<div style="display:grid;grid-template-columns:1fr 1fr;">' +
-          '<div style="background:var(--green-pale);border-right:1px solid var(--divider);">' + uwrPastCardHtml(weeks[0]) + '</div>' +
-          '<div style="background:var(--green-pale);">' + uwrPastCardHtml(weeks[1]) + '</div>' +
-        '</div>';
-    }
-
     function uwrCurrentChallengeHtml(week) {
       if (!week.challengeText) {
         return '<div style="padding:16px 22px;"><div style="font-size:.92rem;font-weight:600;color:var(--text-soft);">Challenge info coming soon!</div></div>';
@@ -1666,7 +1649,7 @@
         : '';
       return (
         '<div style="padding:16px 22px;display:flex;align-items:flex-start;gap:18px;">' +
-          (week.challengeImage ? '<img src="' + week.challengeImage + '" alt="' + week.country + '" style="flex-shrink:0;width:90px;height:auto;mix-blend-mode:multiply;">' : '') +
+          (week.challengeImage ? '<img src="' + week.challengeImage + '" alt="' + week.country + '" style="flex-shrink:0;width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid var(--green-mid);box-shadow:0 3px 10px rgba(44,82,52,.18);">' : '') +
           '<div style="flex:1;">' +
             (week.challengeTitle ? '<div style="font-size:.92rem;font-weight:800;color:var(--green);margin-bottom:6px;">' + week.challengeTitle + '</div>' : '') +
             '<div style="font-size:.9rem;font-weight:600;color:var(--text);line-height:1.5;">' + week.challengeText + '</div>' +
@@ -1685,10 +1668,6 @@
       var voted    = !!chosenId;
       var total    = hasPoll ? uwrTotal(votes) : 0;
       el.innerHTML =
-        '<div style="padding:10px 16px;background:var(--gold-bg);border-bottom:1px solid var(--gold-light);">' +
-          '<div style="font-size:.58rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);">' + week.week + ' \xB7 Current</div>' +
-          '<div style="font-size:.75rem;font-weight:900;color:var(--green);letter-spacing:.5px;">' + week.country + '</div>' +
-        '</div>' +
         (!hasPoll
           ? uwrCurrentChallengeHtml(week)
           : (
@@ -1711,69 +1690,9 @@
         );
     }
 
-    function ncVote(id) {
-      var data = READING_DATA;
-      if (!data || localStorage.getItem(data.nextVotedKey)) return;
-      if (db) db.ref('votes/' + data.nextVoteKey + '/' + id).set(firebase.database.ServerValue.increment(1)).catch(function(e){ console.warn('Vote write failed:', e.message); });
-      localStorage.setItem(data.nextVotedKey, id);
-      var votes = {};
-      data.comingSoon.forEach(function(c) { votes[c.id] = 0; });
-      uwrRenderBox3(data.comingSoon, votes);
-    }
-
-    function uwrRenderBox3(countries, votes) {
-      var el = document.getElementById('uwrBox3');
-      if (!el) return;
-      var votedId = localStorage.getItem(READING_DATA.nextVotedKey);
-      var voted   = !!votedId;
-      var total   = votes ? Object.values(votes).reduce(function(a, b) { return a + b; }, 0) : 0;
-      el.innerHTML =
-        '<div style="padding:10px 16px;background:var(--green-pale);border-bottom:1px solid var(--divider);">' +
-          '<div style="font-size:.58rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-soft);">Coming Up' + (voted && total > 0 ? ' \xB7 ' + total + ' vote' + (total !== 1 ? 's' : '') : '') + '</div>' +
-          '<div style="font-size:.75rem;font-weight:900;color:var(--green);letter-spacing:.5px;">What country is next?</div>' +
-        '</div>' +
-        '<div style="padding:16px;display:flex;flex-direction:column;gap:10px;">' +
-        (voted
-          ? (countries || []).map(function(c) {
-              var count   = votes ? (votes[c.id] || 0) : 0;
-              var pct     = total > 0 ? Math.round((count / total) * 100) : 0;
-              var isChosen = c.id === votedId;
-              return '<div>' +
-                '<div style="display:flex;justify-content:space-between;margin-bottom:3px;">' +
-                  '<span style="font-size:.85rem;font-weight:' + (isChosen ? '900' : '700') + ';color:var(--text);">' + c.label + (isChosen ? ' ← you' : '') + '</span>' +
-                  '<span style="font-size:.8rem;font-weight:800;color:var(--text-mid);">' + pct + '% (' + count + ')</span>' +
-                '</div>' +
-                '<div style="height:8px;background:var(--divider);border-radius:99px;overflow:hidden;">' +
-                  '<div style="height:100%;width:' + pct + '%;background:var(--green-mid);border-radius:99px;transition:width .4s ease;"></div>' +
-                '</div>' +
-              '</div>';
-            }).join('')
-          : (countries || []).map(function(c) {
-              return '<button onclick="ncVote(\'' + c.id + '\')" style="background:var(--green-pale);border:2px solid var(--divider);border-radius:10px;padding:10px 14px;cursor:pointer;text-align:left;font-family:Montserrat,Arial,sans-serif;font-size:.88rem;font-weight:700;color:var(--text);transition:background .15s,border-color .15s;" onmouseover="this.style.background=\'#d4edd8\';this.style.borderColor=\'var(--green-mid)\'" onmouseout="this.style.background=\'var(--green-pale)\';this.style.borderColor=\'var(--divider)\'">' + c.label + '</button>';
-            }).join('')
-        ) +
-        '</div>';
-    }
-
     function uwrInit() {
       var uwr = READING_DATA.unitedWeRead;
       if (!uwr) return;
-      uwrRenderPastRow([uwr[1] || null, uwr[2] || null]);
-
-      // Box 3 — immediate render then Firebase listener
-      var emptyVotes3 = {};
-      READING_DATA.comingSoon.forEach(function(c) { emptyVotes3[c.id] = 0; });
-      uwrRenderBox3(READING_DATA.comingSoon, emptyVotes3);
-      if (db) {
-        try {
-          db.ref('votes/' + READING_DATA.nextVoteKey).on('value', function(snapshot) {
-            var data = snapshot.val() || {};
-            var votes = {};
-            READING_DATA.comingSoon.forEach(function(c) { votes[c.id] = data[c.id] || 0; });
-            uwrRenderBox3(READING_DATA.comingSoon, votes);
-          });
-        } catch(e) {}
-      }
 
       // Current box — immediate render then Firebase listener (only if the poll is set up)
       var week = uwr[0];
