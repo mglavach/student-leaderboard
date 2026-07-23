@@ -22,7 +22,12 @@
       "Bash(git -C \"c:/Users/mglavach/OneDrive - Westminster Christian School/HUB/Summer Reading/2026_Summer Reading\" commit -m \"update index\")",
       "Bash(git -C \"c:/Users/mglavach/OneDrive - Westminster Christian School/HUB/Summer Reading/2026_Summer Reading\" push)",
       "Bash(git -C \"c:/Users/mglavach/OneDrive - Westminster Christian School/HUB/Summer Reading/2026_Summer Reading\" ls-files)",
-      "Bash(git -C \"c:/Users/mglavach/OneDrive - Westminster Christian School/HUB/Summer Reading/2026_Summer Reading\" add index.html)"
+      "Bash(git -C \"c:/Users/mglavach/OneDrive - Westminster Christian School/HUB/Summer Reading/2026_Summer Reading\" add index.html)",
+      "Bash(grep -iE '\\\\.\\(png|jpg|jpeg|svg\\)$')",
+      "Bash(powershell -Command \"\\(Get-Item 'c:\\\\Users\\\\mglavach\\\\OneDrive - Westminster Christian School\\\\HUB\\\\Summer Reading\\\\2026_Summer Reading\\\\index.html'\\).LastWriteTime\")",
+      "Bash(powershell -Command \"Get-FileHash 'c:\\\\Users\\\\mglavach\\\\OneDrive - Westminster Christian School\\\\HUB\\\\Summer Reading\\\\2026_Summer Reading\\\\index.html' -Algorithm MD5 | Select-Object -ExpandProperty Hash\")",
+      "Bash(git status *)",
+      "Bash(grep -iE '\\\\.\\(png|jpg|jpeg\\)$')"
     ]
   }
 }
