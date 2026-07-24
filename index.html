@@ -13,7 +13,7 @@
   <script>
     var READING_DATA = {
 
-      lastUpdated: "July 16, 2026",  // ← update this date when you make changes
+      lastUpdated: "July 23, 2026",  // ← update this date when you make changes
 
       // ── Poppy's weekly spotlight — change these each week ──
       poppy: {
@@ -388,6 +388,128 @@
       letter-spacing: 1.5px;
       text-transform: uppercase;
       color: var(--text-soft);
+    }
+
+    /* ── Final Countdown banner ────────────────────────────── */
+    .countdown-banner {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+      border-radius: 14px;
+      padding: 22px 28px;
+      margin-bottom: 24px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(201,162,39,.25);
+      animation: countdownGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes countdownGlow {
+      0%, 100% { box-shadow: 0 4px 20px rgba(201,162,39,.22); }
+      50%      { box-shadow: 0 4px 30px rgba(201,162,39,.5); }
+    }
+
+    .countdown-eyebrow {
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+
+    .hourglass {
+      width: 42px;
+      height: 63px;
+      margin: 0 auto 12px;
+    }
+
+    .hourglass-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.3));
+    }
+
+    .sand-top-clip-rect {
+      animation: sandTopDrain 4s linear infinite;
+    }
+
+    @keyframes sandTopDrain {
+      0%   { y: 0;  height: 37; }
+      100% { y: 37; height: 0;  }
+    }
+
+    .sand-bottom-clip-rect {
+      animation: sandBottomFill 4s linear infinite;
+    }
+
+    @keyframes sandBottomFill {
+      0%   { y: 80; height: 0;  }
+      100% { y: 45; height: 35; }
+    }
+
+    .sand-grain {
+      animation: grainFall 1.4s linear infinite;
+    }
+    .sand-grain.g2 { animation-delay: .45s; }
+    .sand-grain.g3 { animation-delay: .9s; }
+
+    @keyframes grainFall {
+      0%   { cy: 45; cx: 30; opacity: 1; }
+      50%  { cx: 29; }
+      92%  { opacity: 1; }
+      100% { cy: 78; cx: 30; opacity: 0; }
+    }
+
+    .countdown-title {
+      font-size: clamp(1.2rem, 3.2vw, 1.9rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+
+    .countdown-title .accent { color: var(--gold); }
+
+    .countdown-units {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .countdown-unit {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(245,216,126,.35);
+      border-radius: 10px;
+      padding: 12px 18px;
+      min-width: 78px;
+    }
+
+    .countdown-value {
+      font-size: clamp(1.5rem, 4vw, 2.3rem);
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .countdown-label {
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+      margin-top: 6px;
+    }
+
+    .countdown-done {
+      font-size: clamp(1.05rem, 2.5vw, 1.4rem);
+      font-weight: 900;
+      color: var(--gold);
+    }
+
+    @media (max-width: 640px) {
+      .countdown-unit { min-width: 62px; padding: 10px 12px; }
     }
 
     /* ── Challenge section ─────────────────────────────────── */
@@ -1157,57 +1279,47 @@
     </div>
 
     <div class="tab-panel active" id="compete" role="tabpanel">
+      <div class="countdown-banner">
+        <div class="countdown-eyebrow">It's Time</div>
+        <div class="hourglass" aria-hidden="true">
+          <svg viewBox="0 0 60 90" class="hourglass-svg">
+            <rect x="4" y="2" width="52" height="6" rx="2" fill="#c9a227"/>
+            <rect x="4" y="82" width="52" height="6" rx="2" fill="#c9a227"/>
+            <path d="M8,8 L52,8 L30,45 L52,82 L8,82 L30,45 Z" fill="rgba(255,255,255,.06)" stroke="#f5d87e" stroke-width="1.5" stroke-linejoin="round"/>
+            <clipPath id="sandTopClip"><rect class="sand-top-clip-rect" x="0" y="0" width="60" height="37"/></clipPath>
+            <polygon points="11,10 49,10 30,43" fill="#f5d87e" clip-path="url(#sandTopClip)"/>
+            <clipPath id="sandBottomClip"><rect class="sand-bottom-clip-rect" x="0" y="80" width="60" height="0"/></clipPath>
+            <polygon points="12,80 48,80 30,47" fill="#f5d87e" clip-path="url(#sandBottomClip)"/>
+            <circle class="sand-grain g1" cx="30" cy="45" r="1.4" fill="#f5d87e"/>
+            <circle class="sand-grain g2" cx="30" cy="45" r="1.2" fill="#f5d87e"/>
+            <circle class="sand-grain g3" cx="30" cy="45" r="1.6" fill="#f5d87e"/>
+          </svg>
+        </div>
+        <div class="countdown-title">The Final Countdown <span class="accent">to the End of Summer Reading</span></div>
+        <div class="countdown-units" id="finalCountdown">
+          <div class="countdown-unit"><div class="countdown-value" id="cdDays">&mdash;</div><div class="countdown-label">Days</div></div>
+          <div class="countdown-unit"><div class="countdown-value" id="cdHours">&mdash;</div><div class="countdown-label">Hours</div></div>
+          <div class="countdown-unit"><div class="countdown-value" id="cdMinutes">&mdash;</div><div class="countdown-label">Minutes</div></div>
+          <div class="countdown-unit"><div class="countdown-value" id="cdSeconds">&mdash;</div><div class="countdown-label">Seconds</div></div>
+        </div>
+      </div>
       <div class="challenge-section" style="background:transparent; border-top:0; padding:0;">
         <div class="challenge-inner">
-          <div class="challenge-heading">This Summer's Challenge</div>
-          <div class="challenge-title">Read · Grow · Shine</div>
+          <div class="challenge-title">The Final Challenge!</div>
 
           <div class="challenge-and-poppy">
-            <div class="poppy-sidebar">
-              <img class="poppy-photo-sm" src="poppy.png" alt="Poppy">
-              <div class="poppy-stat ar-points">
-                <div class="poppy-stat-label">Poppy's Points</div>
-                <div class="poppy-stat-value" id="poppyPoints">—</div>
-              </div>
-            </div>
-
             <div class="challenge-cards">
-              <div class="challenge-card read">
-                <div class="challenge-card-label"><span>Read</span></div>
+              <div class="challenge-card">
+                <div class="challenge-card-label"><span>Set Your Goal</span></div>
                 <div class="challenge-card-text">
-                  Finish a book this week.
-                </div>
-              </div>
-              <div class="challenge-card grow">
-                <div class="challenge-card-label"><span>Grow</span></div>
-                <div class="challenge-card-text">
-                  <ul style="margin:0; padding-left:18px; line-height:1.45;">
-                    <li>Read for 15–30 minutes at least 4 days a week.</li>
-                    <li>Take an Accelerated Reader quiz after you finish a book.</li>
-                  </ul>
+                  Decide how many books or AR points you want to finish with before Summer Reading ends on August 9th.
                 </div>
               </div>
               <div class="challenge-card shine">
-                <div class="challenge-card-label"><span>Shine</span></div>
-                <div class="challenge-card-text">Recommend a book to a friend and invite them to join the leaderboard.</div>
+                <div class="challenge-card-label"><span>Accomplish Your Goal</span></div>
+                <div class="challenge-card-text">Keep reading, take your quizzes, and cross the finish line strong — you've got this, Warriors!</div>
               </div>
             </div>
-          </div>
-
-          <!-- ── The Summer Reading Cup ──────────────────────── -->
-          <div style="margin-top:20px; background:var(--white); border-radius:14px; box-shadow:0 2px 18px rgba(44,82,52,.10); overflow:hidden;">
-            <div style="background:var(--green); padding:10px 22px;">
-              <div style="font-size:.62rem; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light);">The Summer Reading Cup | Week 5</div>
-            </div>
-            <div>
-              <div id="uwrBoxCurrent"></div>
-            </div>
-          </div>
-
-          <div class="spotlights-section">
-            <div class="spotlights-eyebrow">Weekly Update</div>
-            <div class="spotlights-title">What Have Our Warriors Been Up To?</div>
-            <div class="spotlights-grid" id="spotlightsGrid"></div>
           </div>
 
           <div class="container" style="max-width:1160px; margin:0 auto; padding:18px 0 0;">
@@ -1349,11 +1461,6 @@
       document.getElementById('updatedBar').textContent =
         data.lastUpdated ? 'Last updated: ' + data.lastUpdated : '';
 
-      // Poppy spotlight
-      if (data.poppy) {
-        document.getElementById('poppyPoints').textContent  = data.poppy.arPoints != null ? data.poppy.arPoints : '—';
-      }
-
       var grid = document.getElementById('gradesGrid');
       grid.innerHTML = '';
 
@@ -1410,6 +1517,38 @@
     render();
     renderSpotlights();
     renderPeopleToBeat();
+    startFinalCountdown();
+
+    function startFinalCountdown() {
+      var target = new Date(2026, 7, 9, 23, 59, 59).getTime(); // August 9, 2026, 11:59:59 PM
+      var container = document.getElementById('finalCountdown');
+      if (!container) return;
+
+      var timer;
+
+      function tick() {
+        var diff = target - Date.now();
+
+        if (diff <= 0) {
+          clearInterval(timer);
+          container.innerHTML = '<div class="countdown-done">&#127881; Summer Reading has ended &mdash; great job, Warriors!</div>';
+          return;
+        }
+
+        var days    = Math.floor(diff / 86400000);
+        var hours   = Math.floor((diff % 86400000) / 3600000);
+        var minutes = Math.floor((diff % 3600000) / 60000);
+        var seconds = Math.floor((diff % 60000) / 1000);
+
+        document.getElementById('cdDays').textContent    = days;
+        document.getElementById('cdHours').textContent   = String(hours).padStart(2, '0');
+        document.getElementById('cdMinutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('cdSeconds').textContent = String(seconds).padStart(2, '0');
+      }
+
+      tick();
+      timer = setInterval(tick, 1000);
+    }
 
     function renderSpotlights() {
       var data = READING_DATA;
