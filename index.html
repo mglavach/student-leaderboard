@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Summer Reading Challenge — Leaderboard · Westminster</title>
+  <title>Summer Reading Celebration — Congratulations Warriors! · Westminster</title>
 
   <!-- ╔══════════════════════════════════════════════════════════════════╗
        ║  EDIT DATA HERE — update names & points, then save & push       ║
@@ -13,7 +13,7 @@
   <script>
     var READING_DATA = {
 
-      lastUpdated: "July 30, 2026",  // ← update this date when you make changes
+      lastUpdated: "August 9, 2026",  // ← update this date when you make changes
 
       // ── Poppy's weekly spotlight — change these each week ──
       poppy: {
@@ -23,91 +23,82 @@
         arPoints: 84.6,                          // ← Poppy's AR points
       },
 
-      // ── Grade Level Spotlights — change each week ──
-      gradeSpotlights: [
-        { grade: "1st Grade", name: "Giovanna Rivera", book: "Splat the Cat and the Lemonade Stand", bookLink: "https://amzn.to/4vfaFs9", rating: "9", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_6942312_883.jpg?resize=200,200" },
-        { grade: "2nd Grade", name: "Isabella Marcilio", book: "Best wishes book #3", bookLink: "https://amzn.to/4f9nRJl", rating: "10", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_6524220_648.jpg?resize=200,200" },
-        { grade: "3rd Grade", name: "Isabella Castro", book: "Cam Jansen The Mystery at the Monkey House", rating: "10", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_6244567_704.jpg?resize=200,200" },
-        { grade: "4th Grade", name: "", book: "", rating: "", photo: "" },
-        { grade: "5th Grade", name: "Elaina Khalil", book: "Spy School at Sea", bookLink: "https://amzn.to/4f9nRJl", rating: "10", photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7356482_487.jpg?resize=200,200" },
-      ],
-
       grades: [
         {
           name: "2nd Grade",
-          extraPoints: 70,          // ← extra points for absent students or manual adjustment
+          extraPoints: 103,          // ← extra points for absent students or manual adjustment
           participants: 18,            // ← number of students competing in this grade
           teacher: "",             // ← teacher name
           teacherPhoto: "",        // ← teacher photo filename (e.g. "brito.jpg")
           students: [
-            { name: "Paola Cheng", points: 90,  photo: "" },
-            { name: "Everly Lopez",      points: 48,  photo: "" },
-            { name: "Declan McNamee",    points: 47,  photo: "" },
-            { name: "Thomas Montalvan",    points: 37,    photo: "" },
-            { name: "Oliver Carpenter",  points: 31,    photo: "" },
-            { name: "Hannah Khalil",     points: 29,    photo: "" },
-            { name: "Connor Terrel",    points: 25.2,  photo: "" },
-            { name: "Nicolas Guerra",         points: 24,    photo: "" },
-             { name: "Serena Palacio",         points: 22,    photo: "" },
-            { name: "Isabella Marcilio",  points: 18.2,    photo: "" },
-           ]
+            { name: "Paola Cheng", points: 105.8,  photo: "" },
+            { name: "Declan McNamee",    points: 74.9,  photo: "" },
+            { name: "Everly Lopez",      points: 63.3,  photo: "" },
+            { name: "Thomas Montalvan",    points: 54.2,    photo: "" },
+            { name: "Nicolas Guerra",         points: 39,    photo: "" },
+            { name: "Hannah Khalil",     points: 38.7,    photo: "" },
+            { name: "Oliver Carpenter",  points: 33.6,    photo: "" },
+            { name: "Isabella Marcilio",  points: 26,    photo: "" },
+            { name: "Connor Terrel (tie)",    points: 25.3,  photo: "" },
+             { name: "Serena Palacio (tie)",         points: 25.3,    photo: "" },
+            ]
         },
         {
           name: "3rd Grade",
-          extraPoints: 51,            // ← extra points for absent students or manual adjustment
-          participants: 22,           // ← number of students competing in this grade
+          extraPoints: 68,            // ← extra points for absent students or manual adjustment
+          participants: 24,           // ← number of students competing in this grade
           teacher: "Mrs. Brito",
           teacherPhoto: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7648139_881.jpg?resize=200,200",
           students: [
-           { name: "Anna Prado Lang",    points: 75,  photo: "" },
-           { name: "Elliot Aberman",   points: 60, photo: "" },
-            { name: "Isabella Castro",        points: 38,  photo: "" },
-            { name: "Aavi Koppaka",       points: 24.7,  photo: "" },
-            { name: "David Tirri",      points: 19,  photo: "" },
-            { name: "Christian Gubbins",      points: 16.7,  photo: "" },
-            { name: "Dean Kunen",   points: 16.6,    photo: "" },
+           { name: "Anna Prado Lang",    points: 92.6,  photo: "" },
+           { name: "Elliot Aberman",   points: 60.2, photo: "" },
+            { name: "Isabella Castro",        points: 57.8,  photo: "" },
+            { name: "Aavi Koppaka",       points: 30.2,  photo: "" },
+            { name: "Dean Kunen",   points: 22.5,    photo: "" },
+            { name: "David Tirri",      points: 20.6,  photo: "" },
+            { name: "Christian Gubbins",      points: 16.8,  photo: "" },
+            { name: "Anna Santos Hora",      points: 16.2,  photo: "" },
+            { name: "Kai Shivdisani",      points: 14.7,  photo: "" },
             { name: "Liam Boulos",   points: 14.1,  photo: "" },
-            { name: "Valentina Tello",       points: 9.1,  photo: "" },
-             { name: "Carolina Rivera",   points: 8.5,  photo: "" },
-           
+            
           ]
         },
         {
           name: "4th Grade",
           extraPoints: 10,          // ← extra points for absent students or manual adjustment
-          participants: 15,            // ← number of students competing in this grade
+          participants: 16,            // ← number of students competing in this grade
           teacher: "Mrs. Dominguez",
           teacherPhoto: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user7781192_6114045_118.png?crop=175px,0px,1664px,1664px&resize=200,200",
           students: [
+            { name: "Blaire Sanchez",         points: 53,    photo: "" },
             { name: "Bianca Kuljiu",      points: 63,   photo: "" },
             { name: "Sienna Roche",      points: 62, photo: "" },
-            { name: "Blaire Sanchez",         points: 53,    photo: "" },
             { name: "Bea De La Guardia",          points: 49, photo: "" },
             { name: "Maxwell Franca",         points: 37,   photo: "" },
+            { name: "Sofia Green",         points: 53,    photo: "" },
             { name: "Elodie Espinel",         points: 20, photo: "" },
             { name: "Charles Whorton, Jr.",         points: 15.4,  photo: "" },
-            { name: "Sofia Green",   points: 10.4,    photo: "" },
             { name: "Jack Bogie",             points: 10,  photo: "" },
             { name: "Sebastian Lewis",   points: 8.7,    photo: "" },
-            { name: "Grayson Rivera",   points: 6.9,    photo: "" },]
+          ]
         },
         {
           name: "5th Grade",
-          extraPoints: 53,           // ← extra points for absent students or manual adjustment
+          extraPoints: 77,           // ← extra points for absent students or manual adjustment
           participants:20,            // ← number of students competing in this grade
           teacher: "",
           teacherPhoto: "",
           students: [
-            { name: "Grayson Muina", points: 294,   photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user8008005_6340503_917.jpeg?resize=200,200" },
-            { name: "Elaina Khalil",    points: 240, photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7356482_487.jpg?resize=200,200" },
-            { name: "Sean Gordon",      points: 119,   photo: "" },
-            { name: "Atlas Stitz",      points: 69.8, photo: "" },
-            { name: "Rebecca Marcilio",    points: 60,   photo: "" },
+            { name: "Grayson Muina", points: 379.2,   photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user8008005_6340503_917.jpeg?resize=200,200" },
+            { name: "Elaina Khalil",    points: 303.8, photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7356482_487.jpg?resize=200,200" },
+            { name: "Sean Gordon",      points: 141.4,   photo: "" },
+            { name: "Atlas Stitz",      points: 79.8, photo: "" },
+            { name: "Rebecca Marcilio",    points: 60.2,   photo: "" },
             { name: "Luke Boulos",      points: 50.5, photo: "" },
             { name: "Veronica Lamarque",      points: 39, photo: "" },
             { name: "Alessandra Prada",       points: 38,    photo: "" },
             { name: "Alivia Mason",       points: 27,    photo: "" },
-            { name: "Skylar Minks",       points: 21,    photo: "" },
+            { name: "Kloe Kunen",       points: 23,    photo: "" },
           ]
         },
       ],
@@ -173,6 +164,7 @@
 
     /* ── Design tokens ─────────────────────────────────────── */
     :root {
+      /* Primary Brand Colors */
       --green:        #2c5234;
       --green-mid:    #3d7348;
       --green-light:  #5a9e6f;
@@ -180,6 +172,14 @@
       --gold:         #c9a227;
       --gold-bg:      #fffbe8;
       --gold-light:   #f5d87e;
+      
+      /* Celebration Accent Colors (harmonized with green/gold) */
+      --accent-warm:  #d4843d;   /* Warm orange derived from gold */
+      --accent-rich:  #8b5a2b;   /* Rich brown complement */
+      --accent-bright: #f0ad4e;  /* Bright amber accent */
+      --accent-deep:  #1e4620;   /* Deep forest green accent */
+      
+      /* Supporting Colors */
       --silver:       #c8c8c8;
       --bronze:       #cd7f32;
       --bg:           #f0f4f1;
@@ -205,12 +205,47 @@
 
     /* ── Site header ───────────────────────────────────────── */
     .site-header {
-      background: var(--green);
+      background: linear-gradient(135deg, var(--green) 0%, var(--accent-deep) 100%);
       padding: 28px 48px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
+      box-shadow: 0 8px 32px rgba(201,162,39,.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .site-header::before {
+      content: '🎉';
+      position: absolute;
+      left: 2%;
+      top: 50%;
+      transform: translateY(-50%) rotate(-15deg);
+      font-size: 2.5rem;
+      opacity: 0.6;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .site-header::after {
+      content: '🎊';
+      position: absolute;
+      right: 2%;
+      top: 50%;
+      transform: translateY(-50%) rotate(15deg);
+      font-size: 2.5rem;
+      opacity: 0.6;
+      animation: float 3.5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(-50%); }
+      50% { transform: translateY(-60%); }
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
     }
 
     .school-name {
@@ -229,6 +264,12 @@
       letter-spacing: 1.5px;
       line-height: 1.08;
       color: #ffffff;
+      animation: titlePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes titlePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
     }
 
     .page-title .accent { color: var(--gold); }
@@ -1085,133 +1126,112 @@
       width: 100%;
     }
 
-    /* ── Grade Level Spotlights ─────────────────────────────── */
-    .spotlights-section {
-      margin-top: 32px;
+    /* ── Welcome to the Club Section ────────────────────────── */
+    .club-section {
+      margin-top: 40px;
       padding-top: 28px;
       border-top: 2px solid var(--divider);
     }
 
-    .spotlights-eyebrow {
+    .club-eyebrow {
       font-size: .65rem;
       font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--accent-warm);
       margin-bottom: 4px;
     }
 
-    .spotlights-title {
+    .club-title {
       font-size: clamp(1.1rem, 2.5vw, 1.5rem);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--green);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
-    .spotlights-grid {
+    .clubs-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
 
-    .spotlight-card {
-      background: var(--white);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 2px 18px rgba(44,82,52,.10);
-    }
-
-    .spotlight-card-body {
+    .club-card {
+      background: linear-gradient(135deg, var(--gold-bg) 0%, #fefef5 100%);
+      border-radius: 12px;
       padding: 20px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
+      border-left: 5px solid var(--accent-warm);
+      box-shadow: 0 2px 8px rgba(44,82,52,.08);
     }
 
-    .spotlight-avatar-wrap {
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
+    .club-card.level-200 { border-left-color: var(--accent-bright); }
+    .club-card.level-100 { border-left-color: var(--gold); }
+    .club-card.level-75 { border-left-color: var(--accent-rich); }
+    .club-card.level-50 { border-left-color: var(--green-mid); }
+    .club-card.level-25 { border-left-color: var(--green-light); }
+
+    .club-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
     }
 
-    .spotlight-avatar {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--green-pale);
-    }
-
-    .spotlight-avatar-placeholder {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: var(--green-pale);
-      border: 3px solid var(--divider);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      color: var(--green-light);
-    }
-
-    .spotlight-grade-tag {
-      font-size: .55rem;
+    .club-threshold {
+      font-size: .75rem;
       font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--white);
-      background: var(--green);
-      border-radius: 4px;
-      padding: 2px 6px;
-      white-space: nowrap;
-    }
-
-    .spotlight-info { flex: 1; }
-
-    .spotlight-empty {
-      font-size: .85rem;
-      font-style: italic;
       color: var(--text-soft);
-      padding: 20px;
+      margin-bottom: 4px;
     }
 
-    .spotlight-name {
-      font-size: .95rem;
-      font-weight: 800;
+    .club-name {
+      font-size: 1rem;
+      font-weight: 900;
       color: var(--text);
-      margin-bottom: 3px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
     }
 
-    .spotlight-book {
-      font-size: .8rem;
+    .club-members {
+      font-size: .85rem;
       font-weight: 600;
       color: var(--text-mid);
-      margin-bottom: 3px;
+      line-height: 1.6;
     }
 
-    .spotlight-rating {
-      font-size: .75rem;
+    .club-member {
+      display: inline-block;
+      margin-right: 2px;
+    }
+
+    .club-member::after {
+      content: ", ";
+    }
+
+    .club-member:last-child::after {
+      content: "";
+    }
+
+    .club-count {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--accent-warm);
+      margin-top: 10px;
+    }
+
+    .club-empty {
+      font-size: .9rem;
+      font-style: italic;
       color: var(--text-soft);
-    }
-
-    .spotlights-cta {
-      margin-top: 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      justify-content: flex-end;
+      padding: 12px 0;
     }
 
     @media (max-width: 640px) {
       .challenge-and-poppy { flex-direction: column; }
       .poppy-sidebar { width: 100%; }
       .poppy-sidebar .poppy-stats { flex-direction: row; flex-wrap: wrap; }
-      .spotlights-grid { grid-template-columns: 1fr; }
+      .clubs-grid { grid-template-columns: 1fr; }
     }
 
     /* ── Footer ────────────────────────────────────────────── */
@@ -1270,18 +1290,34 @@
     </div>
   </header>
 
-  <div class="updated-bar" id="updatedBar"></div>
+  <!-- Confetti Canvas -->
+  <canvas id="confetti" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;"></canvas>
+
+  <!-- Celebration Banner -->
+  <div style="background:linear-gradient(90deg,var(--accent-warm) 0%,var(--accent-bright) 25%,var(--gold) 50%,var(--accent-warm) 75%,var(--accent-bright) 100%);padding:16px 20px;text-align:center;color:#fff;font-weight:900;font-size:1.1rem;letter-spacing:2px;text-shadow:2px 2px 4px rgba(0,0,0,.3);animation:gradientShift 4s ease infinite;">
+    <div>✨ WELCOME TO THE SUMMER READING CELEBRATION! ✨</div>
+    <div style="font-size:.85rem;margin-top:6px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Every reader, every book, every achievement is LEGENDARY!</div>
+  </div>
+
+  <!-- Ice Cream Party Announcement -->
+  <div style="max-width:700px;margin:20px auto;padding:20px 24px;text-align:center;background:linear-gradient(135deg,#ffe0ec 0%,#fff5d6 50%,#dff3ff 100%);border:3px dashed var(--accent-warm);border-radius:20px;box-shadow:0 6px 20px rgba(0,0,0,.08);">
+    <div style="font-size:1.4rem;font-weight:900;color:var(--accent-rich);">🍨 ICE CREAM PARTY! 🍦</div>
+    <div style="font-size:1.05rem;font-weight:700;color:var(--accent-warm);margin-top:8px;">Thursday, August 20 &mdash; during lunch in the SAC!</div>
+    <div style="font-size:.95rem;color:#555;margin-top:6px;">Come celebrate with a scoop &mdash; every Warrior who participated in the AR challenge or turned in their journal for Summer Reading is invited! 🎉</div>
+  </div>
+
+  <div class="updated-bar" id="updatedBar" style="background:linear-gradient(90deg,var(--accent-warm) 0%,var(--accent-bright) 50%,var(--gold) 100%);color:#fff;font-weight:900;text-shadow:1px 1px 2px rgba(0,0,0,.2);">🎊 Summer Reading 2024 - Official Celebration Page 🎊</div>
 
   <section class="info-tabs-section">
     <div class="tab-buttons" role="tablist" aria-label="Summer reading tabs">
-      <button class="tab-button active" type="button" data-tab="compete">Compete</button>
-      <button class="tab-button" type="button" data-tab="resources">Resources</button>
-      <button class="tab-button" type="button" data-tab="points">How to Earn Points</button>
+      <button class="tab-button active" type="button" data-tab="compete" style="background:var(--accent-warm);color:#fff;">🎉 Celebrate</button>
+      <button class="tab-button" type="button" data-tab="resources">📖 Resources</button>
+      <button class="tab-button" type="button" data-tab="points">⭐ How to Earn Points</button>
     </div>
 
     <div class="tab-panel active" id="compete" role="tabpanel">
-      <div class="countdown-banner">
-        <div class="countdown-eyebrow">It's Time</div>
+      <div class="countdown-banner" style="background:linear-gradient(135deg,var(--accent-warm) 0%,var(--accent-bright) 50%,var(--gold) 100%);">
+        <div class="countdown-eyebrow" style="color:#fff;text-shadow:2px 2px 4px rgba(0,0,0,.2);">🌟 Celebration Time 🌟</div>
         <div class="hourglass" aria-hidden="true">
           <svg viewBox="0 0 60 90" class="hourglass-svg">
             <rect x="4" y="2" width="52" height="6" rx="2" fill="#c9a227"/>
@@ -1296,43 +1332,56 @@
             <circle class="sand-grain g3" cx="30" cy="45" r="1.6" fill="#f5d87e"/>
           </svg>
         </div>
-        <div class="countdown-title">The Final Countdown <span class="accent">to the End of Summer Reading</span></div>
-        <div class="countdown-units" id="finalCountdown">
-          <div class="countdown-unit"><div class="countdown-value" id="cdDays">&mdash;</div><div class="countdown-label">Days</div></div>
-          <div class="countdown-unit"><div class="countdown-value" id="cdHours">&mdash;</div><div class="countdown-label">Hours</div></div>
-          <div class="countdown-unit"><div class="countdown-value" id="cdMinutes">&mdash;</div><div class="countdown-label">Minutes</div></div>
-          <div class="countdown-unit"><div class="countdown-value" id="cdSeconds">&mdash;</div><div class="countdown-label">Seconds</div></div>
+        <div class="countdown-title" style="text-shadow:2px 2px 8px rgba(0,0,0,.3);">Congratulations <span class="accent" style="color:#fff;text-shadow:2px 2px 4px rgba(0,0,0,.2);">Warriors!</span></div>
+        <div style="font-size:1.1rem;color:#fff;margin:12px 0;font-weight:700;text-shadow:1px 1px 4px rgba(0,0,0,.2);">You made this summer LEGENDARY! 📚✨</div>
+        <div class="countdown-units" style="margin-top:18px;justify-content:center;">
+          <div class="countdown-unit" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);min-width:100px;">
+            <div class="countdown-value" style="color:#fff;font-size:2rem;">🏆</div>
+            <div class="countdown-label" style="color:#fff;margin-top:8px;">Champion</div>
+          </div>
+          <div class="countdown-unit" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);min-width:100px;">
+            <div class="countdown-value" style="color:#fff;font-size:2rem;">📚</div>
+            <div class="countdown-label" style="color:#fff;margin-top:8px;">Readers</div>
+          </div>
+          <div class="countdown-unit" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);min-width:100px;">
+            <div class="countdown-value" style="color:#fff;font-size:2rem;">⭐</div>
+            <div class="countdown-label" style="color:#fff;margin-top:8px;">Legends</div>
+          </div>
         </div>
       </div>
       <div class="challenge-section" style="background:transparent; border-top:0; padding:0;">
         <div class="challenge-inner">
-          <div class="challenge-title">The Final Challenge!</div>
+        <div class="challenge-title" style="color:var(--accent-warm);">🎉 Thank You for an Amazing Summer! 🎉</div>
 
           <div class="challenge-and-poppy">
             <div class="challenge-cards">
-              <div class="challenge-card">
-                <div class="challenge-card-label"><span>Set Your Goal</span></div>
-                <div class="challenge-card-text">
-                  Decide how many books or AR points you want to finish with before Summer Reading ends on August 9th.
+              <div class="challenge-card" style="background:linear-gradient(135deg,#fffbe8 0%,#fff9e6 100%);border-left-color:var(--accent-warm);">
+                <div class="challenge-card-label"><span style="color:var(--accent-warm);">📖 You Read!</span></div>
+                <div class="challenge-card-text" style="font-weight:700;font-size:1rem;">
+                  Every book finished, every quiz passed, and every page turned made a difference!
                 </div>
               </div>
-              <div class="challenge-card shine">
-                <div class="challenge-card-label"><span>Accomplish Your Goal</span></div>
-                <div class="challenge-card-text">Keep reading, take your quizzes, and cross the finish line strong — you've got this, Warriors!</div>
+              <div class="challenge-card shine" style="background:linear-gradient(135deg,#fffbe8 0%,#fff9e6 100%);border-left-color:var(--accent-bright);">
+                <div class="challenge-card-label"><span style="color:var(--accent-bright);">⭐ You Achieved!</span></div>
+                <div class="challenge-card-text" style="font-weight:700;font-size:1rem;">You set records, inspired classmates, and showed what true Warriors do! LEGENDARY!</div>
+              </div>
+              <div class="challenge-card" style="background:linear-gradient(135deg,#fffbe8 0%,#fff9e6 100%);border-left-color:var(--accent-rich);">
+                <div class="challenge-card-label"><span style="color:var(--accent-rich);">🎊 You Celebrated!</span></div>
+                <div class="challenge-card-text" style="font-weight:700;font-size:1rem;">This is YOUR page — a celebration of summer readers who changed the game!</div>
               </div>
             </div>
           </div>
 
           <div class="container" style="max-width:1160px; margin:0 auto; padding:18px 0 0;">
             <div class="leaderboard-heading">
-              <div class="leaderboard-eyebrow">Grade Rankings</div>
-              <div class="leaderboard-title">The Warrior Leaderboard</div>
+              <div class="leaderboard-eyebrow" style="color:var(--accent-warm);">🏆 Grade Achievements</div>
+              <div class="leaderboard-title" style="color:var(--accent-rich);">The Warrior Champions</div>
             </div>
             <div class="grades-grid" id="gradesGrid"></div>
 
             <div class="ptb-section">
-              <div class="ptb-eyebrow">Rankings</div>
-              <div class="ptb-title">People to Beat</div>
+              <div class="ptb-eyebrow" style="color:var(--accent-bright);">⭐ Outstanding Stars</div>
+              <div class="ptb-title" style="color:var(--accent-warm);">Meet Our Legendary Readers</div>
               <div class="ptb-cards" id="ptbCards"></div>
               <div class="ptb-standings" id="ptbStandings"></div>
             </div>
@@ -1412,14 +1461,29 @@
 
   </section>
 
-  <!-- ── Footer ────────────────────────────────────────────── -->
-  <footer class="site-footer">
-    <div class="footer-links">
-      <span>Follow Poppy's recommended reading</span>
-      <span class="footer-divider">|</span>
-      <a href="https://a.co/0dNuoUuz" target="_blank" rel="noopener">&#128722; Amazon List</a>
-      <span class="footer-divider">|</span>
-      <a href="https://www.instagram.com/glaviesreads/" target="_blank" rel="noopener">&#128247; @glaviesreads on Instagram</a>
+  <!-- Welcome to the Club Section -->
+  <div class="container" style="margin-top:32px;">
+    <div class="club-section">
+      <div class="club-eyebrow">🎖️ Point Achievement</div>
+      <div class="club-title">Welcome to the Club!</div>
+      <div class="clubs-grid" id="clubsGrid"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="background:linear-gradient(135deg,var(--green) 0%,var(--accent-warm) 100%);padding:32px 24px;">
+    <div style="max-width:1160px;margin:0 auto;text-align:center;">
+      <div style="font-size:1.2rem;font-weight:900;color:#fff;margin-bottom:12px;text-transform:uppercase;letter-spacing:2px;">🌟 Thank You, Warriors! 🌟</div>
+      <div style="color:rgba(255,255,255,.95);font-size:.95rem;font-weight:600;line-height:1.6;margin-bottom:16px;">
+        Your dedication to reading this summer was incredible! You've proven that when we work together, we can achieve amazing things. Keep reading, keep dreaming, and keep being the legendary Warriors you are!
+      </div>
+      <div class="footer-links">
+        <span style="color:rgba(255,255,255,.85);">📚 Follow Poppy's recommended reading</span>
+        <span class="footer-divider">|</span>
+        <a href="https://a.co/0dNuoUuz" target="_blank" rel="noopener">💝 Amazon List</a>
+        <span class="footer-divider">|</span>
+        <a href="https://www.instagram.com/glaviesreads/" target="_blank" rel="noopener">📸 @glaviesreads</a>
+      </div>
     </div>
   </footer>
 
@@ -1516,8 +1580,8 @@
     }
 
     render();
-    renderSpotlights();
     renderPeopleToBeat();
+    renderClubs();
     startFinalCountdown();
 
     function startFinalCountdown() {
@@ -1549,55 +1613,6 @@
 
       tick();
       timer = setInterval(tick, 1000);
-    }
-
-    function renderSpotlights() {
-      var data = READING_DATA;
-      var grid = document.getElementById('spotlightsGrid');
-      if (!grid || !data || !data.gradeSpotlights) return;
-
-      var html = '';
-      data.gradeSpotlights.forEach(function(s) {
-        var hasStudent = s.name && s.name.trim() !== '';
-        html += '<div class="spotlight-card"><div class="spotlight-card-body">';
-
-        html += '<div class="spotlight-avatar-wrap">';
-        if (s.photo) {
-          html += '<img class="spotlight-avatar" src="' + s.photo + '" alt="' + s.name + '">';
-        } else {
-          html += '<div class="spotlight-avatar-placeholder">&#128100;</div>';
-        }
-        html += '<div class="spotlight-grade-tag">' + s.grade + '</div></div>';
-
-        if (hasStudent) {
-          html += '<div class="spotlight-info">' +
-            '<div class="spotlight-name">' + s.name + '</div>';
-          if (s.book) {
-            html += '<div class="spotlight-book">' + (s.bookLink ? '<a href="' + s.bookLink + '" target="_blank" rel="noopener" style="color:inherit;">' + s.book + '</a>' : s.book) + '</div>';
-          }
-          if (s.rating) html += '<div class="spotlight-rating">Rating: ' + s.rating + '/10</div>';
-          html += '</div>';
-        } else {
-          html += '<div class="spotlight-empty">Spotlight coming soon…</div>';
-        }
-
-        html += '</div></div>';
-      });
-
-      html += '<div class="spotlight-card" style="background:var(--green);position:relative;padding-bottom:46px;">' +
-        '<div class="spotlight-card-body">' +
-          '<div class="spotlight-avatar-wrap"><img class="spotlight-avatar" src="germany.png" alt="Tell Us"></div>' +
-          '<div class="spotlight-info">' +
-            '<div class="spotlight-rating" style="font-weight:800;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.65);">Other Recommended Reading</div>' +
-            '<div class="spotlight-book" style="margin-top:2px;"><a href="https://amzn.to/4wqBI52" target="_blank" rel="noopener" style="color:#fff;">Growing Home</a></div>' +
-            '<div class="spotlight-book"><a href="https://amzn.to/4f0lo3N" target="_blank" rel="noopener" style="color:#fff;">The Bletchley Riddle</a></div>' +
-            '<div class="spotlight-book"><a href="https://amzn.to/4f9nRJl" target="_blank" rel="noopener" style="color:#fff;">Duck for President</a></div>' +
-          '</div>' +
-        '</div>' +
-        '<a href="https://forms.office.com/r/uyEtb5Z1vL" target="_blank" rel="noopener" style="position:absolute;right:14px;bottom:14px;background:var(--gold);color:var(--green);font-size:.68rem;font-weight:800;padding:7px 14px;border-radius:999px;text-decoration:none;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.18);">What Have You Been Reading?</a>' +
-      '</div>';
-
-      grid.innerHTML = html;
     }
 
     function avatarHTML(photo, fallback) {
@@ -1713,6 +1728,72 @@
         sHtml += '</div>';
         standingsEl.innerHTML = sHtml;
       }
+    }
+
+    // ── Render Clubs Section ───────────────────────────────────
+    function renderClubs() {
+      var data = READING_DATA;
+      var container = document.getElementById('clubsGrid');
+      if (!container || !data || !data.grades) return;
+
+      // Define club thresholds with icons
+      var clubs = [
+        { threshold: 300, icon: '👑', color: 'level-300' },
+        { threshold: 100, icon: '⭐', color: 'level-100' },
+        { threshold: 75, icon: '💫', color: 'level-75' },
+        { threshold: 50, icon: '✨', color: 'level-50' },
+        { threshold: 25, icon: '🌟', color: 'level-25' }
+      ];
+
+      // Collect all students with their points
+      var allStudents = [];
+      data.grades.forEach(function(grade) {
+        grade.students.forEach(function(student) {
+          if (student.points > 0 && student.name && student.name.toLowerCase().indexOf('student') === -1) {
+            allStudents.push({
+              name: student.name,
+              points: student.points,
+              grade: grade.name
+            });
+          }
+        });
+      });
+
+      // Sort by points descending
+      allStudents.sort(function(a, b) { return b.points - a.points; });
+
+      // Build club cards — each student is only shown in their highest club
+      var html = '';
+      var claimed = {};
+      clubs.forEach(function(club) {
+        var clubMembers = allStudents.filter(function(s) {
+          var key = s.grade + '|' + s.name;
+          if (s.points >= club.threshold && !claimed[key]) {
+            claimed[key] = true;
+            return true;
+          }
+          return false;
+        });
+        var memberNames = clubMembers.map(function(m) { return m.name; });
+
+        html += '<div class="club-card ' + club.color + '">' +
+          '<div class="club-icon">' + club.icon + '</div>' +
+          '<div class="club-threshold">Points Earned</div>' +
+          '<div class="club-name">' + club.threshold + '+ Club</div>';
+
+        if (memberNames.length > 0) {
+          html += '<div class="club-members">' +
+            memberNames.map(function(name) { return '<span class="club-member">' + name + '</span>'; }).join('') +
+            '</div>' +
+            '<div class="club-count">' + memberNames.length + ' member' + (memberNames.length !== 1 ? 's' : '') + '</div>';
+        } else {
+          html += '<div class="club-empty">No members yet. Keep reading to join!</div>';
+        }
+
+        html += '</div>';
+      });
+
+      container.innerHTML = html;
     }
 
     // ── Firebase init (fault-tolerant) ─────────────────────────
@@ -1862,6 +1943,104 @@
     }
 
     uwrInit();
+
+    // ── Celebration Confetti Animation ────────────────────────
+    function initConfetti() {
+      var canvas = document.getElementById('confetti');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      var particles = [];
+      var colors = ['#d4843d', '#f0ad4e', '#c9a227', '#f5d87e', '#2c5234', '#3d7348', '#5a9e6f', '#8b5a2b', '#1e4620'];
+      var shapes = ['circle', 'square', 'triangle'];
+      
+      function createParticles(count) {
+        for (var i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * canvas.width,
+            y: -10,
+            vx: (Math.random() - 0.5) * 8,
+            vy: Math.random() * 5 + 3,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            shape: shapes[Math.floor(Math.random() * shapes.length)],
+            size: Math.random() * 6 + 3,
+            angle: Math.random() * Math.PI * 2,
+            angularVelocity: (Math.random() - 0.5) * 0.2,
+            opacity: 1
+          });
+        }
+      }
+      
+      function drawParticle(p) {
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.angle);
+        ctx.globalAlpha = p.opacity;
+        ctx.fillStyle = p.color;
+        
+        if (p.shape === 'circle') {
+          ctx.beginPath();
+          ctx.arc(0, 0, p.size, 0, Math.PI * 2);
+          ctx.fill();
+        } else if (p.shape === 'square') {
+          ctx.fillRect(-p.size, -p.size, p.size * 2, p.size * 2);
+        } else if (p.shape === 'triangle') {
+          ctx.beginPath();
+          ctx.moveTo(0, -p.size);
+          ctx.lineTo(p.size, p.size);
+          ctx.lineTo(-p.size, p.size);
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+      
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        for (var i = particles.length - 1; i >= 0; i--) {
+          var p = particles[i];
+          p.y += p.vy;
+          p.x += p.vx;
+          p.vy += 0.1; // gravity
+          p.angle += p.angularVelocity;
+          
+          if (p.y > canvas.height) {
+            particles.splice(i, 1);
+          } else {
+            if (p.y > canvas.height * 0.8) {
+              p.opacity = 1 - (p.y - canvas.height * 0.8) / (canvas.height * 0.2);
+            }
+            drawParticle(p);
+          }
+        }
+        
+        if (particles.length > 0) {
+          requestAnimationFrame(animate);
+        }
+      }
+      
+      // Start confetti burst
+      createParticles(80);
+      animate();
+      
+      // Add continuous small bursts
+      setInterval(function() {
+        if (Math.random() > 0.6) {
+          createParticles(Math.floor(Math.random() * 15 + 5));
+          animate();
+        }
+      }, 2000);
+      
+      // Handle window resize
+      window.addEventListener('resize', function() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    }
+    
+    initConfetti();
   </script>
 
 </body>
