@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Summer Reading Celebration — Congratulations Warriors! · Westminster</title>
+  <title>Summer Reading Celebration: Congratulations Warriors! · Westminster</title>
 
   <!-- ╔══════════════════════════════════════════════════════════════════╗
        ║  EDIT DATA HERE — update names & points, then save & push       ║
@@ -203,87 +203,9 @@
       font-family: 'Montserrat', Arial, sans-serif;
     }
 
-    /* ── Site header ───────────────────────────────────────── */
-    .site-header {
-      background: linear-gradient(135deg, var(--green) 0%, var(--accent-deep) 100%);
-      padding: 28px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      box-shadow: 0 8px 32px rgba(201,162,39,.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .site-header::before {
-      content: '🎉';
-      position: absolute;
-      left: 2%;
-      top: 50%;
-      transform: translateY(-50%) rotate(-15deg);
-      font-size: 2.5rem;
-      opacity: 0.6;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .site-header::after {
-      content: '🎊';
-      position: absolute;
-      right: 2%;
-      top: 50%;
-      transform: translateY(-50%) rotate(15deg);
-      font-size: 2.5rem;
-      opacity: 0.6;
-      animation: float 3.5s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(-50%); }
-      50% { transform: translateY(-60%); }
-    }
-
     @keyframes gradientShift {
       0% { background-position: 0% center; }
       100% { background-position: 200% center; }
-    }
-
-    .school-name {
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: 3.5px;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: 10px;
-    }
-
-    .page-title {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      line-height: 1.08;
-      color: #ffffff;
-      animation: titlePulse 2s ease-in-out infinite;
-    }
-
-    @keyframes titlePulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    .page-title .accent { color: var(--gold); }
-
-    /* Sprout image */
-    .sprout-wrap {
-      flex-shrink: 0;
-      width: clamp(100px, 12vw, 155px);
-    }
-    .sprout-wrap img {
-      width: 100%;
-      height: auto;
-      display: block;
-      mix-blend-mode: screen; /* makes the black background transparent */
     }
 
     /* ── Updated bar ───────────────────────────────────────── */
@@ -435,70 +357,15 @@
     /* ── Final Countdown banner ────────────────────────────── */
     .countdown-banner {
       background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
-      border-radius: 14px;
-      padding: 22px 28px;
-      margin-bottom: 24px;
+      padding: 32px 28px;
       text-align: center;
-      box-shadow: 0 4px 20px rgba(201,162,39,.25);
+      box-shadow: 0 8px 32px rgba(201,162,39,.3);
       animation: countdownGlow 3s ease-in-out infinite;
     }
 
     @keyframes countdownGlow {
       0%, 100% { box-shadow: 0 4px 20px rgba(201,162,39,.22); }
       50%      { box-shadow: 0 4px 30px rgba(201,162,39,.5); }
-    }
-
-    .countdown-eyebrow {
-      font-size: .65rem;
-      font-weight: 800;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: 6px;
-    }
-
-    .hourglass {
-      width: 42px;
-      height: 63px;
-      margin: 0 auto 12px;
-    }
-
-    .hourglass-svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,.3));
-    }
-
-    .sand-top-clip-rect {
-      animation: sandTopDrain 4s linear infinite;
-    }
-
-    @keyframes sandTopDrain {
-      0%   { y: 0;  height: 37; }
-      100% { y: 37; height: 0;  }
-    }
-
-    .sand-bottom-clip-rect {
-      animation: sandBottomFill 4s linear infinite;
-    }
-
-    @keyframes sandBottomFill {
-      0%   { y: 80; height: 0;  }
-      100% { y: 45; height: 35; }
-    }
-
-    .sand-grain {
-      animation: grainFall 1.4s linear infinite;
-    }
-    .sand-grain.g2 { animation-delay: .45s; }
-    .sand-grain.g3 { animation-delay: .9s; }
-
-    @keyframes grainFall {
-      0%   { cy: 45; cx: 30; opacity: 1; }
-      50%  { cx: 29; }
-      92%  { opacity: 1; }
-      100% { cy: 78; cx: 30; opacity: 0; }
     }
 
     .countdown-title {
@@ -512,46 +379,10 @@
 
     .countdown-title .accent { color: var(--gold); }
 
-    .countdown-units {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .countdown-unit {
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(245,216,126,.35);
-      border-radius: 10px;
-      padding: 12px 18px;
-      min-width: 78px;
-    }
-
-    .countdown-value {
-      font-size: clamp(1.5rem, 4vw, 2.3rem);
-      font-weight: 900;
-      color: var(--gold);
-      line-height: 1;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .countdown-label {
-      font-size: .6rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.7);
-      margin-top: 6px;
-    }
-
     .countdown-done {
       font-size: clamp(1.05rem, 2.5vw, 1.4rem);
       font-weight: 900;
       color: var(--gold);
-    }
-
-    @media (max-width: 640px) {
-      .countdown-unit { min-width: 62px; padding: 10px 12px; }
     }
 
     /* ── Challenge section ─────────────────────────────────── */
@@ -1171,11 +1002,6 @@
     .club-card.level-50 { border-left-color: var(--green-mid); }
     .club-card.level-25 { border-left-color: var(--green-light); }
 
-    .club-icon {
-      font-size: 2rem;
-      margin-bottom: 8px;
-    }
-
     .club-threshold {
       font-size: .75rem;
       font-weight: 800;
@@ -1266,9 +1092,34 @@
       color: rgba(255,255,255,.25);
     }
 
+    /* ── Auto-scroll control ───────────────────────────────── */
+    .auto-scroll-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1000;
+      background: linear-gradient(135deg, var(--accent-warm) 0%, var(--gold) 100%);
+      color: #fff;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 800;
+      font-size: .8rem;
+      letter-spacing: .5px;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,.25);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .auto-scroll-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.3); }
+    .auto-scroll-btn.active { background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%); }
+
+    @media print {
+      .auto-scroll-btn { display: none; }
+    }
+
     /* ── Responsive ────────────────────────────────────────── */
     @media (max-width: 640px) {
-      .site-header { flex-direction: column; text-align: center; padding: 28px 24px; }
       .grades-grid { grid-template-columns: 1fr; }
       .compete-card { flex-direction: column; align-items: flex-start; }
       .footer-links { flex-direction: column; gap: 10px; }
@@ -1280,14 +1131,9 @@
 <body>
 
   <!-- ── Header ──────────────────────────────────────────── -->
-  <header class="site-header">
-    <div>
-      <div class="school-name">Westminster Christian School</div>
-      <h1 class="page-title">Summer Reading</h1>
-    </div>
-    <div class="sprout-wrap" aria-label="Sprout the reading mascot">
-      <img src="sprout.png" alt="Sprout">
-    </div>
+  <header class="countdown-banner" style="background:linear-gradient(135deg,var(--accent-warm) 0%,var(--accent-bright) 50%,var(--gold) 100%);">
+    <div class="countdown-title" style="text-shadow:2px 2px 8px rgba(0,0,0,.3);">Congratulations <span class="accent" style="color:#fff;text-shadow:2px 2px 4px rgba(0,0,0,.2);">Warriors!</span></div>
+    <div style="font-size:1.1rem;color:#fff;margin:12px 0;font-weight:700;text-shadow:1px 1px 4px rgba(0,0,0,.2);">You made this summer LEGENDARY!</div>
   </header>
 
   <!-- Confetti Canvas -->
@@ -1295,92 +1141,59 @@
 
   <!-- Celebration Banner -->
   <div style="background:linear-gradient(90deg,var(--accent-warm) 0%,var(--accent-bright) 25%,var(--gold) 50%,var(--accent-warm) 75%,var(--accent-bright) 100%);padding:16px 20px;text-align:center;color:#fff;font-weight:900;font-size:1.1rem;letter-spacing:2px;text-shadow:2px 2px 4px rgba(0,0,0,.3);animation:gradientShift 4s ease infinite;">
-    <div>✨ WELCOME TO THE SUMMER READING CELEBRATION! ✨</div>
+    <div>WELCOME TO THE SUMMER READING CELEBRATION!</div>
     <div style="font-size:.85rem;margin-top:6px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Every reader, every book, every achievement is LEGENDARY!</div>
   </div>
 
   <!-- Ice Cream Party Announcement -->
   <div style="max-width:700px;margin:20px auto;padding:20px 24px;text-align:center;background:linear-gradient(135deg,#ffe0ec 0%,#fff5d6 50%,#dff3ff 100%);border:3px dashed var(--accent-warm);border-radius:20px;box-shadow:0 6px 20px rgba(0,0,0,.08);">
-    <div style="font-size:1.4rem;font-weight:900;color:var(--accent-rich);">🍨 ICE CREAM PARTY! 🍦</div>
-    <div style="font-size:1.05rem;font-weight:700;color:var(--accent-warm);margin-top:8px;">Thursday, August 20 &mdash; during lunch in the SAC!</div>
-    <div style="font-size:.95rem;color:#555;margin-top:6px;">Come celebrate with a scoop &mdash; every Warrior who participated in the AR challenge or turned in their journal for Summer Reading is invited! 🎉</div>
+    <div style="font-size:1.4rem;font-weight:900;color:var(--accent-rich);">ICE CREAM PARTY!</div>
+    <div style="font-size:1.05rem;font-weight:700;color:var(--accent-warm);margin-top:8px;">Thursday, August 20 · during lunch in the SAC!</div>
+    <div style="font-size:.95rem;color:#555;margin-top:6px;">Come celebrate with a scoop. Every Warrior who participated in the AR challenge or turned in their journal for Summer Reading is invited!</div>
   </div>
 
-  <div class="updated-bar" id="updatedBar" style="background:linear-gradient(90deg,var(--accent-warm) 0%,var(--accent-bright) 50%,var(--gold) 100%);color:#fff;font-weight:900;text-shadow:1px 1px 2px rgba(0,0,0,.2);">🎊 Summer Reading 2024 - Official Celebration Page 🎊</div>
+  <div class="updated-bar" id="updatedBar" style="background:linear-gradient(90deg,var(--accent-warm) 0%,var(--accent-bright) 50%,var(--gold) 100%);color:#fff;font-weight:900;text-shadow:1px 1px 2px rgba(0,0,0,.2);">Summer Reading 2024 - Official Celebration Page</div>
 
   <section class="info-tabs-section">
     <div class="tab-buttons" role="tablist" aria-label="Summer reading tabs">
-      <button class="tab-button active" type="button" data-tab="compete" style="background:var(--accent-warm);color:#fff;">🎉 Celebrate</button>
-      <button class="tab-button" type="button" data-tab="resources">📖 Resources</button>
-      <button class="tab-button" type="button" data-tab="points">⭐ How to Earn Points</button>
+      <button class="tab-button active" type="button" data-tab="compete" style="background:var(--accent-warm);color:#fff;">Celebrate</button>
+      <button class="tab-button" type="button" data-tab="resources">Resources</button>
+      <button class="tab-button" type="button" data-tab="points">How to Earn Points</button>
     </div>
 
     <div class="tab-panel active" id="compete" role="tabpanel">
-      <div class="countdown-banner" style="background:linear-gradient(135deg,var(--accent-warm) 0%,var(--accent-bright) 50%,var(--gold) 100%);">
-        <div class="countdown-eyebrow" style="color:#fff;text-shadow:2px 2px 4px rgba(0,0,0,.2);">🌟 Celebration Time 🌟</div>
-        <div class="hourglass" aria-hidden="true">
-          <svg viewBox="0 0 60 90" class="hourglass-svg">
-            <rect x="4" y="2" width="52" height="6" rx="2" fill="#c9a227"/>
-            <rect x="4" y="82" width="52" height="6" rx="2" fill="#c9a227"/>
-            <path d="M8,8 L52,8 L30,45 L52,82 L8,82 L30,45 Z" fill="rgba(255,255,255,.06)" stroke="#f5d87e" stroke-width="1.5" stroke-linejoin="round"/>
-            <clipPath id="sandTopClip"><rect class="sand-top-clip-rect" x="0" y="0" width="60" height="37"/></clipPath>
-            <polygon points="11,10 49,10 30,43" fill="#f5d87e" clip-path="url(#sandTopClip)"/>
-            <clipPath id="sandBottomClip"><rect class="sand-bottom-clip-rect" x="0" y="80" width="60" height="0"/></clipPath>
-            <polygon points="12,80 48,80 30,47" fill="#f5d87e" clip-path="url(#sandBottomClip)"/>
-            <circle class="sand-grain g1" cx="30" cy="45" r="1.4" fill="#f5d87e"/>
-            <circle class="sand-grain g2" cx="30" cy="45" r="1.2" fill="#f5d87e"/>
-            <circle class="sand-grain g3" cx="30" cy="45" r="1.6" fill="#f5d87e"/>
-          </svg>
-        </div>
-        <div class="countdown-title" style="text-shadow:2px 2px 8px rgba(0,0,0,.3);">Congratulations <span class="accent" style="color:#fff;text-shadow:2px 2px 4px rgba(0,0,0,.2);">Warriors!</span></div>
-        <div style="font-size:1.1rem;color:#fff;margin:12px 0;font-weight:700;text-shadow:1px 1px 4px rgba(0,0,0,.2);">You made this summer LEGENDARY! 📚✨</div>
-        <div class="countdown-units" style="margin-top:18px;justify-content:center;">
-          <div class="countdown-unit" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);min-width:100px;">
-            <div class="countdown-value" style="color:#fff;font-size:2rem;">🏆</div>
-            <div class="countdown-label" style="color:#fff;margin-top:8px;">Champion</div>
-          </div>
-          <div class="countdown-unit" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);min-width:100px;">
-            <div class="countdown-value" style="color:#fff;font-size:2rem;">📚</div>
-            <div class="countdown-label" style="color:#fff;margin-top:8px;">Readers</div>
-          </div>
-          <div class="countdown-unit" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);min-width:100px;">
-            <div class="countdown-value" style="color:#fff;font-size:2rem;">⭐</div>
-            <div class="countdown-label" style="color:#fff;margin-top:8px;">Legends</div>
-          </div>
-        </div>
-      </div>
       <div class="challenge-section" style="background:transparent; border-top:0; padding:0;">
         <div class="challenge-inner">
-        <div class="challenge-title" style="color:var(--accent-warm);">🎉 Thank You for an Amazing Summer! 🎉</div>
+        <div class="challenge-title" style="color:var(--accent-warm);">Thank You for an Amazing Summer!</div>
 
           <div class="challenge-and-poppy">
             <div class="challenge-cards">
               <div class="challenge-card" style="background:linear-gradient(135deg,#fffbe8 0%,#fff9e6 100%);border-left-color:var(--accent-warm);">
-                <div class="challenge-card-label"><span style="color:var(--accent-warm);">📖 You Read!</span></div>
+                <div class="challenge-card-label"><span style="color:var(--accent-warm);">You Read!</span></div>
                 <div class="challenge-card-text" style="font-weight:700;font-size:1rem;">
                   Every book finished, every quiz passed, and every page turned made a difference!
                 </div>
               </div>
               <div class="challenge-card shine" style="background:linear-gradient(135deg,#fffbe8 0%,#fff9e6 100%);border-left-color:var(--accent-bright);">
-                <div class="challenge-card-label"><span style="color:var(--accent-bright);">⭐ You Achieved!</span></div>
+                <div class="challenge-card-label"><span style="color:var(--accent-bright);">You Achieved!</span></div>
                 <div class="challenge-card-text" style="font-weight:700;font-size:1rem;">You set records, inspired classmates, and showed what true Warriors do! LEGENDARY!</div>
               </div>
               <div class="challenge-card" style="background:linear-gradient(135deg,#fffbe8 0%,#fff9e6 100%);border-left-color:var(--accent-rich);">
-                <div class="challenge-card-label"><span style="color:var(--accent-rich);">🎊 You Celebrated!</span></div>
-                <div class="challenge-card-text" style="font-weight:700;font-size:1rem;">This is YOUR page — a celebration of summer readers who changed the game!</div>
+                <div class="challenge-card-label"><span style="color:var(--accent-rich);">You Celebrated!</span></div>
+                <div class="challenge-card-text" style="font-weight:700;font-size:1rem;">This is YOUR page, a celebration of summer readers who changed the game!</div>
               </div>
             </div>
           </div>
 
           <div class="container" style="max-width:1160px; margin:0 auto; padding:18px 0 0;">
             <div class="leaderboard-heading">
-              <div class="leaderboard-eyebrow" style="color:var(--accent-warm);">🏆 Grade Achievements</div>
+              <div class="leaderboard-eyebrow" style="color:var(--accent-warm);">Grade Achievements</div>
               <div class="leaderboard-title" style="color:var(--accent-rich);">The Warrior Champions</div>
             </div>
             <div class="grades-grid" id="gradesGrid"></div>
 
             <div class="ptb-section">
-              <div class="ptb-eyebrow" style="color:var(--accent-bright);">⭐ Outstanding Stars</div>
+              <div class="ptb-eyebrow" style="color:var(--accent-bright);">Outstanding Stars</div>
               <div class="ptb-title" style="color:var(--accent-warm);">Meet Our Legendary Readers</div>
               <div class="ptb-cards" id="ptbCards"></div>
               <div class="ptb-standings" id="ptbStandings"></div>
@@ -1464,7 +1277,7 @@
   <!-- Welcome to the Club Section -->
   <div class="container" style="margin-top:32px;">
     <div class="club-section">
-      <div class="club-eyebrow">🎖️ Point Achievement</div>
+      <div class="club-eyebrow">Point Achievement</div>
       <div class="club-title">Welcome to the Club!</div>
       <div class="clubs-grid" id="clubsGrid"></div>
     </div>
@@ -1473,19 +1286,22 @@
   <!-- Footer -->
   <footer class="site-footer" style="background:linear-gradient(135deg,var(--green) 0%,var(--accent-warm) 100%);padding:32px 24px;">
     <div style="max-width:1160px;margin:0 auto;text-align:center;">
-      <div style="font-size:1.2rem;font-weight:900;color:#fff;margin-bottom:12px;text-transform:uppercase;letter-spacing:2px;">🌟 Thank You, Warriors! 🌟</div>
+      <div style="font-size:1.2rem;font-weight:900;color:#fff;margin-bottom:12px;text-transform:uppercase;letter-spacing:2px;">Thank You, Warriors!</div>
       <div style="color:rgba(255,255,255,.95);font-size:.95rem;font-weight:600;line-height:1.6;margin-bottom:16px;">
         Your dedication to reading this summer was incredible! You've proven that when we work together, we can achieve amazing things. Keep reading, keep dreaming, and keep being the legendary Warriors you are!
       </div>
       <div class="footer-links">
-        <span style="color:rgba(255,255,255,.85);">📚 Follow Poppy's recommended reading</span>
+        <span style="color:rgba(255,255,255,.85);">Follow Poppy's recommended reading</span>
         <span class="footer-divider">|</span>
-        <a href="https://a.co/0dNuoUuz" target="_blank" rel="noopener">💝 Amazon List</a>
+        <a href="https://a.co/0dNuoUuz" target="_blank" rel="noopener">Amazon List</a>
         <span class="footer-divider">|</span>
-        <a href="https://www.instagram.com/glaviesreads/" target="_blank" rel="noopener">📸 @glaviesreads</a>
+        <a href="https://www.instagram.com/glaviesreads/" target="_blank" rel="noopener">@glaviesreads</a>
       </div>
     </div>
   </footer>
+
+  <!-- Auto-Scroll Control (for kiosk/TV display) -->
+  <button id="autoScrollBtn" type="button" class="auto-scroll-btn">Start Auto-Scroll</button>
 
   <!-- ── Render script ────────────────────────────────────── -->
   <script>
@@ -1518,7 +1334,7 @@
       if (!data) {
         document.getElementById('gradesGrid').innerHTML =
           '<p style="color:#c0392b;padding:32px;text-align:center;font-weight:700;">' +
-          'Data not found — check the READING_DATA block at the top of this file.</p>';
+          'Data not found. Check the READING_DATA block at the top of this file.</p>';
         return;
       }
 
@@ -1568,7 +1384,7 @@
             '<div class="rank-circle ' + badgeClass(rank) + '">' + rank + '</div>' +
             '<div class="s-name">' + (isEmpty ? 'Open' : s.name) + '</div>' +
             '<div class="s-pts-wrap">' +
-              '<div class="s-pts">' + (isEmpty ? '&mdash;' : fmt(s.points)) + '</div>' +
+              '<div class="s-pts">' + (isEmpty ? '-' : fmt(s.points)) + '</div>' +
               '<div class="s-pts-label">pts</div>' +
             '</div>';
 
@@ -1596,7 +1412,7 @@
 
         if (diff <= 0) {
           clearInterval(timer);
-          container.innerHTML = '<div class="countdown-done">&#127881; Summer Reading has ended &mdash; great job, Warriors!</div>';
+          container.innerHTML = '<div class="countdown-done">Summer Reading has ended. Great job, Warriors!</div>';
           return;
         }
 
@@ -1708,7 +1524,7 @@
         var sHtml =
           '<div class="ptb-standings-card">' +
             '<div class="ptb-card-header">' +
-              '<span class="ptb-card-label">Grade Standings &mdash; Total Points</span>' +
+              '<span class="ptb-card-label">Grade Standings: Total Points</span>' +
               '<span class="ptb-card-label" style="color:rgba(255,255,255,.6)">All Competitors</span>' +
             '</div>';
 
@@ -1736,13 +1552,13 @@
       var container = document.getElementById('clubsGrid');
       if (!container || !data || !data.grades) return;
 
-      // Define club thresholds with icons
+      // Define club thresholds
       var clubs = [
-        { threshold: 300, icon: '👑', color: 'level-300' },
-        { threshold: 100, icon: '⭐', color: 'level-100' },
-        { threshold: 75, icon: '💫', color: 'level-75' },
-        { threshold: 50, icon: '✨', color: 'level-50' },
-        { threshold: 25, icon: '🌟', color: 'level-25' }
+        { threshold: 300, color: 'level-300' },
+        { threshold: 100, color: 'level-100' },
+        { threshold: 75, color: 'level-75' },
+        { threshold: 50, color: 'level-50' },
+        { threshold: 25, color: 'level-25' }
       ];
 
       // Collect all students with their points
@@ -1777,7 +1593,6 @@
         var memberNames = clubMembers.map(function(m) { return m.name; });
 
         html += '<div class="club-card ' + club.color + '">' +
-          '<div class="club-icon">' + club.icon + '</div>' +
           '<div class="club-threshold">Points Earned</div>' +
           '<div class="club-name">' + club.threshold + '+ Club</div>';
 
@@ -2041,6 +1856,94 @@
     }
     
     initConfetti();
+  </script>
+
+  <!-- ── Auto-scroll for kiosk/TV display ────────────────────── -->
+  <script>
+    (function() {
+      var btn = document.getElementById('autoScrollBtn');
+      if (!btn) return;
+
+      var SPEED = 150;             // pixels per second
+      var BOTTOM_PAUSE_MS = 1000; // pause at the bottom before looping back
+      var TOP_SCROLL_MS = 700;    // approx. duration of the smooth scroll back to top
+      var TOP_PAUSE_MS = 1000;    // pause at the top before scrolling down again
+
+      var scrolling = false;
+      var phase = 'down';
+      var rafId = null;
+      var timeoutId = null;
+      var lastTs = null;
+
+      function setActive(isActive) {
+        btn.textContent = isActive ? 'Stop Auto-Scroll' : 'Start Auto-Scroll';
+        btn.classList.toggle('active', isActive);
+      }
+
+      function scrollDownStep(ts) {
+        if (!scrolling || phase !== 'down') return;
+
+        if (lastTs === null) lastTs = ts;
+        var dt = ts - lastTs;
+        lastTs = ts;
+
+        var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+        if (maxScroll <= 0) {
+          rafId = requestAnimationFrame(scrollDownStep);
+          return;
+        }
+
+        var next = window.scrollY + (SPEED * dt / 1000);
+
+        if (next >= maxScroll) {
+          window.scrollTo(0, maxScroll);
+          phase = 'pausedBottom';
+          timeoutId = setTimeout(function() {
+            if (!scrolling) return;
+            phase = 'toTop';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            timeoutId = setTimeout(function() {
+              if (!scrolling) return;
+              phase = 'down';
+              lastTs = null;
+              rafId = requestAnimationFrame(scrollDownStep);
+            }, TOP_SCROLL_MS + TOP_PAUSE_MS);
+          }, BOTTOM_PAUSE_MS);
+          return;
+        }
+
+        window.scrollTo(0, next);
+        rafId = requestAnimationFrame(scrollDownStep);
+      }
+
+      function start() {
+        scrolling = true;
+        phase = 'down';
+        lastTs = null;
+        setActive(true);
+        rafId = requestAnimationFrame(scrollDownStep);
+      }
+
+      function stop() {
+        scrolling = false;
+        setActive(false);
+        if (rafId) cancelAnimationFrame(rafId);
+        if (timeoutId) clearTimeout(timeoutId);
+        rafId = null;
+        timeoutId = null;
+      }
+
+      btn.addEventListener('click', function() {
+        if (scrolling) { stop(); } else { start(); }
+      });
+
+      ['wheel', 'touchmove'].forEach(function(evt) {
+        window.addEventListener(evt, function() {
+          if (scrolling) stop();
+        }, { passive: true });
+      });
+    })();
   </script>
 
 </body>
