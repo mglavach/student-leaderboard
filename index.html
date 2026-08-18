@@ -70,16 +70,16 @@
           teacher: "Mrs. Dominguez",
           teacherPhoto: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user7781192_6114045_118.png?crop=175px,0px,1664px,1664px&resize=200,200",
           students: [
-            { name: "Blaire Sanchez",         points: 53,    photo: "" },
-            { name: "Bianca Kuljiu",      points: 63,   photo: "" },
-            { name: "Sienna Roche",      points: 62, photo: "" },
-            { name: "Bea De La Guardia",          points: 49, photo: "" },
-            { name: "Maxwell Franca",         points: 37,   photo: "" },
-            { name: "Sofia Green",         points: 53,    photo: "" },
-            { name: "Elodie Espinel",         points: 20, photo: "" },
+            { name: "Blaire Sanchez",         points: 101.9,    photo: "" },
+            { name: "Bianca Kuljiu",      points: 88.3,   photo: "" },
+            { name: "Sienna Roche",      points: 84.5, photo: "" },
+            { name: "Bea De La Guardia",          points: 78.7, photo: "" },
+            { name: "Maxwell Franca",         points: 37.7,   photo: "" },
+            { name: "Sofia Green",         points: 26.1,    photo: "" },
+            { name: "Elodie Espinel",         points: 20.5, photo: "" },
             { name: "Charles Whorton, Jr.",         points: 15.4,  photo: "" },
             { name: "Jack Bogie",             points: 10,  photo: "" },
-            { name: "Sebastian Lewis",   points: 8.7,    photo: "" },
+            { name: "Sebastian Lewis",   points: 9.3,    photo: "" },
           ]
         },
         {
@@ -1301,6 +1301,7 @@
   </footer>
 
   <!-- Auto-Scroll Control (for kiosk/TV display) -->
+  <div id="hypeMusicContainer" style="position:fixed;right:20px;bottom:76px;width:300px;z-index:1000;display:none;box-shadow:0 6px 20px rgba(0,0,0,.25);border-radius:12px;"></div>
   <button id="autoScrollBtn" type="button" class="auto-scroll-btn">Start Auto-Scroll</button>
 
   <!-- ── Render script ────────────────────────────────────── -->
@@ -1917,12 +1918,31 @@
         rafId = requestAnimationFrame(scrollDownStep);
       }
 
+      var SPOTIFY_EMBED_SRC = 'https://open.spotify.com/embed/track/2U8gfLqNhP10eirwK8G6ny?utm_source=generator';
+      var musicContainer = document.getElementById('hypeMusicContainer');
+
+      function playHypeMusic() {
+        if (!musicContainer) return;
+        musicContainer.innerHTML =
+          '<iframe style="border-radius:12px" src="' + SPOTIFY_EMBED_SRC + '" ' +
+          'width="100%" height="80" frameBorder="0" allowfullscreen ' +
+          'allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>';
+        musicContainer.style.display = 'block';
+      }
+
+      function stopHypeMusic() {
+        if (!musicContainer) return;
+        musicContainer.style.display = 'none';
+        musicContainer.innerHTML = '';
+      }
+
       function start() {
         scrolling = true;
         phase = 'down';
         lastTs = null;
         setActive(true);
         rafId = requestAnimationFrame(scrollDownStep);
+        playHypeMusic();
       }
 
       function stop() {
@@ -1932,6 +1952,7 @@
         if (timeoutId) clearTimeout(timeoutId);
         rafId = null;
         timeoutId = null;
+        stopHypeMusic();
       }
 
       btn.addEventListener('click', function() {
