@@ -100,7 +100,7 @@
       // way as the summer "grades" list above once AR points start coming in.
       schoolYear2627: {
         grades: [
-          { name: "2nd Grade", extraPoints: 25, participants: 27, hubChallengeGoal: 25, teacher: "", teacherPhoto: "", readTogether: true, students: [
+          { name: "2nd Grade", extraPoints: 25, participants: 27, hubChallengeGoal: 25, participationGoal: { current: 37, total: 54 }, teacher: "", teacherPhoto: "", readTogether: true, students: [
             { name: "Samantha Alcivar",  points: 17.4, photo: "" },
             { name: "Hannah Khalil",     points: 10.8, photo: "" },
             { name: "Thomas Montalvan",  points: 9.1,  photo: "" },
@@ -112,7 +112,7 @@
             { name: "Olivia Montalvan (tie)",    points: 3, photo: "" },
             { name: "Nathan Trujillo",   points: 2,    photo: "" },
           ] },
-          { name: "3rd Grade", extraPoints: 70, participants: 48, hubChallengeGoal: 50, teacher: "", teacherPhoto: "", readTogether: true, students: [
+          { name: "3rd Grade", extraPoints: 70, participants: 48, hubChallengeGoal: 50, participationGoal: { current: 48, total: 63 }, teacher: "", teacherPhoto: "", readTogether: true, students: [
             { name: "Daniel Harrington",  points: 32.1, photo: "" },
             { name: "Isabella Castro",    points: 23.6, photo: "" },
             { name: "Dean Kunen",         points: 11.6, photo: "" },
@@ -124,7 +124,7 @@
             { name: "Kai Shivdasani",     points: 6.7,  photo: "" },
             { name: "Christian Gubbins",  points: 6.1,  photo: "" },
           ] },
-          { name: "4th Grade", extraPoints: 27, participants: 21, hubChallengeGoal: 75, teacher: "", teacherPhoto: "", readTogether: true, students: [
+          { name: "4th Grade", extraPoints: 27, participants: 21, hubChallengeGoal: 75, participationGoal: { current: 58, total: 65 }, teacher: "", teacherPhoto: "", readTogether: true, students: [
             { name: "Griffin Bielen",  points: 19.9, photo: "" },
             { name: "Liana Boyette",   points: 11.7, photo: "" },
             { name: "Mary Rank",       points: 10.6, photo: "" },
@@ -136,7 +136,7 @@
             { name: "Bella Nery (tie)", points: 4,   photo: "" },
             { name: "Beatriz De La Guardia (tie)", points: 4, photo: "" },
           ] },
-          { name: "5th Grade", extraPoints: 154, participants: 65, hubChallengeGoal: 100, teacher: "", teacherPhoto: "", readTogether: true, students: [
+          { name: "5th Grade", extraPoints: 154, participants: 65, hubChallengeGoal: 100, participationGoal: { current: 74, total: 81 }, teacher: "", teacherPhoto: "", readTogether: true, students: [
             { name: "Camilo Moreno",   points: 50.1, photo: "" },
             { name: "Elaina Khalil",   points: 35.8, photo: "" },
             { name: "Lotus Saunders",  points: 34.6, photo: "" },
@@ -710,6 +710,25 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--gold-light);
+    }
+
+    .card-participation {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: var(--gold-bg);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .card-participation-text {
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--text-mid);
+    }
+
+    .card-participation-text strong {
+      color: var(--text);
     }
 
     /* ── Student rows ──────────────────────────────────────── */
@@ -2688,7 +2707,7 @@
       if (!grid || !grades) return;
       grid.innerHTML = '';
 
-      grades.forEach(function(grade) {
+      grades.forEach(function(grade, gi) {
         var studentTotal = grade.students.reduce(function(sum, s) {
           return sum + (s.points || 0);
         }, 0);
@@ -2708,11 +2727,24 @@
           ? 'Hub Challenge Goal (annual): ' + fmt(grade.hubChallengeGoal) + ' AR Points'
           : 'AR Points';
 
+        // ← Participation goal progress (gold leaf fills toward 100% participation)
+        var pg = grade.participationGoal;
+        var participationHtml = '';
+        if (pg && pg.total) {
+          var pgPct = Math.max(0, Math.min(1, pg.current / pg.total));
+          participationHtml =
+            '<div class="card-participation">' +
+              leafIconSvg(pgPct, 'partLeaf' + gi, 22, 'var(--gold)') +
+              '<span class="card-participation-text"><strong>' + pg.current + '/' + pg.total + '</strong> reading toward 100% participation</span>' +
+            '</div>';
+        }
+
         card.innerHTML =
           '<div class="card-header">' +
             '<div class="card-grade-name">' + grade.name + '</div>' +
             '<div class="card-header-label">' + headerLabel + '</div>' +
           '</div>' +
+          participationHtml +
           '<div class="card-summary">' +
             '<span>' + fmt(Math.round(studentTotal * 10) / 10) + ' pts + ' + fmt(extra) + ' extra</span>' +
             '<span>' + fmt(gradeTotal) + ' total</span>' +
