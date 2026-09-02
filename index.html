@@ -100,7 +100,7 @@
       // way as the summer "grades" list above once AR points start coming in.
       schoolYear2627: {
         grades: [
-          { name: "2nd Grade", extraPoints: 25, participants: 27, hubChallengeGoal: 25, teacher: "", teacherPhoto: "", students: [
+          { name: "2nd Grade", extraPoints: 25, participants: 27, hubChallengeGoal: 25, teacher: "", teacherPhoto: "", readTogether: true, students: [
             { name: "Samantha Alcivar",  points: 17.4, photo: "" },
             { name: "Hannah Khalil",     points: 10.8, photo: "" },
             { name: "Thomas Montalvan",  points: 9.1,  photo: "" },
@@ -112,7 +112,7 @@
             { name: "Olivia Montalvan (tie)",    points: 3, photo: "" },
             { name: "Nathan Trujillo",   points: 2,    photo: "" },
           ] },
-          { name: "3rd Grade", extraPoints: 70, participants: 48, hubChallengeGoal: 50, teacher: "", teacherPhoto: "", students: [
+          { name: "3rd Grade", extraPoints: 70, participants: 48, hubChallengeGoal: 50, teacher: "", teacherPhoto: "", readTogether: true, students: [
             { name: "Daniel Harrington",  points: 32.1, photo: "" },
             { name: "Isabella Castro",    points: 23.6, photo: "" },
             { name: "Dean Kunen",         points: 11.6, photo: "" },
@@ -124,7 +124,7 @@
             { name: "Kai Shivdasani",     points: 6.7,  photo: "" },
             { name: "Christian Gubbins",  points: 6.1,  photo: "" },
           ] },
-          { name: "4th Grade", extraPoints: 27, participants: 21, hubChallengeGoal: 75, teacher: "", teacherPhoto: "", students: [
+          { name: "4th Grade", extraPoints: 27, participants: 21, hubChallengeGoal: 75, teacher: "", teacherPhoto: "", readTogether: true, students: [
             { name: "Griffin Bielen",  points: 19.9, photo: "" },
             { name: "Liana Boyette",   points: 11.7, photo: "" },
             { name: "Mary Rank",       points: 10.6, photo: "" },
@@ -136,7 +136,7 @@
             { name: "Bella Nery (tie)", points: 4,   photo: "" },
             { name: "Beatriz De La Guardia (tie)", points: 4, photo: "" },
           ] },
-          { name: "5th Grade", extraPoints: 154, participants: 65, hubChallengeGoal: 100, teacher: "", teacherPhoto: "", students: [
+          { name: "5th Grade", extraPoints: 154, participants: 65, hubChallengeGoal: 100, teacher: "", teacherPhoto: "", readTogether: true, students: [
             { name: "Camilo Moreno",   points: 50.1, photo: "" },
             { name: "Elaina Khalil",   points: 35.8, photo: "" },
             { name: "Lotus Saunders",  points: 34.6, photo: "" },
@@ -149,6 +149,10 @@
             { name: "Kloe Kunen",      points: 11.5, photo: "" },
           ] },
         ],
+
+        // ← Name of the family sponsoring the quarterly Raising Cane's reward.
+        // Shows as "the Warrior Family" until filled in.
+        sponsorFamilyName: "",
 
         // ← Reading Chain weekly Champion — set name/photo/favoriteBook/favoritePlace
         // once a student is crowned. Leave name blank to show "Coming Soon".
@@ -540,6 +544,35 @@
     .quarter-goal-item-text {
       flex: 1;
     }
+
+    .quarter-reward-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .82rem;
+    }
+
+    .quarter-reward-table th {
+      text-align: left;
+      padding: 6px 8px;
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--green-mid);
+    }
+
+    .quarter-reward-table th:first-child { border-radius: 6px 0 0 6px; }
+    .quarter-reward-table th:last-child { border-radius: 0 6px 6px 0; }
+
+    .quarter-reward-table td {
+      padding: 6px 8px;
+      border-bottom: 1px solid var(--divider);
+      color: var(--text);
+    }
+
+    .quarter-reward-table tbody tr:last-child td { border-bottom: none; }
+    .quarter-reward-table tbody tr:nth-child(even) { background: var(--green-pale); }
 
     /* ── Mascots ───────────────────────────────────────────── */
     .mascot-wrap {
@@ -2573,7 +2606,7 @@
           (q.intro ? '<p class="quarter-goal-intro">' + q.intro + '</p>' : '') +
           '<ul class="quarter-goal-items">' +
             items.map(function(it, ii) {
-              var tierColors = ['var(--green-light)', 'var(--green-mid)', 'var(--green)'];
+              var tierColors = ['#ffffff', 'var(--green)', 'var(--gold)'];
               var leafColor = tierColors[ii % tierColors.length];
               return '<li' + (it.done ? ' class="done"' : '') + '>' +
                 '<span class="quarter-goal-item-leaf">' + leafIconSvg(1, 'leafClip' + qi + '-' + ii, 18, leafColor) + '</span>' +
@@ -2582,7 +2615,29 @@
             }).join('') +
           '</ul>' +
         '</div>';
-      }).join('');
+      }).join('') + rewardCardHTML(sy);
+    }
+
+    function rewardCardHTML(sy) {
+      var familyName = sy.sponsorFamilyName ? sy.sponsorFamilyName : 'Warrior Family';
+      return '<div class="quarter-goal-card">' +
+        '<div class="quarter-goal-header">' +
+          '<div>' +
+            '<div class="quarter-goal-quarter">Reading Reward</div>' +
+            '<div class="quarter-goal-title">Thank You, Warrior Family!</div>' +
+          '</div>' +
+        '</div>' +
+        '<p class="quarter-goal-intro">Thank you to the ' + familyName + ' for celebrating reading! When students reach their point goal for the quarter, they earn a free Raising Cane\'s Kids Meal.</p>' +
+        '<table class="quarter-reward-table">' +
+          '<thead><tr><th>Grade</th><th>Points / Week</th><th>Quarter Goal</th></tr></thead>' +
+          '<tbody>' +
+            '<tr><td>2nd</td><td>2</td><td>18</td></tr>' +
+            '<tr><td>3rd</td><td>3</td><td>27</td></tr>' +
+            '<tr><td>4th</td><td>4</td><td>36</td></tr>' +
+            '<tr><td>5th</td><td>5</td><td>45</td></tr>' +
+          '</tbody>' +
+        '</table>' +
+      '</div>';
     }
 
     function renderGoal(sy, elId) {
@@ -2829,7 +2884,7 @@
       // Grade standings — auto-calculated from student points
       var gradeStandings = grades.map(function(g) {
         var total = g.students.reduce(function(sum, s) { return sum + (s.points || 0); }, 0) + (g.extraPoints || 0);
-        return { name: g.name, total: Math.round(total * 10) / 10 };
+        return { name: g.name, total: Math.round(total * 10) / 10, readTogether: g.readTogether };
       }).sort(function(a, b) { return b.total - a.total; });
 
       var sHtml =
@@ -2844,7 +2899,9 @@
         sHtml +=
           '<div class="ptb-standings-row rank-' + rank + '">' +
             '<div class="rank-circle ' + badgeClass(rank) + '">' + rank + '</div>' +
-            '<div class="s-name">' + g.name + '</div>' +
+            '<div class="s-name">' + g.name +
+              (g.readTogether ? ' <span title="Every family read together this quarter" style="display:inline-flex;vertical-align:middle;margin-left:4px;">' + leafIconSvg(1, 'gradeLeaf' + i, 16, '#ffffff') + '</span>' : '') +
+            '</div>' +
             '<div class="s-pts-wrap">' +
               '<div class="s-pts">' + fmt(g.total) + '</div>' +
               '<div class="s-pts-label">total pts</div>' +
