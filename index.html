@@ -113,7 +113,7 @@
             { name: "Isabella Marcilio", points: 5.4,  photo: "" },
           ] },
           { name: "3rd Grade", extraPoints: 70, participants: 48, hubChallengeGoal: 50, participationGoal: { current: 57, total: 63 }, teacher: "", teacherPhoto: "", readTogether: true, students: [
-            { name: "Isabella Castro",       points: 45.9, photo: "" },
+            { name: "Isabella Castro",       points: 45.9, photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_6244567_704.jpg?resize=200,200" },
             { name: "Daniel Harrington",     points: 40.6, photo: "" },
             { name: "Dean Kunen",            points: 24.8, photo: "" },
             { name: "Brayden Lunn",          points: 20.2, photo: "" },
@@ -137,7 +137,7 @@
             { name: "Alain Bizet",             points: 10.4, photo: "" },
           ] },
           { name: "5th Grade", extraPoints: 154, participants: 65, hubChallengeGoal: 100, participationGoal: { current: 74, total: 81 }, teacher: "", teacherPhoto: "", readTogether: true, students: [
-            { name: "Lotus Saunders",    points: 86.2, photo: "" },
+            { name: "Lotus Saunders",    points: 86.2, photo: "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/701/user/large_user_7690505_51.jpg?resize=200,200" },
             { name: "Camilo Moreno",     points: 67.5, photo: "" },
             { name: "Elaina Khalil",     points: 57.3, photo: "" },
             { name: "Dominic Diaz",      points: 48.8, photo: "" },
@@ -149,10 +149,6 @@
             { name: "Bryce Sporrer",     points: 18.6, photo: "" },
           ] },
         ],
-
-        // ← Name of the family sponsoring the quarterly Raising Cane's reward.
-        // Shows as "the Warrior Family" until filled in.
-        sponsorFamilyName: "Davidson",
 
         // ── Reading Chain — Champion of the Week is AUTO-PICKED ──────────
         // Each grade's Champion is calculated automatically: the student with
@@ -557,35 +553,6 @@
     .quarter-goal-item-text {
       flex: 1;
     }
-
-    .quarter-reward-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: .82rem;
-    }
-
-    .quarter-reward-table th {
-      text-align: left;
-      padding: 6px 8px;
-      font-size: .62rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #fff;
-      background: var(--green-mid);
-    }
-
-    .quarter-reward-table th:first-child { border-radius: 6px 0 0 6px; }
-    .quarter-reward-table th:last-child { border-radius: 0 6px 6px 0; }
-
-    .quarter-reward-table td {
-      padding: 6px 8px;
-      border-bottom: 1px solid var(--divider);
-      color: var(--text);
-    }
-
-    .quarter-reward-table tbody tr:last-child td { border-bottom: none; }
-    .quarter-reward-table tbody tr:nth-child(even) { background: var(--green-pale); }
 
     /* ── Mascots ───────────────────────────────────────────── */
     .mascot-wrap {
@@ -2725,29 +2692,7 @@
             }).join('') +
           '</ul>' +
         '</div>';
-      }).join('') + rewardCardHTML(sy);
-    }
-
-    function rewardCardHTML(sy) {
-      var familyName = sy.sponsorFamilyName ? sy.sponsorFamilyName : 'Warrior Family';
-      return '<div class="quarter-goal-card">' +
-        '<div class="quarter-goal-header">' +
-          '<div>' +
-            '<div class="quarter-goal-quarter">Reading Reward</div>' +
-            '<div class="quarter-goal-title">Thank You, Raising Cane\'s!</div>' +
-          '</div>' +
-        '</div>' +
-        '<p class="quarter-goal-intro">Thank you to the ' + familyName + ' Family for celebrating reading! When students reach their grade level point goal for the quarter, they earn a free Raising Cane\'s Kids Meal.</p>' +
-        '<table class="quarter-reward-table">' +
-          '<thead><tr><th>Grade</th><th>Points / Week</th><th>Quarter Goal</th></tr></thead>' +
-          '<tbody>' +
-            '<tr><td>2nd</td><td>2</td><td>18</td></tr>' +
-            '<tr><td>3rd</td><td>3</td><td>27</td></tr>' +
-            '<tr><td>4th</td><td>4</td><td>36</td></tr>' +
-            '<tr><td>5th</td><td>5</td><td>45</td></tr>' +
-          '</tbody>' +
-        '</table>' +
-      '</div>';
+      }).join('');
     }
 
     function renderGoal(sy, elId) {
