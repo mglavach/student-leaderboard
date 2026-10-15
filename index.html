@@ -425,6 +425,12 @@
         // `next` is optional — what they're reading next.
         recommendedReading: [
           { title: "The Mystery at Lilac Inn (Nancy Drew)", recommender: "Elaina Khalil, 5th Grade", next: "Fish in a Tree" },
+          { title: "Cam Jansen and the Mystery at the Monkey House", recommender: "Isabella Castro, 3rd Grade", next: "Cam Jansen and the Mystery of the Dinosaur Bones" },
+          { title: "Diary of a Wimpy Kid: Wrecking Ball", recommender: "Isabella Castro, 3rd Grade", next: "Diary of a Wimpy Kid: Double Down" },
+          { title: "Lasagna Means I Love You", recommender: "Veronica Lamarque, 5th Grade", next: "The Book of Locks" },
+          { title: "Panda-Monium (FunJungle)", recommender: "Camilo Moreno, 5th Grade", next: "Lion Down" },
+          { title: "It's the End of the World and I'm in My Bathing Suit", recommender: "Bryce Sporrer, 5th Grade", next: "My Life as a Coder" },
+          { title: "Evil Spy School: The Graphic Novel", recommender: "Bryce Sporrer, 5th Grade", next: "Spy Ski School: The Graphic Novel" },
         ],
       },
 
@@ -1530,6 +1536,47 @@
       margin-left: 6px;
     }
 
+    .reco-groups {
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .reco-group {
+      background: var(--green-pale);
+      border-radius: 12px;
+      padding: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .reco-group-name {
+      font-weight: 900;
+      color: var(--green);
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .reco-group-grade {
+      font-weight: 500;
+      font-size: .85rem;
+      color: var(--text-soft);
+    }
+
+    .reco-group-count {
+      margin-left: auto;
+      background: var(--gold);
+      color: var(--white);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 999px;
+    }
+
     .reco-item .reco-next {
       font-weight: 500;
       font-style: italic;
@@ -2282,10 +2329,10 @@
         </div>
 
         <div class="ptb-section hub-reco-row">
-          <div class="hub-reco-col">
-            <div class="ptb-eyebrow" style="color:var(--gold);">Library Updates</div>
-            <div class="ptb-title" style="color:var(--green);">News from the Hub</div>
-            <div class="info-grid" id="hubNewsGrid"></div>
+          <div class="hub-reco-col reco-section">
+            <div class="ptb-eyebrow" style="color:var(--gold);">Can't Stop, Won't Stop Reading</div>
+            <div class="ptb-title" style="color:var(--green);">Super Recommenders</div>
+            <div class="reco-groups" id="recoGroups"></div>
           </div>
 
           <div class="hub-reco-col reco-section">
@@ -2302,6 +2349,12 @@
           <div class="club-eyebrow">Point Achievement</div>
           <div class="club-title">Welcome to the Club!</div>
           <div class="clubs-grid" id="clubsGrid2627"></div>
+        </div>
+
+        <div class="ptb-section">
+          <div class="ptb-eyebrow" style="color:var(--gold);">Library Updates</div>
+          <div class="ptb-title" style="color:var(--green);">News from the Hub</div>
+          <div class="info-grid" id="hubNewsGrid"></div>
         </div>
 
       </div>
@@ -2851,7 +2904,7 @@
         renderGoal(data.schoolYear2627, 'goalCard');
         renderQuarterGoals(data.schoolYear2627, 'quarterGoalsGrid');
         renderHubNews(data.schoolYear2627, 'hubNewsGrid');
-        renderRecommendedReading(data.schoolYear2627, 'recoList');
+        renderRecommendedReading(data.schoolYear2627, 'recoList', 'recoGroups');
       }
     }
 
@@ -2934,11 +2987,40 @@
       }).join('');
     }
 
-    function renderRecommendedReading(sy, listId) {
+    // Students who recommended 2+ books get their own card under
+    // "Super Recommenders"; everyone else goes in the regular list.
+    function renderRecommendedReading(sy, listId, groupsId) {
       var list = document.getElementById(listId);
       if (!list || !sy || !sy.recommendedReading) return;
 
-      list.innerHTML = sy.recommendedReading.map(function(b) {
+      var byRecommender = {}, order = [];
+      sy.recommendedReading.forEach(function(b) {
+        if (!b.recommender) return;
+        if (!byRecommender[b.recommender]) { byRecommender[b.recommender] = []; order.push(b.recommender); }
+        byRecommender[b.recommender].push(b);
+      });
+      var supers = order.filter(function(r) { return byRecommender[r].length > 1; });
+
+      var groups = document.getElementById(groupsId);
+      if (groups) {
+        groups.innerHTML = supers.length ? supers.map(function(r) {
+          var parts = r.split(',');
+          var books = byRecommender[r].map(function(b) {
+            var next = b.next ? '<div class="reco-next">Up next: ' + b.next + '</div>' : '';
+            return '<div class="reco-item">' + b.title + next + '</div>';
+          }).join('');
+          return '<div class="reco-group">' +
+            '<div class="reco-group-name">' + displayStudentName(parts[0]) +
+              (parts[1] ? '<span class="reco-group-grade">' + parts.slice(1).join(',').trim() + '</span>' : '') +
+              '<span class="reco-group-count">' + byRecommender[r].length + ' picks</span>' +
+            '</div>' + books +
+          '</div>';
+        }).join('') : '<div class="reco-item">Recommend 2 or more books to join the Super Recommenders!</div>';
+      }
+
+      list.innerHTML = sy.recommendedReading.filter(function(b) {
+        return !b.recommender || byRecommender[b.recommender].length < 2;
+      }).map(function(b) {
         var attribution = b.recommender
           ? '<span class="reco-author">recommended by ' + displayStudentAttribution(b.recommender) + '</span>'
           : (b.author ? '<span class="reco-author">by ' + b.author + '</span>' : '');
@@ -3252,13 +3334,6 @@
     }
 
     // ── Render Reading Chain — Champion of the Week ────────────
-    function championDetailHTML(label, value) {
-      return '<div class="champion-detail-row">' +
-        '<div class="champion-detail-label">' + label + '</div>' +
-        '<div class="champion-detail-value">' + (value || 'Coming soon') + '</div>' +
-      '</div>';
-    }
-
     // Cute kid icon shown when a Champion has no photo. Set gender: "girl" or
     // gender: "boy" on the student in schoolYear2627 to pick one; otherwise the
     // plain person icon is shown.
@@ -3320,10 +3395,6 @@
               : '<div class="champion-photo-placeholder">' + championKidIcon(champ.gender) + '</div>') +
             '<div class="champion-name">' + displayStudentName(champ.name) + '</div>' +
             '<div class="champion-points">' + (champ.points ? fmt(champ.points) + ' pts' : '') + '</div>' +
-            '<div class="champion-detail">' +
-              championDetailHTML('Favorite Book', champ.favoriteBook) +
-              championDetailHTML('Favorite Place to Read', champ.favoritePlace) +
-            '</div>' +
           '</div>' +
         '</div>';
     }
