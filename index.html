@@ -2091,6 +2091,16 @@
       margin-top: 4px;
     }
 
+    .hof-name {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .hof-medal { flex: 0 0 auto; }
+    .hof-medal svg { display: block; }
+
     .hof-empty {
       color: var(--text-soft);
       font-size: .88rem;
@@ -2138,6 +2148,32 @@
     .club-member {
       display: inline-block;
       margin-right: 2px;
+    }
+
+    .club-grade-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .club-grade-row + .club-grade-row {
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px dashed rgba(44,82,52,.15);
+    }
+
+    .club-grade-label {
+      flex: 0 0 auto;
+      min-width: 34px;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--green-mid);
+      border-radius: 999px;
+      padding: 1px 7px;
+      text-align: center;
     }
 
     .club-member::after {
@@ -3319,17 +3355,25 @@
           }
           return false;
         });
-        var memberNames = clubMembers.map(function(m) { return m.name; }).sort(function(a, b) { return a.localeCompare(b); });
-
         html += '<div class="club-card ' + club.color + '">' +
           '<div class="club-threshold">Points Earned</div>' +
           '<div class="club-name">' + club.threshold + '+ Club</div>';
 
-        if (memberNames.length > 0) {
-          html += '<div class="club-members">' +
-            memberNames.map(function(name) { return '<span class="club-member">' + name + '</span>'; }).join('') +
-            '</div>' +
-            '<div class="club-count">' + memberNames.length + ' member' + (memberNames.length !== 1 ? 's' : '') + '</div>';
+        if (clubMembers.length > 0) {
+          // One row per grade, in grade order, names alphabetized within each row
+          var gradeRows = grades.map(function(grade) {
+            var names = clubMembers
+              .filter(function(m) { return m.grade === grade.name; })
+              .map(function(m) { return m.name; })
+              .sort(function(a, b) { return a.localeCompare(b); });
+            if (!names.length) return '';
+            return '<div class="club-grade-row">' +
+              '<span class="club-grade-label">' + grade.name.replace(' Grade', '') + '</span>' +
+              '<span>' + names.map(function(name) { return '<span class="club-member">' + name + '</span>'; }).join('') + '</span>' +
+            '</div>';
+          }).join('');
+          html += '<div class="club-members">' + gradeRows + '</div>' +
+            '<div class="club-count">' + clubMembers.length + ' member' + (clubMembers.length !== 1 ? 's' : '') + '</div>';
         } else {
           html += '<div class="club-empty">No members yet. Keep reading to join!</div>';
         }
@@ -3452,11 +3496,34 @@
       var sorted = hallOfFame.slice().sort(function(a, b) { return b.points - a.points; });
       container.innerHTML = sorted.map(function(h) {
         return '<div class="hof-card">' +
-          '<div class="hof-name">' + displayStudentName(h.name) + '</div>' +
+          '<div class="hof-name">' + hofMedalHTML(h.points) + '<span>' + displayStudentName(h.name) + '</span></div>' +
           '<div class="hof-grade">' + h.grade + '</div>' +
           '<div class="hof-points">' + fmt(h.points) + ' pts</div>' +
         '</div>';
       }).join('');
+    }
+
+    // Little medal for the highest point club a Hall of Famer has reached
+    // (same thresholds as "Welcome to the Club!").
+    function hofMedalHTML(points) {
+      var medals = [
+        { threshold: 25,  fill: '#5a9e6f', text: '#ffffff' },
+        { threshold: 50,  fill: '#3d7348', text: '#ffffff' },
+        { threshold: 75,  fill: '#2c5234', text: '#ffffff' },
+        { threshold: 100, fill: '#c9a227', text: '#ffffff' },
+        { threshold: 200, fill: '#f5d87e', text: '#2c5234' },
+        { threshold: 300, fill: '#c9a227', text: '#2c5234', ring: '#f5d87e' }
+      ];
+      var earned = medals.filter(function(m) { return points >= m.threshold; });
+      if (!earned.length) return '';
+      var m = earned[earned.length - 1];
+      return '<span class="hof-medal" title="' + m.threshold + '+ Club">' +
+          '<svg width="22" height="28" viewBox="0 0 22 28" aria-label="' + m.threshold + '+ Club medal">' +
+            '<path d="M5 0 L10 10 L7 12 L2 2 Z" fill="#2c5234"/>' +
+            '<path d="M17 0 L12 10 L15 12 L20 2 Z" fill="#c9a227"/>' +
+            '<circle cx="11" cy="18" r="9.5" fill="' + m.fill + '" stroke="' + (m.ring || 'rgba(0,0,0,.15)') + '" stroke-width="' + (m.ring ? 2 : 1) + '"/>' +
+            '<text x="11" y="21" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="' + (m.threshold >= 100 ? 7.5 : 8.5) + '" fill="' + m.text + '">' + m.threshold + '</text>' +
+          '</svg></span>';
     }
 
     // ── Firebase init (fault-tolerant) ─────────────────────────
