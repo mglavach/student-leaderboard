@@ -424,7 +424,6 @@
 
         // ← News from the Hub — add/edit boxes for library news & events
         hubNews: [
-          { title: "New Arrivals", text: "Fresh titles just landed on the shelves — stop by the Hub to check them out!" },
         ],
 
         // ← Recommended Reading list — add/edit titles for this school year
@@ -441,6 +440,12 @@
           { title: "The Bad Beginning (A Series of Unfortunate Events)", recommender: "Elaina Khalil, 5th Grade", next: "Three Keys" },
           { title: "Ape Escape", recommender: "Camilo Moreno, 5th Grade", next: "City Spies: Operation Oz" },
           { title: "Restart", recommender: "Sienna Roche, 4th Grade", next: "Schooled" },
+          { title: "The Van Gogh Deception", recommender: "Mrs. Gordon" },
+          { title: "The Rembrandt Conspiracy", recommender: "Mrs. Gordon" },
+          { title: "The Crown Heist", recommender: "Mrs. Gordon" },
+          { title: "New Girl", recommender: "Abigail Vergara, 4th Grade" },
+          { title: "Diary of a Wimpy Kid: Partypooper", recommender: "Jack Bogie, 4th Grade" },
+          { title: "Diary of a Wimpy Kid: No Brainer", recommender: "Jack Bogie, 4th Grade" },
         ],
       },
 
@@ -1587,6 +1592,27 @@
       border-radius: 999px;
     }
 
+    .new-books {
+      margin-top: 28px;
+    }
+
+    .new-books-list {
+      list-style: none;
+      margin: 14px 0 0;
+      padding: 6px;
+      max-height: 340px;
+      overflow-y: auto;
+      display: grid;
+      gap: 8px;
+      background: var(--green-pale);
+      border-radius: 12px;
+    }
+
+    .new-books-list .reco-item {
+      font-size: .85rem;
+      padding: 10px 14px;
+    }
+
     .reco-item .reco-next {
       font-weight: 500;
       font-style: italic;
@@ -2388,6 +2414,132 @@
             <div class="pill-row" style="margin-top:16px;">
               <a class="whatsup-btn" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=afDZK1wS9ESBi_azsjSU1nAbAmm0GVBNpgm3SYzeEfVUMk0xR1dPQkw1NE5DODVLTVJZRTRWUDkwQy4u" target="_blank" rel="noopener">Recommend a Book</a>
             </div>
+
+            <div class="new-books">
+              <div class="ptb-eyebrow" style="color:var(--gold);">Fresh on the Shelves</div>
+              <div class="ptb-title" style="color:var(--green);">Added to the Hub</div>
+              <ul class="new-books-list" tabindex="0" aria-label="Books recently added to the Hub">
+                <li class="reco-item">The 39 Clues #1: The Maze of Bones (Graphic Novel)<span class="reco-author">Ethan Young</span></li>
+                <li class="reco-item">The 39 Clues #2: One False Note (Graphic Novel)<span class="reco-author">Hannah Templer</span></li>
+                <li class="reco-item">The 39 Clues #3: The Sword Thief (Graphic Novel)<span class="reco-author">Hannah Templer</span></li>
+                <li class="reco-item">Agents of S.U.I.T.: Wild Ghost Chase<span class="reco-author">John Patrick Green &amp; Christopher Hastings</span></li>
+                <li class="reco-item">All Aboard!<span class="reco-author">Kelly Starling Lyons</span></li>
+                <li class="reco-item">The Amazon<span class="reco-author">Roland Smith</span></li>
+                <li class="reco-item">Axolotl<span class="reco-author">Jenna Grodzicki</span></li>
+                <li class="reco-item">Ballet Bruce<span class="reco-author">Ryan T. Higgins</span></li>
+                <li class="reco-item">Bat and the Business of Ferrets<span class="reco-author">Elana K. Arnold</span></li>
+                <li class="reco-item">Bat and the Case of the Yips<span class="reco-author">Elana K. Arnold</span></li>
+                <li class="reco-item">Bat and the End of Everything<span class="reco-author">Elana K. Arnold</span></li>
+                <li class="reco-item">Bat and the Waiting Game<span class="reco-author">Elana K. Arnold</span></li>
+                <li class="reco-item">Battle of the Super Rabbit Boys!<span class="reco-author">Thomas Flintham</span></li>
+                <li class="reco-item">Beach Day!<span class="reco-author">Kelly Starling Lyons</span></li>
+                <li class="reco-item">The Beginning<span class="reco-author">M.J. Thomas</span></li>
+                <li class="reco-item">The Boxcar Children (Graphic Novel)<span class="reco-author">Meika Hashimoto</span></li>
+                <li class="reco-item">A Boy Called Bat<span class="reco-author">Elana K. Arnold</span></li>
+                <li class="reco-item">Captivity<span class="reco-author">Roland Smith</span></li>
+                <li class="reco-item">Cece Loves Science: Push and Pull<span class="reco-author">Kimberly Derting &amp; Shelli Johannes</span></li>
+                <li class="reco-item">Coding for Kids: Python<span class="reco-author">Adrienne B. Tacke</span></li>
+                <li class="reco-item">Cup of Nations<span class="reco-author">T.Z. Layton</span></li>
+                <li class="reco-item">The Day the Crayons Made Friends<span class="reco-author">Drew Daywalt</span></li>
+                <li class="reco-item">Dog Dog Goose<span class="reco-author">W. Bruce Cameron</span></li>
+                <li class="reco-item">Dog Man: Big Jim Believes<span class="reco-author">Dav Pilkey</span></li>
+                <li class="reco-item">Dog Man: Twenty Thousand Fleas Under the Sea<span class="reco-author">Dav Pilkey</span></li>
+                <li class="reco-item">Eva Saves the Day<span class="reco-author">Rebecca Elliott</span></li>
+                <li class="reco-item">Ferris<span class="reco-author">Kate DiCamillo</span></li>
+                <li class="reco-item">The Final Scroll<span class="reco-author">M.J. Thomas</span></li>
+                <li class="reco-item">Framed!<span class="reco-author">James Ponti</span></li>
+                <li class="reco-item">Goodnight, Bruce<span class="reco-author">Ryan T. Higgins</span></li>
+                <li class="reco-item">The Great Escape<span class="reco-author">M.J. Thomas</span></li>
+                <li class="reco-item">Grumpy Monkey<span class="reco-author">Suzanne Lang</span></li>
+                <li class="reco-item">Grumpy Monkey: Mom for a Day<span class="reco-author">Suzanne Lang</span></li>
+                <li class="reco-item">Grumpy Monkey: Oh, No! Christmas<span class="reco-author">Suzanne Lang</span></li>
+                <li class="reco-item">Grumpy Monkey: Party Time!<span class="reco-author">Suzanne Lang</span></li>
+                <li class="reco-item">Grumpy Monkey: Play All Day<span class="reco-author">Suzanne Lang</span></li>
+                <li class="reco-item">Grumpy Monkey: Spring Fever<span class="reco-author">Suzanne Lang</span></li>
+                <li class="reco-item">Henry Heckelbeck and the Not-So-Dark Day<span class="reco-author">Wanda Coven</span></li>
+                <li class="reco-item">Henry Heckelbeck and the Race Car Derby<span class="reco-author">Wanda Coven</span></li>
+                <li class="reco-item">Henry Heckelbeck: Camping Expert<span class="reco-author">Wanda Coven</span></li>
+                <li class="reco-item">Henry Heckelbeck Does Not Need a Sitter<span class="reco-author">Wanda Coven</span></li>
+                <li class="reco-item">Henry Heckelbeck Is Out of This World<span class="reco-author">Wanda Coven</span></li>
+                <li class="reco-item">Henry Heckelbeck: Knights! Robots! Action!<span class="reco-author">Wanda Coven</span></li>
+                <li class="reco-item">Henry Heckelbeck Spells Trouble<span class="reco-author">Wanda Coven</span></li>
+                <li class="reco-item">The House with No Keys<span class="reco-author">Lindsay Currie</span></li>
+                <li class="reco-item">I Survived the Black Death, 1348<span class="reco-author">Lauren Tarshis</span></li>
+                <li class="reco-item">I Survived the Bombing of Pearl Harbor, 1941 (Graphic Novel)<span class="reco-author">Georgia Ball</span></li>
+                <li class="reco-item">InvestiGators: Weather or Not<span class="reco-author">John Patrick Green</span></li>
+                <li class="reco-item">The Islands<span class="reco-author">Roland Smith</span></li>
+                <li class="reco-item">It's My Bird-Day!<span class="reco-author">Mo Willems</span></li>
+                <li class="reco-item">Jan Brett's The Nutcracker<span class="reco-author">Jan Brett</span></li>
+                <li class="reco-item">The Journey Continues<span class="reco-author">T.Z. Layton</span></li>
+                <li class="reco-item">Journey to Jericho<span class="reco-author">M.J. Thomas</span></li>
+                <li class="reco-item">Junie B. Jones and a Little Monkey Business (Graphic Novel)<span class="reco-author">Colleen AF Venable</span></li>
+                <li class="reco-item">Junie B. Jones and the Stupid Smelly Bus (Graphic Novel)<span class="reco-author">Colleen AF Venable</span></li>
+                <li class="reco-item">The King Is Born<span class="reco-author">M.J. Thomas</span></li>
+                <li class="reco-item">Koala: A First Field Guide<span class="reco-author">Chris Daniels</span></li>
+                <li class="reco-item">Lab Magic<span class="reco-author">Kelly Starling Lyons</span></li>
+                <li class="reco-item">Libby Loves Science: States of Matter<span class="reco-author">Kimberly Derting &amp; Shelli R. Johannes</span></li>
+                <li class="reco-item">Light and Air<span class="reco-author">Mindy Nichols Wendell</span></li>
+                <li class="reco-item">Lily to the Rescue<span class="reco-author">W. Bruce Cameron</span></li>
+                <li class="reco-item">The Lion's Roar<span class="reco-author">M.J. Thomas</span></li>
+                <li class="reco-item">Lost Little Leopard<span class="reco-author">W. Bruce Cameron</span></li>
+                <li class="reco-item">Lyle, Lyle, Crocodile: Meet Lyle<span class="reco-author">Bethany V. Freitas</span></li>
+                <li class="reco-item">Max, a Little Axolotl<span class="reco-author">Joey Spiotto</span></li>
+                <li class="reco-item">Max, a Little Axolotl #2: Breaking Out!<span class="reco-author">Joey Spiotto</span></li>
+                <li class="reco-item">Max in the House of Spies<span class="reco-author">Adam Gidwitz</span></li>
+                <li class="reco-item">The Mermaid<span class="reco-author">Jan Brett</span></li>
+                <li class="reco-item">Minecraft Atlas of the World<span class="reco-author">Craig Jelley</span></li>
+                <li class="reco-item">Minecraft Epic Inventions<span class="reco-author">Thomas McBrien</span></li>
+                <li class="reco-item">Minecraft: Escape Rooms</li>
+                <li class="reco-item">Minecraft Incredible Cross-Sections<span class="reco-author">Lizzie Munsey</span></li>
+                <li class="reco-item">Miracles by the Sea<span class="reco-author">M.J. Thomas</span></li>
+                <li class="reco-item">The Misfit Donkey<span class="reco-author">W. Bruce Cameron</span></li>
+                <li class="reco-item">Ms. Pennypickle's Puzzle Quest<span class="reco-author">Chris Grabenstein</span></li>
+                <li class="reco-item">The Mystery of Locked Rooms<span class="reco-author">Lindsay Currie</span></li>
+                <li class="reco-item">Nibbles: The Book Monster<span class="reco-author">Emma Yarlett</span></li>
+                <li class="reco-item">Nibbles: The Very Hungry Book Monster<span class="reco-author">Emma Yarlett</span></li>
+                <li class="reco-item">Olivetti<span class="reco-author">Allie Millington</span></li>
+                <li class="reco-item">Operation Do-Over<span class="reco-author">Gordon Korman</span></li>
+                <li class="reco-item">Owl by Myself<span class="reco-author">Pete Oswald</span></li>
+                <li class="reco-item">Pokémon Head-to-Head<span class="reco-author">Simcha Whitehill</span></li>
+                <li class="reco-item">Porcupine vs. Pangolin<span class="reco-author">Jerry Pallotta</span></li>
+                <li class="reco-item">The Princess in Black and the Kitty Catastrophe<span class="reco-author">Shannon Hale &amp; Dean Hale</span></li>
+                <li class="reco-item">Pug Goes to Hollywood<span class="reco-author">Kyla May</span></li>
+                <li class="reco-item">Pug the Unicorn<span class="reco-author">Kyla May</span></li>
+                <li class="reco-item">Pug's Cupcake<span class="reco-author">Kyla May</span></li>
+                <li class="reco-item">Pup vs. Squirrel<span class="reco-author">Cam Higgins</span></li>
+                <li class="reco-item">Race to the Ark<span class="reco-author">M.J. Thomas</span></li>
+                <li class="reco-item">The Rembrandt Conspiracy<span class="reco-author">Deron Hicks</span></li>
+                <li class="reco-item">The Shepherd's Stone<span class="reco-author">M.J. Thomas</span></li>
+                <li class="reco-item">Showtime!<span class="reco-author">Kelly Starling Lyons</span></li>
+                <li class="reco-item">Spy School Blackout<span class="reco-author">Stuart Gibbs</span></li>
+                <li class="reco-item">Spy School Goes North<span class="reco-author">Stuart Gibbs</span></li>
+                <li class="reco-item">Spy School Goes Wild<span class="reco-author">Stuart Gibbs</span></li>
+                <li class="reco-item">Spy School Project X<span class="reco-author">Stuart Gibbs</span></li>
+                <li class="reco-item">The Super Jump Between Worlds!<span class="reco-author">Thomas Flintham</span></li>
+                <li class="reco-item">Super Pug<span class="reco-author">Kyla May</span></li>
+                <li class="reco-item">Super Ty!<span class="reco-author">Kelly Starling Lyons</span></li>
+                <li class="reco-item">Tales from a Not-So-Bratty Little Sister<span class="reco-author">Rachel Renée Russell</span></li>
+                <li class="reco-item">Tales from a Not-So-Secret Crush Catastrophe<span class="reco-author">Rachel Renée Russell</span></li>
+                <li class="reco-item">The Three Bears<span class="reco-author">W. Bruce Cameron</span></li>
+                <li class="reco-item">Title Fight<span class="reco-author">T.Z. Layton</span></li>
+                <li class="reco-item">Tournament of Champions<span class="reco-author">T.Z. Layton</span></li>
+                <li class="reco-item">Trapped!<span class="reco-author">James Ponti</span></li>
+                <li class="reco-item">Tree. Table. Book.<span class="reco-author">Lois Lowry</span></li>
+                <li class="reco-item">Troubling Tonsils!<span class="reco-author">Aaron Reynolds</span></li>
+                <li class="reco-item">Ultimate Bug Rumble<span class="reco-author">Jerry Pallotta</span></li>
+                <li class="reco-item">Ultimate Jungle Rumble<span class="reco-author">Jerry Pallotta</span></li>
+                <li class="reco-item">Ultimate Pterosaur Rumble<span class="reco-author">Jerry Pallotta</span></li>
+                <li class="reco-item">Ultimate Small Shark Rumble<span class="reco-author">Jerry Pallotta</span></li>
+                <li class="reco-item">Unsettling Salad!<span class="reco-author">Aaron Reynolds</span></li>
+                <li class="reco-item">Vanished!<span class="reco-author">James Ponti</span></li>
+                <li class="reco-item">The Vaquita<span class="reco-author">Roland Smith</span></li>
+                <li class="reco-item">Vivi Loves Science: Wind and Water<span class="reco-author">Kimberly Derting &amp; Shelli R. Johannes</span></li>
+                <li class="reco-item">What Will We Find in This Box?<span class="reco-author">Mo Willems</span></li>
+                <li class="reco-item">Winter Wonderland<span class="reco-author">Kelly Starling Lyons</span></li>
+                <li class="reco-item">Yarn Is Everything!<span class="reco-author">Aaron Reynolds</span></li>
+                <li class="reco-item">Zip, Zoom!<span class="reco-author">Kelly Starling Lyons</span></li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -2395,12 +2547,6 @@
           <div class="club-eyebrow">Point Achievement</div>
           <div class="club-title">Welcome to the Club!</div>
           <div class="clubs-grid" id="clubsGrid2627"></div>
-        </div>
-
-        <div class="ptb-section">
-          <div class="ptb-eyebrow" style="color:var(--gold);">Library Updates</div>
-          <div class="ptb-title" style="color:var(--green);">News from the Hub</div>
-          <div class="info-grid" id="hubNewsGrid"></div>
         </div>
 
       </div>
@@ -2918,7 +3064,7 @@
       if (!name) return '';
       var cleanName = name.replace(/\s*\(tie\)\s*$/i, '').trim();
       var parts = cleanName.split(/\s+/);
-      if (parts.length < 2) return cleanName;
+      if (parts.length < 2 || /^(Mr|Mrs|Ms|Miss|Dr)\.?$/i.test(parts[0])) return cleanName;
       return parts[0] + ' ' + parts[1].replace(/[^A-Za-z]/g, '').charAt(0) + '.';
     }
 
